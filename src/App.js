@@ -17,8 +17,8 @@ import Register from './views/Register/Register';
 
 //Imports Components
 import Header from './components/Header/Header';
-import Body from './components/Body/Body';
-import Footer from './components/Footer/Footer';
+// import Body from './components/Body/Body';
+// import Footer from './components/Footer/Footer';
 
 function App() {
   return (

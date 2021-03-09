@@ -1,0 +1,25 @@
+@mixin box-shadow($color) {
+    -webkit-box-shadow: 2px 10px 24px $color;
+    -moz-box-shadow: 2px 10px 24px $color;
+    box-shadow: 2px 10px 24px $color;
+}
+
+
+/*Ejemplo de como implementarlo
+.c-button {
+  color: #FF0000;
+  @include box-shadow(#FF0000);
+}
+*/
+
+//FUNCION
+@function getBorderSize($size) {
+    @return 10px * $size;
+}
+
+/*
+.c-button {
+    color: #FF0000;
+    border: getBorderSize(2) solid #00FF00;
+}
+*/

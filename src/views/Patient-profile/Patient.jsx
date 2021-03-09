@@ -1,5 +1,5 @@
 import React from 'react'; 
-
+//import './Patient.scss';
 
 class Patient extends React.Component {
 

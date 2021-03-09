@@ -17,8 +17,8 @@ import Register from './views/Register/Register';
 
 //Imports Components
 import Header from './components/Header/Header';
-// import Body from './components/Body/Body';
-// import Footer from './components/Footer/Footer';
+import Body from './components/Body/Body';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -35,9 +35,10 @@ function App() {
           <Route path='/register' exact component={Register}/>
         </Switch>
 
-        {/* <Body/> */}
+        <Body/>
         
-        {/* <Footer/> */}
+        <Footer/>
+        
       </BrowserRouter>
     </div>
   );

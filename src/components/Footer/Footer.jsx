@@ -7,8 +7,19 @@ class Footer extends React.Component {
 
     render(){
         return(
-            <div className="footerComponent">
-                {/* Vista Component footer */}
+            <div id="footer" className="cell-4">
+                <div className="footer">
+                    footer1
+                </div>
+                <div className="footer">
+                    footer2
+                </div>
+                <div className="footer">
+                    footer3
+                </div>
+                <div className="footer">
+                    footer4
+                </div>
             </div>
         )
     }

@@ -9,7 +9,9 @@ const Login = () => {
     }) 
 
     const handleState = (event) => {
-        setLogin({...dataLogin, [event.target.name]: event.target.type === 'number' + event.target.value})
+        let data = {...dataLogin, [event.target.name] : event.target.value};
+        setLogin(data)
+        console.log(dataLogin);
     }
 
     useEffect(() => {
@@ -18,16 +20,16 @@ const Login = () => {
 
     const enter = async () => {
         let resultado = await axios.post('http://localhost:3001/patients/login', dataLogin);
+
         console.log('Esto es el resultado', resultado)
-        
     }
     
-    console.log('Esto es el enter', enter)
+    console.log('Esto es el enter', enter);
+
     return(
         <div>
             <input type='email' name='email' title='email' lenght='30' onChange={handleState}></input>
             <input type='password' name='password' title='password' lenght='30' onChange={handleState}></input>
-
             <button name='button' type='button' onClick={() => enter()}>SOY EL BOTÓN, PÚLSAME</button>
         </div>
     );

@@ -8,7 +8,7 @@ class Footer extends React.Component {
     render(){
         return(
             <div className="footerComponent">
-                Vista Component footer
+                {/* Vista Component footer */}
             </div>
         )
     }

@@ -8,7 +8,7 @@ class Body extends React.Component {
     render(){
         return(
             <div className="bodyComponent">
-                Vista Component body
+                {/* Vista Component body */}
                 
             </div>
         )

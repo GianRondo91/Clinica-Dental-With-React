@@ -8,7 +8,7 @@ class Header extends React.Component {
     render(){
         return(
             <div className="headerComponent">
-                Vista Component Header
+                {/* Vista Component Header */}
                 <div id="menu">
                     <ul className="nav justify-content-center">
                         <li className="nav-item">

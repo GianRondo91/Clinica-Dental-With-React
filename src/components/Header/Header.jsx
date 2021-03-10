@@ -5,33 +5,32 @@ class Header extends React.Component {
     //     super(props)
     //  };
 
-    render(){
-        return(
-            <div className="headerComponent">
-                {/* Vista Component Header */}
-                <div id="menu">
-                    <ul className="nav justify-content-center">
-                        <li className="nav-item">
-                            <a className="nav-link active" aria-current="page" href="">Active</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="">Link</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="">Link</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link disabled" href="" tabindex="-1" aria-disabled="true">Disabled</a>
-                        </li>
-                    </ul>
+    render() {
+        return (
 
+            <div id="header" className="cell-3">
+                <div className="img">
+                    Logo
+                    </div>
+
+                <div className="menu-list">
+                    <ul className="menu-list-ul">
+                        <li>Home</li>
+                        <li>Promociones</li>
+                        <li>Sobre Nosotros</li>
+                        <li>Contacto</li>
+                    </ul>
+                </div>
+
+                <div className="buttons">
                     <div className="button1">Login</div>
-                    <div className="button2">Login</div>
+                    <div className="button2">Logout</div>
                 </div>
 
             </div>
-        )
-    }
+
+        );
+    };
 };
 
 export default Header;

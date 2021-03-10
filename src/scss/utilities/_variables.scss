@@ -67,4 +67,21 @@ $mp-w: 320px;
 $mp-x: 480px;
 $mp-y: 640px;
 
+<<<<<<< HEAD
 /*Width and Height*/
+=======
+/*For Grid*/
+$max: 6;
+
+@for $i from 1 through $max {
+    $equ: 100% / $i;
+
+    #header.cell-#{$i} > div {
+        width: $equ;
+    }
+
+    #footer.cell-#{$i} > div {
+        width: $equ;
+    }
+}
+>>>>>>> 750f025a7bd43637fc3930d233b5b4068c8285bd

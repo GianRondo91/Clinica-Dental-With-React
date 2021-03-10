@@ -308,11 +308,60 @@ template {
 /*Colors*/
 /*Sizes*/
 /*Margin and Padding*/
-/*Width and Height*/
-/*Components*/
-.headerComponent {
-  height: 24px; }
+/*For Grid*/
+#header.cell-1 > div {
+  width: 100%; }
 
+#footer.cell-1 > div {
+  width: 100%; }
+
+#header.cell-2 > div {
+  width: 50%; }
+
+#footer.cell-2 > div {
+  width: 50%; }
+
+#header.cell-3 > div {
+  width: 33.33333%; }
+
+#footer.cell-3 > div {
+  width: 33.33333%; }
+
+#header.cell-4 > div {
+  width: 25%; }
+
+#footer.cell-4 > div {
+  width: 25%; }
+
+#header.cell-5 > div {
+  width: 20%; }
+
+#footer.cell-5 > div {
+  width: 20%; }
+
+#header.cell-6 > div {
+  width: 16.66667%; }
+
+#footer.cell-6 > div {
+  width: 16.66667%; }
+
+/*Components*/
+#header > div {
+  height: 48px;
+  box-sizing: border-box;
+  float: left; }
+
+#header {
+  padding-top: 10px;
+  padding-bottom: 64px;
+  text-align: center; }
+
+/*Menu*/
+.menu-list-ul {
+  list-style: none;
+  display: flex; }
+
+/**/
 .button1 {
   color: #ffffff;
   background: linear-gradient(to bottom, #3d94f6 5%, #1e62d0 100%);
@@ -340,6 +389,23 @@ template {
   font-weight: bold;
   padding: 6px 18px;
   text-decoration: none; }
+
+#body {
+  height: auto; }
+  #body .img {
+    background-image: url(https://clinicalikedental.com/wp-content/uploads/2019/02/dentista-infantil-cerca-de-brunete-doctora-1200x600.jpg);
+    height: 509px; }
+  #body .connect {
+    height: 96px;
+    width: 160px;
+    margin: 20px auto 20px auto;
+    text-align: center; }
+
+#footer > div {
+  height: 48px;
+  box-sizing: border-box;
+  float: left;
+  text-align: center; }
 
 /*Views*/
 .employeeProfile {

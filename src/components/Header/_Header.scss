@@ -1,7 +1,25 @@
-.headerComponent {
-    height: $mp-j;
+#header > div {
+    height: $mp-m;
+    // background: nth($green, 1);
+    // border: $size-aa solid nth($blue, 3);
+    box-sizing: border-box;
+    float: left;
+
 }
 
+#header{
+    padding-top: $mp-f;
+    padding-bottom: $mp-n;
+    text-align: center;
+}
+
+/*Menu*/
+.menu-list-ul{
+    list-style: none;
+    display: flex;
+}
+
+/**/
 .button1 {
     color: nth($fontColor,1);
     @include button(nth($btnBlue,1), nth($btnBlue,2), nth($btnBlue,3));
@@ -10,3 +28,4 @@
     color: nth($fontColor,1);
     @include button(nth($btnRed,1), nth($btnRed,2), nth($btnRed,3));
 }
+

@@ -1,3 +1,12 @@
 .headerComponent {
     height: $mp-j;
 }
+
+.button1 {
+    color: nth($fontColor,1);
+    @include button(nth($btnBlue,1), nth($btnBlue,2), nth($btnBlue,3));
+}
+.button2 {
+    color: nth($fontColor,1);
+    @include button(nth($btnRed,1), nth($btnRed,2), nth($btnRed,3));
+}

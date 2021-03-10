@@ -1,5 +1,5 @@
 //
-//import './css/main.css';
+import './css/main.css';
 //
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import $ from 'jquery';

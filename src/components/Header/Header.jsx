@@ -24,7 +24,9 @@ class Header extends React.Component {
                             <a className="nav-link disabled" href="" tabindex="-1" aria-disabled="true">Disabled</a>
                         </li>
                     </ul>
-                    
+
+                    <div className="button1">Login</div>
+                    <div className="button2">Login</div>
                 </div>
 
             </div>

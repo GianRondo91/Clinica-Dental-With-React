@@ -1,11 +1,25 @@
 /*Fonts*/
+$fontButton: Courier New;
 
 /*Colors*/
-$principal-color:black  ;
-$alternative-color:orange;
-$Danger-color:blue;
+$red: (#CD5C5C, #F08080, #FA8072, #E9967A, #FFA07A, #DC143C, #FF0000, #B22222, #8B0000);
+$yellow: (#FFFFE0, #FFFACD, #FAFAD2, #FFFF00, #FFD700);
+$green: (#98FB98, #90EE90, #00FA9A, #00FF7F, #3CB371, #2E8B57, #228B22, #008000, #006400);
+$blue: (#1E90FF, #6495ED, #4169E1, #0000FF, #0000CD, #00008B);
+$brown:(#FFF8DC, #FFEBCD, #FFE4C4, #F5DEB3, #DEB887, #CD853F, #8B4513);
+$grey: (#DCDCDC, #C0C0C0, #A9A9A9, #808080, #696969);
+
+$principal-color:white ;
+$alternative-color:white;
+$Danger-color:white;
+
+$btnBlue:(#3d94f6,#337fed,#1e62d0);
+$btnRed:(#f24537,#c62d1f,#d02718);
+$btnGreen:(#89c403,#74b807,#77a809);
+$fontColor:(#ffffff, #A4A4A4, #585858, #1C1C1C, #000000);
 
 /*Sizes*/
+$size-aa: 1px;
 $size-a: 2px; 
 $size-b: 4px; 
 $size-c: 6px; 

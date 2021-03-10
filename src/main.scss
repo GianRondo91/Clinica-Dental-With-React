@@ -1,7 +1,7 @@
 /*Utilities*/
 @import './scss/utilities/reset.scss';
 @import './scss/utilities/variables.scss';
-//@import '../scss/utilities/mixings.scss';
+@import './scss/utilities/_mixings.scss';
 
 /*Components*/
 @import './components/Header/Header';

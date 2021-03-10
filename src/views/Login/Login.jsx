@@ -9,7 +9,7 @@ const Login = () => {
     }) 
 
     const handleState = (event) => {
-        setLogin({...dataLogin, [event.target.name]: event.target.type === 'number' + event.target.value})
+        setLogin({...dataLogin, [event.target.name]: event.target.value})
     }
 
     useEffect(() => {

@@ -342,3 +342,102 @@ template {
   text-decoration: none; }
 
 /*Views*/
+.employeeProfile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+
+.employeeCard {
+  height: 320px;
+  width: 640px;
+  background-color: #3CB371;
+  display: flex;
+  flex-direction: column; }
+
+.employeeName {
+  height: 80px;
+  width: 640px;
+  background-color: #FFFACD;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.name {
+  height: 48px;
+  width: 256px;
+  background-color: #98FB98; }
+
+.employeeD {
+  height: 256px;
+  background-color: #FFA07A;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center; }
+
+.data {
+  width: 256px;
+  height: 192px;
+  background-color: #FAFAD2; }
+
+.employeeImg {
+  height: 256px;
+  width: 256px;
+  background-color: #CD5C5C;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.img {
+  background-color: #1E90FF; }
+
+.patientProfile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+
+.patientCard {
+  height: 320px;
+  width: 640px;
+  background-color: #3CB371;
+  display: flex;
+  flex-direction: column; }
+
+.patientName {
+  height: 80px;
+  width: 640px;
+  background-color: #FFFACD;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.name {
+  height: 48px;
+  width: 256px;
+  background-color: #98FB98; }
+
+.patientD {
+  height: 256px;
+  background-color: #FFA07A;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center; }
+
+.data {
+  width: 256px;
+  height: 192px;
+  background-color: #FAFAD2; }
+
+.patientImg {
+  height: 256px;
+  width: 256px;
+  background-color: #CD5C5C;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.img {
+  background-color: #1E90FF; }

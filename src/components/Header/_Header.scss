@@ -11,6 +11,11 @@
     padding-top: $mp-f;
     padding-bottom: $mp-n;
     text-align: center;
+    & .img{
+        background-image: url("../img/tisdenLogo.png");
+        background-size: $mp-o;
+        background-repeat: no-repeat;
+    }
 }
 
 /*Menu*/
@@ -29,3 +34,6 @@
     @include button(nth($btnRed,1), nth($btnRed,2), nth($btnRed,3));
 }
 
+.button1, .button2 {
+    float: right;
+}

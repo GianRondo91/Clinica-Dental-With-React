@@ -6,6 +6,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // import Popper from 'popper.js';
 // import 'bootstrap/dist/js/bootstrap.bundle.min';
 //
+
+
+//
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
 //Imports Views
@@ -21,6 +24,7 @@ import Body from './components/Body/Body';
 import Footer from './components/Footer/Footer';
 
 function App() {
+
   return (
     <div className="App">
       <BrowserRouter>

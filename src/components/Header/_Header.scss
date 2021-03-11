@@ -1,16 +1,17 @@
 #header > div {
-    height: $mp-m;
+    height: $mp-q;
     box-sizing: border-box;
     float: left;
 }
 
 #header{
+    height: $mp-r;
     padding-top: $mp-f;
     padding-bottom: $mp-n;
     text-align: center;
     & .img{
         background-image: url("../img/tisdenLogo.png");
-        background-size: $mp-o;
+        background-size: $mp-r;
         background-repeat: no-repeat;
         left: $mp-k;
         position: relative;
@@ -23,6 +24,7 @@
 .menu-list {
     display: grid;
     grid-auto-columns: max-content;
+    top: $mp-m;
 }
 
 .menu-list-ul{
@@ -30,9 +32,10 @@
     display: flex;
     position: relative;
     padding-left: $mp-a;
-    top: $mp-j;
+    top: $mp-n;
+    font-size: $mp-i;
     & .menu-list-ul-li {
-        padding-right: $mp-h;
+        padding-right: $mp-l;
         & a{
             text-decoration: none;
         }
@@ -43,13 +46,14 @@
 
 .buttons {
     position: relative;
-    & .button1 {
+    left: $mp-p;
+    & .button-register {
         color: nth($fontColor,1);
-        @include button(nth($btnBlue,1), nth($btnBlue,2), nth($btnBlue,3));
+        @include principal-button(nth($btnBlue,1), nth($btnBlue,2), nth($btnBlue,3));
     }
-    & .button2 {
-        color: nth($fontColor,1);
-        @include button(nth($btnRed,1), nth($btnRed,2), nth($btnRed,3));
+    & .button-login {
+        color: nth($btnBlue, 1);
+        @include alternative-button(nth($btnBlue,1), nth($btnBlue,2));
     }
 }
 

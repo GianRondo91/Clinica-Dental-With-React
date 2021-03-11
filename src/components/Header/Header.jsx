@@ -1,7 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faUserPlus, faUserAlt} from '@fortawesome/free-solid-svg-icons'
-//<FontAwesomeIcon icon={faUserPlus}/>
 
 class Header extends React.Component {
     // constructor (props){
@@ -24,8 +23,8 @@ class Header extends React.Component {
                 </div>
 
                 <div className="buttons">
-                    <div className="button1"><FontAwesomeIcon icon={faUserPlus}/></div>
-                    <div className="button2"><FontAwesomeIcon icon={faUserAlt}/></div>
+                    <div className="button-register button">Registarse <FontAwesomeIcon icon={faUserPlus}/></div>
+                    <div className="button-login button">Acceder <FontAwesomeIcon icon={faUserAlt}/></div>
                 </div>
 
             </div>

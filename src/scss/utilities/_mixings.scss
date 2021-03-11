@@ -1,12 +1,23 @@
-@mixin button($firstColor, $secondColor, $thirdColor) {
+@mixin principal-button($firstColor, $secondColor, $thirdColor) {
     background: linear-gradient(to bottom, $firstColor 5%, $thirdColor 100%);
     background-color: $firstColor;
     border-radius: $size-b;
     border: $size-aa solid $secondColor;
     display: inline-block;
     cursor: pointer;
-    font-family: $fontButton;
-    font-size: $size-e;
+    font-size: $size-g;
+    font-weight: bold;
+    padding: $size-b $mp-f;
+    text-decoration: none;
+    margin: $mp-e;
+}
+
+@mixin alternative-button($firstColor, $secondColor) {
+    border-radius: $size-b;
+    border: $size-aa solid $secondColor;
+    display: inline-block;
+    cursor: pointer;
+    font-size: $size-g;
     font-weight: bold;
     padding: $size-b $mp-f;
     text-decoration: none;

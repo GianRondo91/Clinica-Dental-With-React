@@ -355,6 +355,10 @@ template {
   padding-top: 10px;
   padding-bottom: 64px;
   text-align: center; }
+  #header .img {
+    background-image: url("../img/tisdenLogo.png");
+    background-size: 80px;
+    background-repeat: no-repeat; }
 
 /*Menu*/
 .menu-list-ul {
@@ -373,8 +377,9 @@ template {
   font-family: Courier New;
   font-size: 10px;
   font-weight: bold;
-  padding: 6px 18px;
-  text-decoration: none; }
+  padding: 4px 10px;
+  text-decoration: none;
+  margin: 8px; }
 
 .button2 {
   color: #ffffff;
@@ -387,8 +392,12 @@ template {
   font-family: Courier New;
   font-size: 10px;
   font-weight: bold;
-  padding: 6px 18px;
-  text-decoration: none; }
+  padding: 4px 10px;
+  text-decoration: none;
+  margin: 8px; }
+
+.button1, .button2 {
+  float: right; }
 
 #body {
   height: auto; }
@@ -505,5 +514,4 @@ template {
   align-items: center;
   justify-content: center; }
 
-.img {
-  background-color: #1E90FF; }
+

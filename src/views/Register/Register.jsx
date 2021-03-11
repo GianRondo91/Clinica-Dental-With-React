@@ -38,7 +38,7 @@ const Register = () => {
     const handleState = (event) => {
         let data = {...dataRegister, [event.target.name] : event.target.value};
         setRegister(data)
-        console.log(dataRegister);
+        // console.log('update data', dataRegister);
     }
 
 
@@ -60,6 +60,10 @@ const Register = () => {
         };
         let result = await axios.post('http://localhost:3001/patients/register', body);
         console.log('Resultado', result.data);
+
+        localStorage.setItem('dataRegister', result);
+        localStorage.setItem('register', true);
+        console.log('esto es localstorage', localStorage);
     }
 
 

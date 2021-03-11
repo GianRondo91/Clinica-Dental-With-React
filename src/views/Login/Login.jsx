@@ -3,6 +3,8 @@ import axios from 'axios';
 
 const Login = (props) => {
     
+    const history = useHistory();
+
     const [dataLogin, setLogin] = useState ({
         email: '', 
         password: ''
@@ -29,7 +31,15 @@ const Login = (props) => {
         console.log('esto es localstorage', localStorage);
         console.log({props});
 
-
+       setTimeout(() => {
+           const redic = () => {
+               if(value === 'Patient'){
+                    return history.push('/patient')
+               }else{
+                    return history.push('/employee')
+               }
+           }
+       }, 5000);
     //     const history = useHistory();
 
     //     const redic = () => {
@@ -48,7 +58,7 @@ const Login = (props) => {
             <input type='email' name='email' title='email' lenght='30' onChange={handleState}></input>
             <input type='password' name='password' title='password' lenght='30' onChange={handleState}></input>
             <select name="userType" onChange={handleState}>
-                <option value="Patient">Patient</option>
+                <option value="Patient">{props.value}Patient</option>
                 <option value="Employee">Employee</option>
             </select>
             <button name='button' type='button' onClick={() => enter()}>

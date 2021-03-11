@@ -1,8 +1,19 @@
 #footer> div {
     height: $mp-m;
-    // background: nth($green, 1);
-    // border: $size-aa solid nth($blue, 3);
     box-sizing: border-box;
     float: left;
     text-align: center;
+    width: 130px;
+}
+
+#footer {
+    height: $mp-q;
+    display: flex;
+    align-items: center;
+    & .footer-box{
+        font-size: $size-f;
+        & p{
+            margin-bottom: 0;
+        }
+    }
 }

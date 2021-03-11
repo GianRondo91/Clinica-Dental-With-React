@@ -3,12 +3,14 @@
     
     & .img{
         background-image: url(https://clinicalikedental.com/wp-content/uploads/2019/02/dentista-infantil-cerca-de-brunete-doctora-1200x600.jpg);
-        height: 509px;
+        height: $mp-x;
     }
     & .connect{
-        height: $mp-p;
+        height: $mp-t;
         width: $mp-r;
-        margin: $mp-i auto $mp-i auto;
+        margin: $mp-j auto $mp-j auto;
         text-align: center;
+        align-content: center;
+        display: grid;
     }
 }

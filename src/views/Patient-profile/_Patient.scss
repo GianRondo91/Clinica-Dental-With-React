@@ -1,0 +1,65 @@
+.patientProfile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.patientCard {
+    height: $mp-w;
+    width: $mp-y;
+
+    background-color: nth($green, 5);
+    
+    display: flex;
+    flex-direction: column;
+}
+
+.patientName {
+    height: $mp-o;
+    width: $mp-y;
+
+    background-color: nth($yellow, 2);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.name {
+    height: $mp-m;
+    width: $mp-v;
+
+    background-color: nth($green, 1);
+}
+
+.patientD {
+    height: $mp-v;
+
+    background-color: nth($red, 5);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.data {
+    width: $mp-v;
+    height: $mp-s;
+    background-color: nth($yellow, 3);
+}
+
+.patientImg {
+    height: $mp-v;
+    width: $mp-v;
+
+    background-color: nth($red, 1);
+
+     display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.img {
+    background-color: nth($blue, 1);
+}

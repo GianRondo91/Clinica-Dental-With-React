@@ -31,15 +31,15 @@ const Login = (props) => {
         console.log('esto es localstorage', localStorage);
         console.log({props});
 
-       setTimeout(() => {
-           const redic = () => {
-               if(value === 'Patient'){
-                    return history.push('/patient')
-               }else{
-                    return history.push('/employee')
-               }
-           }
-       }, 5000);
+    //    setTimeout(() => {
+    //        const redic = () => {
+    //            if(value === 'Patient'){
+    //                 return history.push('/patient')
+    //            }else{
+    //                 return history.push('/employee')
+    //            }
+    //        }
+    //    }, 5000);
     //     const history = useHistory();
 
     //     const redic = () => {

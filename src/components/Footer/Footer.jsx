@@ -5,20 +5,28 @@ class Footer extends React.Component {
     //     super(props)
     //  };
 
-    render(){
-        return(
+    render() {
+        return (
             <div id="footer" className="cell-4">
-                <div className="footer">
-                    footer1
+                <div className="footer-box">
+                    <p>Lorem ipsum.</p>
+                    <p>Lorem ipsum.</p>
+                    <p>Lorem ipsum.</p>
                 </div>
-                <div className="footer">
-                    footer2
+                <div className="footer-box">
+                    <p>Lorem ipsum.</p>
+                    <p>Lorem ipsum.</p>
+                    <p>Lorem ipsum.</p>
                 </div>
-                <div className="footer">
-                    footer3
+                <div className="footer-box">
+                    <p>Lorem ipsum.</p>
+                    <p>Lorem ipsum.</p>
+                    <p>Lorem ipsum.</p>
                 </div>
-                <div className="footer">
-                    footer4
+                <div className="footer-box">
+                    <p>Lorem ipsum.</p>
+                    <p>Lorem ipsum.</p>
+                    <p>Lorem ipsum.</p>
                 </div>
             </div>
         )

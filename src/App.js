@@ -19,7 +19,7 @@ import Login from './views/Login/Login';
 import Register from './views/Register/Register';
 
 //Imports Components
-import Header from './components/Header/Header';
+//import Header from './components/Header/Header';
 import Body from './components/Body/Body';
 import Footer from './components/Footer/Footer';
 
@@ -29,7 +29,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
 
-        <Header/>
+        {/* <Header/> */}
         
         <Switch>
           <Route path='/' exact component={Home}/>

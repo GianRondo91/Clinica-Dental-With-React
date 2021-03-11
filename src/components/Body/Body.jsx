@@ -11,7 +11,7 @@ class Body extends React.Component {
                 <div className="img"></div>
                 <div className="connect">
                     <div className="tittle">Let´s Connect</div>
-                    <div className="description"></div>
+                    <div className="description">fehdgdfhsfdhfdhd</div>
                     <div className="button">GET IN TOUCH</div>
                 </div>
             </div>

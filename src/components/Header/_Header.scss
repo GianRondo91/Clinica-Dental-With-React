@@ -29,10 +29,13 @@
     list-style: none;
     display: flex;
     position: relative;
-    left: -75px;
-    top: 23px;
+    padding-left: $mp-a;
+    top: $mp-j;
     & .menu-list-ul-li {
-        padding-right: $mp-g;
+        padding-right: $mp-h;
+        & a{
+            text-decoration: none;
+        }
     }
 }
 
@@ -48,7 +51,6 @@
         color: nth($fontColor,1);
         @include button(nth($btnRed,1), nth($btnRed,2), nth($btnRed,3));
     }
-    
 }
 
 .button1, .button2 {

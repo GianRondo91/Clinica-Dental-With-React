@@ -1,10 +1,7 @@
 #header > div {
     height: $mp-m;
-    // background: nth($green, 1);
-    // border: $size-aa solid nth($blue, 3);
     box-sizing: border-box;
     float: left;
-
 }
 
 #header{
@@ -15,23 +12,45 @@
         background-image: url("../img/tisdenLogo.png");
         background-size: $mp-o;
         background-repeat: no-repeat;
+        left: $mp-k;
+        position: relative;
+        background-color: transparent;
     }
 }
 
 /*Menu*/
+
+.menu-list {
+    display: grid;
+    grid-auto-columns: max-content;
+}
+
 .menu-list-ul{
     list-style: none;
     display: flex;
+    position: relative;
+    padding-left: $mp-a;
+    top: $mp-j;
+    & .menu-list-ul-li {
+        padding-right: $mp-h;
+        & a{
+            text-decoration: none;
+        }
+    }
 }
 
 /**/
-.button1 {
-    color: nth($fontColor,1);
-    @include button(nth($btnBlue,1), nth($btnBlue,2), nth($btnBlue,3));
-}
-.button2 {
-    color: nth($fontColor,1);
-    @include button(nth($btnRed,1), nth($btnRed,2), nth($btnRed,3));
+
+.buttons {
+    position: relative;
+    & .button1 {
+        color: nth($fontColor,1);
+        @include button(nth($btnBlue,1), nth($btnBlue,2), nth($btnBlue,3));
+    }
+    & .button2 {
+        color: nth($fontColor,1);
+        @include button(nth($btnRed,1), nth($btnRed,2), nth($btnRed,3));
+    }
 }
 
 .button1, .button2 {

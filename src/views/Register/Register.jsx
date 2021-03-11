@@ -16,7 +16,7 @@ const Register = () => {
         password: ''
     });
     
-    const [mensaje, setMensaje] = useState('');
+    //const [mensaje, setMensaje] = useState('');
     
 
     //UseEffect

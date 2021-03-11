@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import {useHistory} from 'react-router-dom';
 import axios from 'axios';
+//import checkError from '../../uti';
+
 
 const Login = () => {
     
     const history = useHistory();
 
+    //Hook
     const [dataLogin, setLogin] = useState ({
         email: '', 
         password: '',
         userType: ''
     }) 
 
+    //Handlers
     const handleState = (event) => {
         let data = {...dataLogin, [event.target.name] : event.target.value};
         
@@ -19,12 +23,24 @@ const Login = () => {
         //console.log('update', data);
     }
 
+    //Effect
     useEffect(() => {
 
     }, []);
 
     const enter = async () => {
         let result = await axios.post('http://localhost:3001/patients/login', dataLogin);
+
+        //Manejo de errores
+        // const [mensaje, setMensaje] = useState('');
+
+        // setMensaje('');
+        // let mensajeError = checkError(dataLogin);
+        // setMensaje(mensajeError);
+        
+        // if(mensajeError){
+        //     return;
+        // }
 
         localStorage.setItem('dataLogin', result);
         localStorage.setItem('login', true);

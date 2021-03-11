@@ -9,13 +9,9 @@ const Login = () => {
     }) 
 
     const handleState = (event) => {
-<<<<<<< HEAD
-        setLogin({...dataLogin, [event.target.name]: event.target.value})
-=======
         let data = {...dataLogin, [event.target.name] : event.target.value};
         setLogin(data)
         console.log(dataLogin);
->>>>>>> 750f025a7bd43637fc3930d233b5b4068c8285bd
     }
 
     useEffect(() => {
@@ -23,9 +19,9 @@ const Login = () => {
     }, []);
 
     const enter = async () => {
-        let resultado = await axios.post('http://localhost:3001/patients/login', dataLogin);
+        let result = await axios.post('http://localhost:3001/patients/login', dataLogin);
 
-        console.log('Esto es el resultado', resultado)
+        console.log('Esto es el resultado', result)
     }
     
     console.log('Esto es el enter', enter);

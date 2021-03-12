@@ -42,11 +42,11 @@ class Header extends React.Component {
                             <ModalBody>
                                 <FormGroup>
                                     <Label form='user'>user</Label>
-                                    <Input type='text' id='user' />
+                                    <Input type='text' id='user'/>
                                 </FormGroup>
                                 <FormGroup>
                                     <Label form='pwd'>user</Label>
-                                    <Input type='text' id='pwd' />
+                                    <Input type='text' id='pwd'/>
                                 </FormGroup>
                             </ModalBody>
                             <ModalFooter>

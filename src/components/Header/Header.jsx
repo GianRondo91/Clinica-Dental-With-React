@@ -8,7 +8,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 class Header extends React.Component {
     // constructor (props){
     //     super(props)
-<<<<<<< HEAD
     //  };
     state = {
         open: false,
@@ -17,11 +16,6 @@ class Header extends React.Component {
     openModal = () => {
         this.setState({ open: !this.state.open });
     }
-=======
-
-    // };
-
->>>>>>> e37563bd8c650ba2a8bb5af5b2e08c3dfa510f61
 
     render() {
         return (
@@ -39,7 +33,6 @@ class Header extends React.Component {
                 </div>
 
                 <div className="buttons">
-<<<<<<< HEAD
                     <div className="button-register button" onClick={this.openModal}>Registarse <FontAwesomeIcon icon={faUserPlus} /></div>
                     <div className="button-login button" onClick={this.openModal}>Acceder <FontAwesomeIcon icon={faUserAlt} /></div>
                     <div>
@@ -63,10 +56,6 @@ class Header extends React.Component {
                             </ModalFooter>
                         </Modal>
                     </div>
-=======
-                    <div className="button-register button" >Registarse <FontAwesomeIcon icon={faUserPlus}/></div>
-                    <div className="button-login button" >Acceder <FontAwesomeIcon icon={faUserAlt}/></div>
->>>>>>> e37563bd8c650ba2a8bb5af5b2e08c3dfa510f61
                 </div>
             </div>
         );

@@ -20,8 +20,13 @@ const Login = () => {
         let data = {...dataLogin, [event.target.name] : event.target.value};
         
         setLogin(data);
+<<<<<<< HEAD
         //console.log('update', data);
     };
+=======
+        console.log('update', data);
+    }
+>>>>>>> e37563bd8c650ba2a8bb5af5b2e08c3dfa510f61
 
     //Effect
     useEffect(() => {
@@ -32,15 +37,15 @@ const Login = () => {
         let result = await axios.post('http://localhost:3001/patients/login', dataLogin);
 
         //Manejo de errores
-        // const [mensaje, setMensaje] = useState('');
+        const [mensaje, setMensaje] = useState('');
 
-        // setMensaje('');
-        // let mensajeError = checkError(dataLogin);
-        // setMensaje(mensajeError);
+        setMensaje('');
+        let mensajeError = checkError(dataLogin);
+        setMensaje(mensajeError);
         
-        // if(mensajeError){
-        //     return;
-        // }
+        if(mensajeError){
+            return;
+        }
 
         localStorage.setItem('dataLogin', result);
         localStorage.setItem('login', true);

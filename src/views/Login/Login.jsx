@@ -20,13 +20,8 @@ const Login = () => {
         let data = {...dataLogin, [event.target.name] : event.target.value};
         
         setLogin(data);
-<<<<<<< HEAD
         //console.log('update', data);
-    };
-=======
-        console.log('update', data);
     }
->>>>>>> e37563bd8c650ba2a8bb5af5b2e08c3dfa510f61
 
     //Effect
     useEffect(() => {

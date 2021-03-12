@@ -21,7 +21,7 @@ const Login = () => {
         
         setLogin(data);
         //console.log('update', data);
-    }
+    };
 
     //Effect
     useEffect(() => {
@@ -45,7 +45,6 @@ const Login = () => {
         localStorage.setItem('dataLogin', result);
         localStorage.setItem('login', true);
 
-
        return setTimeout(() => {
             if(dataLogin.userType === 'Patient'){
                 history.push('/patient')
@@ -56,7 +55,6 @@ const Login = () => {
             }
         }, 5000);
     };
- 
 
     return(
         <div>
@@ -70,11 +68,8 @@ const Login = () => {
             <button name='button' type='button' onClick={() => enter()}>
                 SOY EL BOTÓN, PÚLSAME
             </button>
-
         </div>
-
     );
-
 };
 
 export default Login;

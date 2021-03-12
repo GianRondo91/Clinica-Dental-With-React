@@ -14,7 +14,6 @@ import Patient from './views/Patient-profile/Patient';
 
 //Imports Components
 import Header from './components/Header/Header';
-import Body from './components/Body/Body';
 import Footer from './components/Footer/Footer';
 
 function App() {
@@ -30,8 +29,6 @@ function App() {
           <Route path='/employee' exact component={Employee}/>
           <Route path='/patient' exact component={Patient}/>
         </Switch>
-
-        <Body/>
         
         <Footer/>
         

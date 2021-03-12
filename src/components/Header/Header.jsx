@@ -1,8 +1,8 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 //
-import Log from '../../components/Login/Login';
-import Reg from '../../components/Register/Register';
+import Register from '../../components/Register/Register';
+import Login from '../../components/Login/Login';
 
 class Header extends React.Component {
     // constructor (props){
@@ -35,8 +35,8 @@ class Header extends React.Component {
                 </div>
             
                 <div className="buttons">
-                    <Log/>
-                    <Reg/>
+                    <Login/>
+                    <Register/>
                 </div>
             </div>
         );

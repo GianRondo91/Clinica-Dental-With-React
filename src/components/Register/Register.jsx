@@ -1,0 +1,143 @@
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, Label } from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.css';
+
+
+const Register = () => {
+    //Estado del Modal
+    const [state, setState] = useState({
+        open: false
+    });
+
+    const toggleRegister = () => {
+        setState({ open: !state.open });
+    }
+
+    //
+        //Hooks
+        const [dataRegister, setRegister] = useState ({
+            name: '', 
+            surname1: '', 
+            surname2: '', 
+            age: '', 
+            gender: '', 
+            address: '',
+            phone: '',
+            email: '', 
+            password: ''
+        });
+        
+        //const [mensaje, setMensaje] = useState('');
+        
+    
+        //UseEffect
+        useEffect(() => {
+            console.log('Componente montado por primera vez, HOLA !');
+        }, []);
+    
+        useEffect(() => {
+            
+        });
+    
+        useEffect(() => {
+            return() => {
+                console.log('Me he desmontado, ADIOS !');
+            }
+        }, []);
+    
+        //Handlers
+        const handleState = (event) => {
+            let data = {...dataRegister, [event.target.name] : event.target.value};
+            setRegister(data)
+            // console.log('update data', dataRegister);
+        }
+    
+    
+        //Función para traer los datos de Backend
+        const btnRegister = async () => {
+            
+    
+            //console.log('Esto es el resultado', result)
+            let body = {
+                name: dataRegister.name, 
+                surname1 : dataRegister.surname1,
+                surname2 : dataRegister.surname2, 
+                age: dataRegister.age, 
+                gender: dataRegister.gender, 
+                address: dataRegister.address,
+                phone: dataRegister.phone,
+                email: dataRegister.email, 
+                password: dataRegister.password
+            };
+            let result = await axios.post('http://localhost:3001/patients/register', body);
+            console.log('Resultado', result.data);
+    
+            localStorage.setItem('dataRegister', result);
+            localStorage.setItem('register', true);
+            console.log('esto es localstorage', localStorage);
+        };
+
+    return (
+        <div className="register">
+
+            <div className="button-register button" onClick={toggleRegister}>Registarse <FontAwesomeIcon icon={faUserPlus} /></div>
+
+            <Modal isOpen={state.open}>
+                <ModalHeader>
+                    Registrarse
+                            </ModalHeader>
+                <ModalBody>
+                    <FormGroup>
+                        <Label form='email'>Nombre:</Label>
+                        <Input type='text' id='user' onChange={handleState}/>
+                    </FormGroup>
+                    <FormGroup>
+                        <Label form='surname'>Primer Apellido:</Label>
+                        <Input type='text' id='user' onChange={handleState}/>
+                    </FormGroup>
+                    <FormGroup>
+                        <Label form='surname'>Segundo Apellido:</Label>
+                        <Input type='text' id='user' onChange={handleState}/>
+                    </FormGroup>
+                    <FormGroup>
+                        <Label form='surname'>Fecha de nacimiento:</Label>
+                        <Input type='date' name='date' id='user' onChange={handleState}/>
+                    </FormGroup>
+                    <FormGroup>
+                        <Label for='select'>Rango:</Label>
+                        <Input type='select' name='select' id='selecrRango' onChange={handleState}>
+                            <option>Patient</option>
+                            <option>Employee</option>
+                        </Input>
+                    </FormGroup>
+                    <FormGroup check inline>
+                        <Input type='checkbox' name='checkbox-male' id='user' onChange={handleState}/>
+                        <Label form='checkbox-male' check> Hombre </Label>
+                    </FormGroup>
+                    <FormGroup check inline>
+                        <Input type='checkbox' name='checkbox-fermale' id='user' onChange={handleState}/>
+                        <Label form='checkbox-fermale' check> Mujer </Label>
+                    </FormGroup>
+                    <FormGroup>
+                        <Label form='email'>Email:</Label>
+                        <Input type='text' id='user' onChange={handleState}/>
+                    </FormGroup>
+                    <FormGroup>
+                        <Label form='password'>Password:</Label>
+                        <Input type='password' id='password' onChange={handleState}/>
+                    </FormGroup>
+
+                </ModalBody>
+                <ModalFooter>
+                    <Button color='primary' onClick={btnRegister}>Registrarse</Button>
+                    <Button color='secundary' onClick={toggleRegister}>Salir</Button>
+                </ModalFooter>
+            </Modal>
+        </div>
+    );
+};
+
+export default Register;

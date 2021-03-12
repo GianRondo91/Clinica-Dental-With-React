@@ -45,8 +45,9 @@
 /**/
 
 .buttons {
-    position: relative;
-    left: $mp-p;
+    display: flex;
+    flex-direction: row-reverse;
+    padding-right: 16px;
     & .button-register {
         color: nth($fontColor,1);
         @include principal-button(nth($btnBlue,1), nth($btnBlue,2), nth($btnBlue,3));

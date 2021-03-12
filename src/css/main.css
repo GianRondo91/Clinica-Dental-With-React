@@ -79,8 +79,9 @@
 
 /**/
 .buttons {
-  position: relative;
-  left: 96px; }
+  display: flex;
+  flex-direction: row-reverse;
+  padding-right: 16px; }
   .buttons .button-register {
     color: #ffffff;
     background: linear-gradient(to bottom, #3d94f6 5%, #1e62d0 100%);

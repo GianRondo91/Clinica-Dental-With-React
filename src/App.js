@@ -1,5 +1,6 @@
 //CSS
 import './css/main.css';
+
 //BOOTSTRAP
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import $ from 'jquery';

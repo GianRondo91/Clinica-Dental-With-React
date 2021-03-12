@@ -2,10 +2,13 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faUserPlus, faUserAlt} from '@fortawesome/free-solid-svg-icons'
 
+
 class Header extends React.Component {
     // constructor (props){
     //     super(props)
-    //  };
+
+    // };
+
 
     render() {
         return (
@@ -23,8 +26,8 @@ class Header extends React.Component {
                 </div>
 
                 <div className="buttons">
-                    <div className="button-register button">Registarse <FontAwesomeIcon icon={faUserPlus}/></div>
-                    <div className="button-login button">Acceder <FontAwesomeIcon icon={faUserAlt}/></div>
+                    <div className="button-register button" >Registarse <FontAwesomeIcon icon={faUserPlus}/></div>
+                    <div className="button-login button" >Acceder <FontAwesomeIcon icon={faUserAlt}/></div>
                 </div>
 
             </div>

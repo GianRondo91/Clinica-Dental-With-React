@@ -5,7 +5,10 @@
 
 /*Components*/
 @import './components/Header/Header';
+@import './components/Patient/Header-patient/Header-patient.scss';
+@import './components/Employee/Header-employee/Header-employee.scss';
 @import './components/Footer/Footer.scss';
+@import './components/Patient/Data-patient/Data-patient.scss';
 
 /*Views*/
 @import './views/Home/Home.scss';

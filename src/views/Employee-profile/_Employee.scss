@@ -1,65 +1,64 @@
-.employeeProfile {
+.box {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: $mp-x;
+    .card {
+        height: $mp-w;
+        width: $mp-y;
+        background-color: nth($green, 5);
+        display: flex;
+        flex-direction: column;
+        .title{
+            height: $mp-o;
+            width: $mp-y;
+            background-color: nth($yellow, 2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .title-name {
+                height: $mp-m;
+                width: $mp-v;
+                background-color: nth($green, 1);
+            }
+        }
+    }
+    .body-card {
+        height: $mp-v;
+        background-color: nth($red, 5);
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+
+        .card-img {
+            height: $mp-v;
+            width: $mp-v;
+            background-color: nth($red, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .img {
+                background-color: nth($blue, 1);
+            }
+        }
+        .data {
+            width: $mp-v;
+            height: $mp-s;
+            background-color: nth($yellow, 3);
+        }
+    }
 }
 
-.employeeCard {
-    height: $mp-w;
-    width: $mp-y;
 
-    background-color: nth($green, 5);
-    
-    display: flex;
-    flex-direction: column;
-}
 
-.employeeName {
-    height: $mp-o;
-    width: $mp-y;
 
-    background-color: nth($yellow, 2);
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
-.name {
-    height: $mp-m;
-    width: $mp-v;
 
-    background-color: nth($green, 1);
-}
 
-.employeeD {
-    height: $mp-v;
 
-    background-color: nth($red, 5);
 
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-}
 
-.data {
-    width: $mp-v;
-    height: $mp-s;
-    background-color: nth($yellow, 3);
-}
 
-.employeeImg {
-    height: $mp-v;
-    width: $mp-v;
-
-    background-color: nth($red, 1);
-
-     display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.img {
-    background-color: nth($blue, 1);
-}

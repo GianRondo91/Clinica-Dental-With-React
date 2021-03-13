@@ -13,21 +13,24 @@ import Employee from './views/Employee-profile/Employee';
 import Patient from './views/Patient-profile/Patient';
 
 //Imports Components
-import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import PatientData from './components/Patient/Data-patient/Data-patient';
+import PatientApointment from './components/Patient/Appointment-patient/Appointment-patient';
+import MedicalRecordPatient from './components/Patient/Medical-record-patient/Medical-record-aptient';
 
 function App() {
 
   return (
     <div className="App">
       <BrowserRouter>
-
-        <Header/> 
         
         <Switch>
           <Route path='/' exact component={Home}/>
           <Route path='/employee' exact component={Employee}/>
           <Route path='/patient' exact component={Patient}/>
+          <Route path='/patient/data' exact component={PatientData}/>
+          <Route path='/patient/appointment' exact component={PatientApointment}/>
+          <Route path='/patient/medical-record' exact component={MedicalRecordPatient}/>
         </Switch>
         
         <Footer/>

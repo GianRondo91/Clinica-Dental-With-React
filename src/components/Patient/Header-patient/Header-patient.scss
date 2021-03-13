@@ -1,0 +1,10 @@
+#header {
+
+    .buttons{  
+        height: fit-content;
+        .button-exit{
+            color: nth($fontColor,1);
+            @include principal-button(nth($btnRed,1), nth($btnRed,2), nth($btnRed,3));
+        }
+    }
+}

@@ -52,7 +52,7 @@
   padding-bottom: 64px;
   text-align: center; }
   #header .img {
-    background-image: url("../img/tisdenLogo.png");
+    background-image: url(https://user-images.githubusercontent.com/56218293/111041917-f3e87700-843a-11eb-8e2c-44b49df18c92.png);
     background-size: 160px;
     background-repeat: no-repeat;
     left: 32px;
@@ -110,6 +110,22 @@
 .button1, .button2 {
   float: right; }
 
+#header .buttons {
+  height: fit-content; }
+  #header .buttons .button-exit {
+    color: #ffffff;
+    background: linear-gradient(to bottom, #f24537 5%, #d02718 100%);
+    background-color: #f24537;
+    border-radius: 4px;
+    border: 1px solid #c62d1f;
+    display: inline-block;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 4px 10px;
+    text-decoration: none;
+    margin: 8px; }
+
 #footer > div {
   height: 48px;
   box-sizing: border-box;
@@ -126,11 +142,16 @@
     #footer .footer-box p {
       margin-bottom: 0; }
 
+.body-data .form-data {
+  max-width: 690px;
+  margin-left: auto;
+  margin: 20px auto 80px auto; }
+
 /*Views*/
 #body {
   height: auto; }
   #body .img {
-    background-image: url("../img/portada.jpeg");
+    background-image: url(https://user-images.githubusercontent.com/56218293/111041999-635e6680-843b-11eb-8d7c-59815ed51e71.jpeg);
     height: 640px;
     background-size: 100%;
     background-attachment: fixed;
@@ -160,102 +181,46 @@
       margin-left: auto;
       margin-right: auto; }
 
-.employeeProfile {
+.box {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; }
-
-.employeeCard {
-  height: 320px;
-  width: 640px;
-  background-color: #3CB371;
-  display: flex;
-  flex-direction: column; }
-
-.employeeName {
-  height: 80px;
-  width: 640px;
-  background-color: #FFFACD;
-  display: flex;
-  align-items: center;
-  justify-content: center; }
-
-.name {
-  height: 48px;
-  width: 256px;
-  background-color: #98FB98; }
-
-.employeeD {
-  height: 256px;
-  background-color: #FFA07A;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center; }
-
-.data {
-  width: 256px;
-  height: 192px;
-  background-color: #FAFAD2; }
-
-.employeeImg {
-  height: 256px;
-  width: 256px;
-  background-color: #CD5C5C;
-  display: flex;
-  align-items: center;
-  justify-content: center; }
-
-.img {
-  background-color: #1E90FF; }
-
-.patientProfile {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; }
-
-.patientCard {
-  height: 320px;
-  width: 640px;
-  background-color: #3CB371;
-  display: flex;
-  flex-direction: column; }
-
-.patientName {
-  height: 80px;
-  width: 640px;
-  background-color: #FFFACD;
-  display: flex;
-  align-items: center;
-  justify-content: center; }
-
-.name {
-  height: 48px;
-  width: 256px;
-  background-color: #98FB98; }
-
-.patientD {
-  height: 256px;
-  background-color: #FFA07A;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center; }
-
-.data {
-  width: 256px;
-  height: 192px;
-  background-color: #FAFAD2; }
-
-.patientImg {
-  height: 256px;
-  width: 256px;
-  background-color: #CD5C5C;
-  display: flex;
-  align-items: center;
-  justify-content: center; }
-
-.img {
-  background-color: #1E90FF; }
+  justify-content: center;
+  height: 480px; }
+  .box .card {
+    height: 320px;
+    width: 640px;
+    background-color: #3CB371;
+    display: flex;
+    flex-direction: column; }
+    .box .card .title {
+      height: 80px;
+      width: 640px;
+      background-color: #FFFACD;
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+      .box .card .title .title-name {
+        height: 48px;
+        width: 256px;
+        background-color: #98FB98; }
+  .box .body-card {
+    height: 256px;
+    background-color: #FFA07A;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center; }
+    .box .body-card .card-img {
+      height: 256px;
+      width: 256px;
+      background-color: #CD5C5C;
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+      .box .body-card .card-img .img {
+        background-color: #1E90FF; }
+    .box .body-card .data {
+      width: 256px;
+      height: 192px;
+      background-color: #FAFAD2; }

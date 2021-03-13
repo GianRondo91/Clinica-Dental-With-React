@@ -1,5 +1,5 @@
-import React from 'react'; 
-//import './Employee.scss';
+import React from 'react';
+import HeaderEmployee from '../../components/Employee/Header-employee/Header-employee';
 
 class Employee extends React.Component {
 
@@ -7,27 +7,34 @@ class Employee extends React.Component {
     //     super(props)
     // };
 
-    render(){
-        return(
-            <div className="employeeProfile">
-                Perfil del Empleado
-                <div className="employeeCard">
-                    <div className="employeeName">
-                        <div className='name'>Nombre y Apellidos</div>
+    render() {
+        return (
+            <div className="employee">
+                <div className="header-employee">
+                    <HeaderEmployee/>
+                </div>
+
+                <div className="box">
+                    <div className="card">
+                        <div className="title">
+                            <div className='title-name'>Nombre y Apellidos</div>
                         </div>
-                    <div className="employeeD">
-                        <div className="employeeImg">
-                            <div className="img">Imagen</div>
-                        </div>
+                        <div className="body-card">
+                            <div className="card-img">
+                                <div className="img">Imagen</div>
+                            </div>
                             <div className="data">
                                 <ul>
                                     <li>ID Empleado</li>
                                     <li>Especialidad</li>
                                 </ul>
-                            </div>      
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+
+
         )
 
     }

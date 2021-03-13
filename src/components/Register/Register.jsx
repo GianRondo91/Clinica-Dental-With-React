@@ -107,7 +107,7 @@ const Register = () => {
                         <Input type='number' id='user' onChange={handleState}/>
                     </FormGroup>
                     <FormGroup>
-                        <Label form='surname'>Fecha de nacimiento:</Label>
+                        <Label form='date'>Fecha de nacimiento:</Label>
                         <Input type='date' name='date' id='user' onChange={handleState}/>
                     </FormGroup>
                     <FormGroup>

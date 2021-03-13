@@ -103,6 +103,10 @@ const Register = () => {
                         <Input type='text' id='user' onChange={handleState}/>
                     </FormGroup>
                     <FormGroup>
+                        <Label form='age'>Edad:</Label>
+                        <Input type='number' id='user' onChange={handleState}/>
+                    </FormGroup>
+                    <FormGroup>
                         <Label form='surname'>Fecha de nacimiento:</Label>
                         <Input type='date' name='date' id='user' onChange={handleState}/>
                     </FormGroup>

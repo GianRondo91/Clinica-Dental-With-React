@@ -111,8 +111,8 @@ const Register = () => {
                         <Input type='number' id='user' name='age' onChange={handleState}/>
                     </FormGroup>
                     <FormGroup>
-                        <Label form='surname'>Fecha de nacimiento:</Label>
-                        <Input type='date' name='date' id='user' name='birth' onChange={handleState}/>
+                        <Label form='date'>Fecha de nacimiento:</Label>
+                        <Input type='date' name='date' id='user' onChange={handleState}/>
                     </FormGroup>
                     <FormGroup>
                         <Label for='select'>Rango:</Label>

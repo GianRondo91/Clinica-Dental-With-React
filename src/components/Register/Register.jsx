@@ -26,8 +26,10 @@ const Register = () => {
             gender: '', 
             address: '',
             phone: '',
+            birth: '',
             email: '', 
-            password: ''
+            password: '',
+            userType: ''
         });
         
         //const [mensaje, setMensaje] = useState('');
@@ -52,7 +54,7 @@ const Register = () => {
         const handleState = (event) => {
             let data = {...dataRegister, [event.target.name] : event.target.value};
             setRegister(data)
-            // console.log('update data', dataRegister);
+            console.log('update data', dataRegister);
         }
     
     
@@ -70,7 +72,9 @@ const Register = () => {
                 address: dataRegister.address,
                 phone: dataRegister.phone,
                 email: dataRegister.email, 
-                password: dataRegister.password
+                password: dataRegister.password, 
+                birth: dataRegister.birth, 
+                userType: dataRegister.userType
             };
             let result = await axios.post('http://localhost:3001/patients/register', body);
             console.log('Resultado', result.data);
@@ -92,19 +96,19 @@ const Register = () => {
                 <ModalBody>
                     <FormGroup>
                         <Label form='email'>Nombre:</Label>
-                        <Input type='text' id='user' onChange={handleState}/>
+                        <Input type='text' id='user' name='name' onChange={handleState}/>
                     </FormGroup>
                     <FormGroup>
                         <Label form='surname'>Primer Apellido:</Label>
-                        <Input type='text' id='user' onChange={handleState}/>
+                        <Input type='text' id='user' name='surname1' onChange={handleState}/>
                     </FormGroup>
                     <FormGroup>
                         <Label form='surname'>Segundo Apellido:</Label>
-                        <Input type='text' id='user' onChange={handleState}/>
+                        <Input type='text' id='user' name='surname2' onChange={handleState}/>
                     </FormGroup>
                     <FormGroup>
                         <Label form='age'>Edad:</Label>
-                        <Input type='number' id='user' onChange={handleState}/>
+                        <Input type='number' id='user' name='age' onChange={handleState}/>
                     </FormGroup>
                     <FormGroup>
                         <Label form='date'>Fecha de nacimiento:</Label>
@@ -112,26 +116,26 @@ const Register = () => {
                     </FormGroup>
                     <FormGroup>
                         <Label for='select'>Rango:</Label>
-                        <Input type='select' name='select' id='selecrRango' onChange={handleState}>
+                        <Input type='select' name='userType' id='selecrRango' onChange={handleState}>
                             <option>Patient</option>
                             <option>Employee</option>
                         </Input>
                     </FormGroup>
                     <FormGroup check inline>
-                        <Input type='checkbox' name='checkbox-male' id='user' onChange={handleState}/>
+                        <Input type='checkbox' name='gender' id='user' onChange={handleState}/>
                         <Label form='checkbox-male' check> Hombre </Label>
                     </FormGroup>
                     <FormGroup check inline>
-                        <Input type='checkbox' name='checkbox-fermale' id='user' onChange={handleState}/>
+                        <Input type='checkbox' name='gender' id='user' onChange={handleState}/>
                         <Label form='checkbox-fermale' check> Mujer </Label>
                     </FormGroup>
                     <FormGroup>
                         <Label form='email'>Email:</Label>
-                        <Input type='text' id='user' onChange={handleState}/>
+                        <Input type='text' id='user' name='email' onChange={handleState}/>
                     </FormGroup>
                     <FormGroup>
                         <Label form='password'>Password:</Label>
-                        <Input type='password' id='password' onChange={handleState}/>
+                        <Input type='password' id='password' name='password' onChange={handleState}/>
                     </FormGroup>
 
                 </ModalBody>

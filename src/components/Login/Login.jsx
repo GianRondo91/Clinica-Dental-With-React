@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserAlt } from '@fortawesome/free-solid-svg-icons';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, Label } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css';
-//import checkError from '../../uti';
+import checkError from '../../uti';
 
 
 const Login = () => {
@@ -27,7 +27,7 @@ const Login = () => {
         userType: ''
     }) 
 
-    //const [mensaje, setMensaje] = useState('');
+    const [mensaje, setMensaje] = useState('');
 
     //Handlers
     const handleState = (event) => {
@@ -46,13 +46,16 @@ const Login = () => {
         
         console.log('Estamos dentro de la función enter');
         //Manejo de errores
-        // setMensaje('');
-        // let mensajeError = checkError(dataLogin);
-        // setMensaje(mensajeError);
+        setMensaje('');
+        let mensajeError = checkError(dataLogin);
+        setMensaje(mensajeError);
+        console.log(mensajeError, 'Este es el mensajeError');
+        console.log(mensaje, 'Este es el mensaje');
+        console.log(setMensaje, 'Esto es setMensaje');
         
-        // if(mensajeError){
-        //     return;
-        // }
+        if(mensajeError){
+            return;
+        }
 
         let result = await axios.post('http://localhost:3001/patients/login', dataLogin);
         console.log('Dentro de enter, después de axios', dataLogin);
@@ -95,6 +98,7 @@ const Login = () => {
                     <FormGroup>
                         <Label for='select'>Rango</Label>
                         <Input type='select' name='userType' id='selecrRango' onChange={handleState}>
+                            <option></option>
                             <option>Patient</option>
                             <option>Employee</option>
                         </Input>

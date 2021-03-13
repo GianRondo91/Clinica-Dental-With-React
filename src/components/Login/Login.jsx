@@ -27,10 +27,7 @@ const Login = () => {
         userType: ''
     }) 
 
-<<<<<<< HEAD
-=======
     //const [mensaje, setMensaje] = useState('');
->>>>>>> d88586910bad8c7a625bdbf9cdd5eb916d5a702d
 
     //Handlers
     const handleState = (event) => {

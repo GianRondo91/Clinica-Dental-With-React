@@ -16,7 +16,7 @@ const Login = () => {
     const toggleLogin = () => {
         setState({ open: !state.open });
     }
-
+    
     const history = useHistory();
 
     //Hook -> Estado del Login
@@ -26,13 +26,14 @@ const Login = () => {
         userType: ''
     }) 
 
+
     //Handlers
     const handleState = (event) => {
         let data = {...dataLogin, [event.target.name] : event.target.value};
-        
         setLogin(data);
-        //console.log('update', data);
+        console.log(data)
     };
+
 
     //Effect
     useEffect(() => {
@@ -80,15 +81,15 @@ const Login = () => {
                 <ModalBody>
                     <FormGroup>
                         <Label form='email'>Email</Label>
-                        <Input type='text' id='user' onChange={handleState}/>
+                        <Input type='text' id='user' name='email' onChange={handleState}/>
                     </FormGroup>
                     <FormGroup>
-                        <Label form='password'>user</Label>
-                        <Input type='password' id='password' onChange={handleState}/>
+                        <Label form='password'>Contraseña</Label>
+                        <Input type='password' id='password' name='password' onChange={handleState}/>
                     </FormGroup>
                     <FormGroup>
                         <Label for='select'>Rango</Label>
-                        <Input type='select' name='select' id='selecrRango' onChange={handleState}>
+                        <Input type='select' name='userType' id='selecrRango' onChange={handleState}>
                             <option>Patient</option>
                             <option>Employee</option>
                         </Input>

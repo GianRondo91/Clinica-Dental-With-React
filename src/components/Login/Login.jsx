@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserAlt } from '@fortawesome/free-solid-svg-icons';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, Label } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css';
+//import checkError from '../../uti';
 
 
 const Login = () => {
@@ -26,6 +27,10 @@ const Login = () => {
         userType: ''
     }) 
 
+<<<<<<< HEAD
+=======
+    //const [mensaje, setMensaje] = useState('');
+>>>>>>> d88586910bad8c7a625bdbf9cdd5eb916d5a702d
 
     //Handlers
     const handleState = (event) => {
@@ -37,15 +42,13 @@ const Login = () => {
 
     //Effect
     useEffect(() => {
-
+        console.log('Soy el componente montado de LOGIN!')
     }, []);
 
     const enter = async () => {
-        let result = await axios.post('http://localhost:3001/patients/login', dataLogin);
-
-        // //Manejo de errores
-        // const [mensaje, setMensaje] = useState('');
-
+        
+        console.log('Estamos dentro de la función enter');
+        //Manejo de errores
         // setMensaje('');
         // let mensajeError = checkError(dataLogin);
         // setMensaje(mensajeError);
@@ -54,10 +57,15 @@ const Login = () => {
         //     return;
         // }
 
+        let result = await axios.post('http://localhost:3001/patients/login', dataLogin);
+        console.log('Dentro de enter, después de axios', dataLogin);
+
+        //Guardamos los datos en localStorage
         localStorage.setItem('dataLogin', result);
         localStorage.setItem('login', true);
 
-       return setTimeout(() => {
+        //Redireccionamos según el perfil elegido
+        return setTimeout(() => {
             if(dataLogin.userType === 'Patient'){
                 history.push('/patient')
             }else if(dataLogin.userType === 'Employee'){

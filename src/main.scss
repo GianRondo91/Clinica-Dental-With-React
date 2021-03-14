@@ -3,6 +3,8 @@
 @import './scss/utilities/variables.scss';
 @import './scss/utilities/_mixings.scss';
 
+@import '../node_modules/react-big-calendar/lib/sass/styles.scss';
+
 /*Components*/
 @import './components/Header/Header';
 @import './components/Patient/Header-patient/Header-patient.scss';

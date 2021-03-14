@@ -17,7 +17,8 @@ import Footer from './components/Footer/Footer';
 import PatientData from './components/Patient/Data-patient/Data-patient';
 import PatientApointment from './components/Patient/Appointment-patient/Appointment-patient';
 import MedicalRecordPatient from './components/Patient/Medical-record-patient/Medical-record-patient';
-
+import EmployeeData from './components/Employee/Data-employee/Data-employee';
+import EmployeeCalendar from './components/Employee/Calendar-employee/Calendar-employee';
 function App() {
 
   return (
@@ -31,6 +32,8 @@ function App() {
           <Route path='/patient/appointments' exact component={PatientApointment}/>
           <Route path='/patient/medical-record' exact component={MedicalRecordPatient}/>
           <Route path='/employee' exact component={Employee}/>
+          <Route path='/employee/data' exact component={EmployeeData}/>
+          <Route path='/employee/calendar' exact component={EmployeeCalendar}/>
         </Switch>
         
         <Footer/>

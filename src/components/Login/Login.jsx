@@ -66,7 +66,8 @@ const Login = () => {
             console.log('Dentro de enter, después de axios', dataLogin);
 
             //Guardamos los datos en localStorage
-            localStorage.setItem('dataLogin', result);
+            localStorage.setItem('userId', result.data.id);
+            localStorage.setItem('token', result.data.token);
             localStorage.setItem('login', dataLogin.userType);
 
             //Redireccionamos según el perfil elegido
@@ -80,7 +81,7 @@ const Login = () => {
                 }
             }, 2000);
         } catch (error) {
-            if(error.isAxiosError & error.response.status === 404){
+            if(error.isAxiosError & error.response.status === 403){
                 alert('El usuario no existe');
             }
         }

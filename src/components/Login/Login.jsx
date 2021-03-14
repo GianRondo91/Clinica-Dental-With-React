@@ -78,7 +78,7 @@ const Login = () => {
                 } else {
                     alert('Eres un intruso!')
                 }
-            }, 5000);
+            }, 2000);
         } catch (error) {
             if(error.isAxiosError & error.response.status === 404){
                 alert('El usuario no existe');

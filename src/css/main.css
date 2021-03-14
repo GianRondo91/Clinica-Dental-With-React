@@ -142,16 +142,22 @@
     #footer .footer-box p {
       margin-bottom: 0; }
 
-.table-medical-record {
-  max-width: 700px;
-  height: 40px;
-  margin: 40px auto 256px auto;
-  text-align: center; }
-
 .body-data .form-data {
-  max-width: 700px;
+  width: 700px;
+  height: auto;
   margin-left: auto;
   margin: 20px auto 80px auto; }
+
+.table.table-medical-record {
+  width: 640px;
+  margin: 48px auto 224px auto;
+  text-align: center; }
+  .table.table-medical-record .medical-record-reason {
+    text-align: left; }
+
+#footer {
+  position: absolute;
+  width: 100%; }
 
 /*Views*/
 #body {

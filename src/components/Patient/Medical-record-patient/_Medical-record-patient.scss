@@ -1,0 +1,14 @@
+.table.table-medical-record{
+        width: $mp-y;
+        margin: $mp-m auto $mp-t auto;
+        text-align: center;  
+        .medical-record-reason{
+            text-align: left;
+        }
+}
+
+#footer {
+    position: absolute;
+    // bottom: 0;
+    width: 100%;
+}

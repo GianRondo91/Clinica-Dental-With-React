@@ -24,7 +24,12 @@ const checkError = (datosCheck) => {
             
             case 'password':
                 // eslint-disable-next-line
-                if(! /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/.test(datosCheck[field])){
+                if(datosCheck.simplePasswordValidation === true){
+                    if(/^\s*$/.test(datosCheck[field])){
+                        return 'Introduzca una contraseña';
+                    }
+                }
+                else if(! /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/.test(datosCheck[field])){
                     return 'La contraseña debe contener 8 caracteres, mayúscula, minúscula, número y algún caracter especial';
                 }
                 

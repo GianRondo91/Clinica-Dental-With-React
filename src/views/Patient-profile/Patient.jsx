@@ -1,45 +1,49 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
+
 import HeaderPatient from '../../components/Patient/Header-patient/Header-patient';
 
-class Patient extends React.Component {
+const Patient = () => {
 
-    // constructor(props){
-    //     super(props)
-    // };
+    const history = useHistory();
 
-    render() {
-        return (
-            <div className="patient">
-                <div className="header-patient">
-                    <HeaderPatient />
-                </div>
+    //ver si esta logeado
+    if(localStorage.getItem('login') !== 'Patient'){
+        history.push('/');
+        return null;
+    }
 
-                <div className="box">
+    return (
+        <div className="patient">
+            <div className="header-patient">
+                <HeaderPatient />
+            </div>
 
-                    <div className="card">
-                        <div className="title">
-                            <div className='title-name'>Nombre y Apellidos</div>
+            <div className="box">
+
+                <div className="card">
+                    <div className="title">
+                        <div className='title-name'>Nombre y Apellidos</div>
+                    </div>
+                    <div className="body-card">
+                        <div className="card-img">
+                            <div className="img"></div>
                         </div>
-                        <div className="body-card">
-                            <div className="card-img">
-                                <div className="img"></div>
-                            </div>
-                            <div className="data">
-                                <ul>
-                                    <li>DNI</li>
-                                    <li>Email</li>
-                                    <li>Teléfono</li>
-                                    <li>Dirección</li>
-                                </ul>
-                            </div>
+                        <div className="data">
+                            <ul>
+                                <li>DNI</li>
+                                <li>Email</li>
+                                <li>Teléfono</li>
+                                <li>Dirección</li>
+                            </ul>
                         </div>
                     </div>
-
                 </div>
-            </div>
-        )
 
-    }
+            </div>
+        </div>
+    )
+
 };
 
 export default Patient;

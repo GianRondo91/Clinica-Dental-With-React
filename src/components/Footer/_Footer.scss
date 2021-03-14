@@ -1,3 +1,4 @@
+
 #footer> div {
     height: $mp-m;
     box-sizing: border-box;
@@ -10,6 +11,7 @@
     height: $mp-q;
     display: flex;
     align-items: center;
+    
     & .footer-box{
         font-size: $size-g;
         & p{

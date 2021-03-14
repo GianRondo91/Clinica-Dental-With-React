@@ -17,21 +17,22 @@ const Login = () => {
     const toggleLogin = () => {
         setState({ open: !state.open });
     }
-    
+
     const history = useHistory();
 
     //Hook -> Estado del Login
-    const [dataLogin, setLogin] = useState ({
-        email: '', 
+    const [dataLogin, setLogin] = useState({
+        email: '',
         password: '',
-        userType: ''
-    }) 
+        userType: '',
+        simplePasswordValidation: true
+    })
 
     const [mensaje, setMensaje] = useState('');
 
     //Handlers
     const handleState = (event) => {
-        let data = {...dataLogin, [event.target.name] : event.target.value};
+        let data = { ...dataLogin, [event.target.name]: event.target.value };
         setLogin(data);
         console.log(data)
     };
@@ -43,7 +44,7 @@ const Login = () => {
     }, []);
 
     const enter = async () => {
-        
+
         console.log('Estamos dentro de la función enter');
         //Manejo de errores
         setMensaje('');
@@ -52,28 +53,37 @@ const Login = () => {
         console.log(mensajeError, 'Este es el mensajeError');
         console.log(mensaje, 'Este es el mensaje');
         console.log(setMensaje, 'Esto es setMensaje');
-        
-        if(mensajeError){
+
+        if (mensajeError) {
             return;
         }
 
-        let result = await axios.post('http://localhost:3001/patients/login', dataLogin);
-        console.log('Dentro de enter, después de axios', dataLogin);
+        let role = dataLogin.userType === 'Patient' ? 'patients' : 'employees';
 
-        //Guardamos los datos en localStorage
-        localStorage.setItem('dataLogin', result);
-        localStorage.setItem('login', true);
+        try {
 
-        //Redireccionamos según el perfil elegido
-        return setTimeout(() => {
-            if(dataLogin.userType === 'Patient'){
-                history.push('/patient')
-            }else if(dataLogin.userType === 'Employee'){
-                history.push('/employee')
-            }else{
-                alert('Eres un intruso!')
+            let result = await axios.post(`http://localhost:3001/${role}/login`, dataLogin);
+            console.log('Dentro de enter, después de axios', dataLogin);
+
+            //Guardamos los datos en localStorage
+            localStorage.setItem('dataLogin', result);
+            localStorage.setItem('login', dataLogin.userType);
+
+            //Redireccionamos según el perfil elegido
+            return setTimeout(() => {
+                if (dataLogin.userType === 'Patient') {
+                    history.push('/patient')
+                } else if (dataLogin.userType === 'Employee') {
+                    history.push('/employee')
+                } else {
+                    alert('Eres un intruso!')
+                }
+            }, 5000);
+        } catch (error) {
+            if(error.isAxiosError & error.response.status === 404){
+                alert('El usuario no existe');
             }
-        }, 5000);
+        }
     };
 
     return (
@@ -89,11 +99,11 @@ const Login = () => {
                 <ModalBody>
                     <FormGroup>
                         <Label form='email'>Email</Label>
-                        <Input type='text' id='user' name='email' onChange={handleState}/>
+                        <Input type='text' id='user' name='email' onChange={handleState} />
                     </FormGroup>
                     <FormGroup>
                         <Label form='password'>Contraseña</Label>
-                        <Input type='password' id='password' name='password' onChange={handleState}/>
+                        <Input type='password' id='password' name='password' onChange={handleState} />
                     </FormGroup>
                     <FormGroup>
                         <Label for='select'>Rango</Label>

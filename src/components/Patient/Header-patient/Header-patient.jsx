@@ -1,42 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+import { useHistory } from 'react-router-dom';
+
 //
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserTimes } from '@fortawesome/free-solid-svg-icons';
 //
 import 'bootstrap/dist/css/bootstrap.css';
 
-class HeaderPatient extends React.Component {
-    state = {
-        open: false,
+let HeaderPatient = () => {
+
+    const history = useHistory();
+
+    const exit = () => {
+        localStorage.clear();
+        history.push('/');
     }
 
-    openLogin = () => {
-        this.setState({ open: !this.state.open });
-    }
-    openRegister = () => {
-        this.setState({ open: !this.state.open });
-    }
+    return (
+        <div id="header" className="header-patient cell-3">
+            <div className="img"></div>
 
-    render() {
-        return (
-            <div id="header" className="header-patient cell-3">
-                <div className="img"></div>
-
-                <div className="menu-list">
-                    <ul className="menu-list-ul">
-                    <li className='menu-list-ul-li'><a href="">Perfil</a></li>
-                        <li className='menu-list-ul-li'><a href="">Mis datos</a></li>
-                        <li className='menu-list-ul-li'><a href="">Ficha medica</a></li>
-                        <li className='menu-list-ul-li'><a href="">Mis citas</a></li>
-                    </ul>
-                </div>
-
-                <div className="buttons">
-                <div className="button-exit button"> Salir <FontAwesomeIcon icon={faUserTimes} /></div>
-                </div>
+            <div className="menu-list">
+                <ul className="menu-list-ul">
+                <li className='menu-list-ul-li'><a href="/patient">Perfil</a></li>
+                    <li className='menu-list-ul-li'><a href="/patient/data">Mis datos</a></li>
+                    <li className='menu-list-ul-li'><a href="/patient/medical-record">Ficha medica</a></li>
+                    <li className='menu-list-ul-li'><a href="/patient/appointments">Mis citas</a></li>
+                </ul>
             </div>
-        )
-    }
+
+            <div className="buttons">
+            <div className="button-exit button" onClick={exit}> Salir <FontAwesomeIcon icon={faUserTimes} /></div>
+            </div>
+        </div>
+    )
 };
 
 export default HeaderPatient;

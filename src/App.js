@@ -29,7 +29,7 @@ function App() {
           <Route path='/employee' exact component={Employee}/>
           <Route path='/patient' exact component={Patient}/>
           <Route path='/patient/data' exact component={PatientData}/>
-          <Route path='/patient/appointment' exact component={PatientApointment}/>
+          <Route path='/patient/appointments' exact component={PatientApointment}/>
           <Route path='/patient/medical-record' exact component={MedicalRecordPatient}/>
         </Switch>
         

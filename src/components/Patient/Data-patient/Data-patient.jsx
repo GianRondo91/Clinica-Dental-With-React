@@ -1,22 +1,22 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 //import axios from 'axios';
 import HeaderPatient from '../Header-patient/Header-patient';
 import { Col, Row, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 let DataPatient = () => {
-    const [state, setState] = useState({
-        open: false
-    });
+    const history = useHistory();
 
-    // const toggleRegister = () => {
-    //     setState({ open: !state.open });
-    // }
+    //ver si esta logeado
+    
+    if(localStorage.getItem('login') !== 'Patient'){
+        history.push('/');
+        return null;
+    }
 
     return (
 
-        <div>
-
-
+        <div id='data-patient'>
             <div className="header-patient">
                 <HeaderPatient />
             </div>

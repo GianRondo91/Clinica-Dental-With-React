@@ -79,9 +79,13 @@ const Register = () => {
             let result = await axios.post('http://localhost:3001/patients/register', body);
             console.log('Resultado', result.data);
     
+
             localStorage.setItem('dataRegister', result);
             localStorage.setItem('register', true);
-            console.log('esto es localstorage', localStorage);
+
+        
+            console.log('esto es dataRegister', dataRegister);
+            console.log('esto es result', result);
         };
 
     return (

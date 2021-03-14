@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 
 import HeaderPatient from '../../components/Patient/Header-patient/Header-patient';
 
+
 const Patient = () => {
 
     const history = useHistory();
@@ -12,6 +13,23 @@ const Patient = () => {
         history.push('/');
         return null;
     }
+
+    const dataPatient = JSON.parse(localStorage.getItem('dataRegister'));
+    console.log(dataPatient);
+  
+    
+    // const bringData = () => {
+    //     try{
+    //         const dataPatient = JSON.parse(localStorage.getItem('register'));
+    //         return dataPatient;
+    //     }catch{
+    //         console.log('ERROR')
+    //     }
+    // };
+
+    // bringData();
+    
+    console.log('estamos aquí');
 
     return (
         <div className="patient">

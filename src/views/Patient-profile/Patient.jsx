@@ -1,6 +1,5 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-
 import HeaderPatient from '../../components/Patient/Header-patient/Header-patient';
 
 
@@ -9,8 +8,11 @@ const Patient = () => {
     const history = useHistory();
 
     //ver si esta logeado
-    if(localStorage.getItem('login') !== 'Patient'){
-        history.push('/');
+    if (localStorage.getItem('login') !== 'Patient') {
+        setTimeout(()=>{
+            history.push('/');
+        },0);
+        
         return null;
     }
 

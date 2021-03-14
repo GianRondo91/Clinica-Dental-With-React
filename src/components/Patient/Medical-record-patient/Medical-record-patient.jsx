@@ -10,8 +10,11 @@ let MrPatient = () => {
 
     //ver si esta logeado
     
-    if(localStorage.getItem('login') !== 'Patient'){
-        history.push('/');
+    if (localStorage.getItem('login') !== 'Patient') {
+        setTimeout(()=>{
+            history.push('/');
+        },0);
+        
         return null;
     }
 

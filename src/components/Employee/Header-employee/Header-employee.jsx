@@ -1,40 +1,36 @@
 import React from 'react';
 //
+import { useHistory } from 'react-router-dom';
+//
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserTimes } from '@fortawesome/free-solid-svg-icons';
 
-class HeaderEmployee extends React.Component {
-    state = {
-        open: false,
-    }
+let HeaderEmployee = () => {
 
-    openLogin = () => {
-        this.setState({ open: !this.state.open });
-    }
-    openRegister = () => {
-        this.setState({ open: !this.state.open });
-    }
+    const history = useHistory();
 
-    render() {
-        return(
-            <div id="header" className="header-employee cell-3">
-                <div className="img"></div>
+    const exit = () => {
+        localStorage.clear();
+        history.push('/');
+    }
+    return (
+        <div id="header" className="header-employee cell-3">
+            <div className="img"></div>
 
-                <div className="menu-list">
+            <div className="menu-list">
                 <ul className="menu-list-ul">
-                    <li className='menu-list-ul-li'><a href="">Perfil</a></li>
-                        <li className='menu-list-ul-li'><a href="">Mis datos</a></li>
-                        <li className='menu-list-ul-li'><a href="">Otro</a></li>
-                        <li className='menu-list-ul-li'><a href="">Calendario</a></li>
-                    </ul>
-                </div>
-
-                <div className="buttons">
-                <div className="button-exit button"> Salir <FontAwesomeIcon icon={faUserTimes} /></div>
-                </div>
+                    <li className='menu-list-ul-li'><a href="/employee">Perfil</a></li>
+                    <li className='menu-list-ul-li'><a href="/employee/data">Mis datos</a></li>
+                    <li className='menu-list-ul-li'><a href="/employee/calendar">Calendario</a></li>
+                    <li className='menu-list-ul-li'><a href="/employee">Otro</a></li>
+                </ul>
             </div>
-        )
-    }
+
+            <div className="buttons">
+                <div className="button-exit button" onClick={exit}> Salir <FontAwesomeIcon icon={faUserTimes} /></div>
+            </div>
+        </div>
+    )
 };
 
 export default HeaderEmployee;

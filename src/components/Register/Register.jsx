@@ -60,32 +60,24 @@ const Register = () => {
     
         //Función para traer los datos de Backend
         const btnRegister = async () => {
-            
-    
-            //console.log('Esto es el resultado', result)
-            let body = {
-                name: dataRegister.name, 
-                surname1 : dataRegister.surname1,
-                surname2 : dataRegister.surname2, 
-                age: dataRegister.age, 
-                gender: dataRegister.gender, 
-                address: dataRegister.address,
-                phone: dataRegister.phone,
-                email: dataRegister.email, 
-                password: dataRegister.password, 
-                birth: dataRegister.birth, 
-                userType: dataRegister.userType
-            };
-            let result = await axios.post('http://localhost:3001/patients/register', body);
+            let role = dataRegister.userType === 'Patient' ? 'patients' : 'employees';
+
+            let result = await axios.post(`http://localhost:3001/${role}/register`, dataRegister);
             console.log('Resultado', result.data);
     
 
             localStorage.setItem('dataRegister', result);
             localStorage.setItem('register', true);
 
+<<<<<<< HEAD
         
             console.log('esto es dataRegister', dataRegister);
             console.log('esto es result', result);
+=======
+            setState({ open: false});
+
+            console.log('esto es localstorage', localStorage);
+>>>>>>> 224e564533640475fa93653ff97e8d05c7623ee4
         };
 
     return (
@@ -127,19 +119,19 @@ const Register = () => {
                         <Input type='number' id='phone' name='phone' onChange={handleState}/>
                     </FormGroup>
                     <FormGroup>
+                        <Label for='select'>Sexo:</Label>
+                        <Input type='select' name='gender' id='selecrRango' onChange={handleState}>
+                            <option></option>
+                            <option>Hombre</option>
+                            <option>Mujer</option>
+                        </Input>
+                    </FormGroup> 
+                    <FormGroup>
                         <Label for='select'>Rango:</Label>
                         <Input type='select' name='userType' id='selecrRango' onChange={handleState}>
                             <option></option>
                             <option>Patient</option>
                             <option>Employee</option>
-                        </Input>
-                    </FormGroup> 
-                    <FormGroup>
-                        <Label for='select'>Rango:</Label>
-                        <Input type='select' name='gender' id='selecrRango' onChange={handleState}>
-                            <option></option>
-                            <option>Hombre</option>
-                            <option>Mujer</option>
                         </Input>
                     </FormGroup> 
                     <FormGroup>

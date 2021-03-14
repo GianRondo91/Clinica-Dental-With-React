@@ -1,15 +1,15 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 //import axios from 'axios';
-import HeaderPatient from '../Header-patient/Header-patient';
+import HeaderEmployee from '../Header-employee/Header-employee';
 import { Col, Row, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
-let DataPatient = () => {
+let DataEmployee = () => {
     const history = useHistory();
 
     //ver si esta logeado
     
-    if (localStorage.getItem('login') !== 'Patient') {
+    if (localStorage.getItem('login') !== 'Employee') {
         setTimeout(()=>{
             history.push('/');
         },0);
@@ -19,14 +19,14 @@ let DataPatient = () => {
 
     return (
 
-        <div id='data-patient'>
-            <div className="header-patient">
-                <HeaderPatient />
+        <div id='data-employee'>
+            <div className="header-employee">
+                <HeaderEmployee />
             </div>
-            <div className='body-data body-data-patient'>
+            <div className='body-data body-data-employee'>
                 <Form className='form-data'>
                     <FormGroup>
-                        <Label for='patient-name'>Nombre completo Paciente</Label>
+                        <Label for='employee-name'>Nombre completo Paciente</Label>
                         <Input plaintext value='Datos Modificables'></Input>
                     </FormGroup>
                     <FormGroup>
@@ -118,4 +118,4 @@ let DataPatient = () => {
 
 };
 
-export default DataPatient;
+export default DataEmployee;

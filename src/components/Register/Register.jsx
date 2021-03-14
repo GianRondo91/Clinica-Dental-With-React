@@ -112,23 +112,32 @@ const Register = () => {
                     </FormGroup>
                     <FormGroup>
                         <Label form='date'>Fecha de nacimiento:</Label>
-                        <Input type='date' name='date' id='user' onChange={handleState}/>
+                        <Input type='date' name='birth' id='user' onChange={handleState}/>
+                    </FormGroup>
+                    <FormGroup>
+                        <Label form='address'>Dirección : </Label>
+                        <Input type='text' id='address' name='address' onChange={handleState}/>
+                    </FormGroup>
+                    <FormGroup>
+                        <Label form='phone'>Teléfono : </Label>
+                        <Input type='number' id='phone' name='phone' onChange={handleState}/>
                     </FormGroup>
                     <FormGroup>
                         <Label for='select'>Rango:</Label>
                         <Input type='select' name='userType' id='selecrRango' onChange={handleState}>
+                            <option></option>
                             <option>Patient</option>
                             <option>Employee</option>
                         </Input>
-                    </FormGroup>
-                    <FormGroup check inline>
-                        <Input type='checkbox' name='gender' id='user' onChange={handleState}/>
-                        <Label form='checkbox-male' check> Hombre </Label>
-                    </FormGroup>
-                    <FormGroup check inline>
-                        <Input type='checkbox' name='gender' id='user' onChange={handleState}/>
-                        <Label form='checkbox-fermale' check> Mujer </Label>
-                    </FormGroup>
+                    </FormGroup> 
+                    <FormGroup>
+                        <Label for='select'>Rango:</Label>
+                        <Input type='select' name='gender' id='selecrRango' onChange={handleState}>
+                            <option></option>
+                            <option>Hombre</option>
+                            <option>Mujer</option>
+                        </Input>
+                    </FormGroup> 
                     <FormGroup>
                         <Label form='email'>Email:</Label>
                         <Input type='text' id='user' name='email' onChange={handleState}/>

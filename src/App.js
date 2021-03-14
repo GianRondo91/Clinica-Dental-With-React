@@ -26,11 +26,11 @@ function App() {
         
         <Switch>
           <Route path='/' exact component={Home}/>
-          <Route path='/employee' exact component={Employee}/>
           <Route path='/patient' exact component={Patient}/>
           <Route path='/patient/data' exact component={PatientData}/>
           <Route path='/patient/appointments' exact component={PatientApointment}/>
           <Route path='/patient/medical-record' exact component={MedicalRecordPatient}/>
+          <Route path='/employee' exact component={Employee}/>
         </Switch>
         
         <Footer/>

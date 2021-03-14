@@ -17,6 +17,7 @@
         display: grid;
         .tittle {
             font-size: $size-s;
+            color: nth($blue,1);
         }
         .description {
             font-size: $size-l;

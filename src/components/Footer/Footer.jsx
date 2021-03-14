@@ -11,19 +11,19 @@ class Footer extends React.Component {
         return (
             <div id="footer" className="cell-4">
                 <div className="footer-box">
-                    <p>Lorem ipsum.</p>
-                    <p>Lorem ipsum.</p>
-                    <p>Lorem ipsum.</p>
+                    <p>Biblioteca de Salud</p>
+                    <p>Cómo contratar</p>
+                    <p>Cuadro Médico</p>
                 </div>
                 <div className="footer-box">
-                    <p>Lorem ipsum.</p>
-                    <p>Lorem ipsum.</p>
-                    <p>Lorem ipsum.</p>
+                    <p>Sobre nosotros</p>
+                    <p>Preguntas frecuentes</p>
+                    <p>Trabaja con nosotros</p>
                 </div>
                 <div className="footer-box">
-                    <p>Lorem ipsum.</p>
-                    <p>Lorem ipsum.</p>
-                    <p>Lorem ipsum.</p>
+                    <p> RRHH y bolsa de trabajo Icono footer</p>
+                    <p>Portal mediadores Icono footer</p>
+                    <p>Portal profesionales Icono footer</p>
                 </div>
                 <div className="footer-box">
                     <p><FontAwesomeIcon icon={faPhoneAlt}/> 655369875</p>

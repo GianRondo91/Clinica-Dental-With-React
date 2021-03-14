@@ -176,7 +176,8 @@
     align-content: center;
     display: grid; }
     #body .connect .tittle {
-      font-size: 38px; }
+      font-size: 38px;
+      color: #1E90FF; }
     #body .connect .description {
       font-size: 24px; }
     #body .connect .button {

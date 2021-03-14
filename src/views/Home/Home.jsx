@@ -16,9 +16,9 @@ class Home extends React.Component {
                 <div id="body">
                     <div className="img"></div>
                     <div className="connect">
-                        <div className="tittle">Let´s Connect</div>
-                        <div className="description">fehdgdfhsfdhfdhd</div>
-                        <div className="button">GET IN TOUCH</div>
+                        <div className="tittle">Test COVID-19</div>
+                        <div className="description">Acceso exclusivo a precios reducidos, solo para asegurados de Adelas o Sanitas</div>
+                        <div className="button">Más información</div>
                     </div>
 
                 </div>

@@ -1,0 +1,87 @@
+/*Fonts*/
+$fontButton: Courier New;
+
+/*Colors*/
+$red: (#CD5C5C, #F08080, #FA8072, #E9967A, #FFA07A, #DC143C, #FF0000, #B22222, #8B0000);
+$yellow: (#FFFFE0, #FFFACD, #FAFAD2, #FFFF00, #FFD700);
+$green: (#98FB98, #90EE90, #00FA9A, #00FF7F, #3CB371, #2E8B57, #228B22, #008000, #006400);
+$blue: (#1E90FF, #6495ED, #4169E1, #0000FF, #0000CD, #00008B);
+$brown:(#FFF8DC, #FFEBCD, #FFE4C4, #F5DEB3, #DEB887, #CD853F, #8B4513);
+$grey: (#DCDCDC, #C0C0C0, #A9A9A9, #808080, #696969);
+
+$principal-color:white ;
+$alternative-color:white;
+$Danger-color:white;
+
+$btnBlue:(#3d94f6,#337fed,#1e62d0);
+$btnRed:(#f24537,#c62d1f,#d02718);
+$btnGreen:(#89c403,#74b807,#77a809);
+$fontColor:(#ffffff, #A4A4A4, #585858, #1C1C1C, #000000);
+
+/*Sizes*/
+$size-aa: 1px;
+$size-a: 2px; 
+$size-b: 4px; 
+$size-c: 6px; 
+$size-d: 8px; 
+$size-e: 10px; 
+$size-f: 12px;    
+$size-g: 14px;
+$size-h: 16px;
+$size-i: 18px;
+$size-j: 20px;
+$size-k: 22px;
+$size-l: 24px;
+$size-m: 26px;
+$size-n: 28px;
+$size-o: 30px;
+$size-p: 32px;
+$size-q: 34px;
+$size-r: 36px;
+$size-s: 38px;
+$size-t: 40px;
+
+/*Margin and Padding*/
+$mp-a: 0px;
+$mp-b: 2px;
+$mp-c: 4px;
+$mp-d: 6px;
+$mp-e: 8px;
+$mp-f: 10px;
+$mp-g: 12px;
+$mp-h: 16px;
+$mp-i: 20px;
+$mp-j: 24px;
+$mp-k: 32px;
+$mp-l: 40px;
+$mp-m: 48px;
+$mp-n: 64px;
+$mp-o: 80px;
+$mp-p: 96px;
+$mp-q: 128px;
+$mp-r: 160px;
+$mp-s: 192px;
+$mp-t: 224px;
+$mp-v: 256px;
+$mp-w: 320px;
+$mp-x: 480px;
+$mp-y: 640px;
+$mp-z: 700px;
+$mp-z-a: 800px;
+$mp-z-b: 900px;
+$mp-z-c: 1200px;
+
+/*For Grid*/
+$max: 6;
+
+@for $i from 1 through $max {
+    $equ: 100% / $i;
+
+    #header.cell-#{$i} > div {
+        width: $equ;
+    }
+
+    #footer.cell-#{$i} > div {
+        width: $equ;
+    }
+}

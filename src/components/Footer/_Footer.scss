@@ -1,0 +1,21 @@
+
+#footer> div {
+    height: $mp-m;
+    box-sizing: border-box;
+    float: left;
+    text-align: center;
+    width: 130px;
+}
+
+#footer {
+    height: $mp-q;
+    display: flex;
+    align-items: center;
+    
+    & .footer-box{
+        font-size: $size-g;
+        & p{
+            margin-bottom: 0;
+        }
+    }
+}

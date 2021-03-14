@@ -38,8 +38,8 @@ const checkError = (datosCheck) => {
             default:
                 console.log('Los datos que has introducido no son los corectos');
             break;
-        }
-    }
+        };
+    };
 };
 export default checkError;
 

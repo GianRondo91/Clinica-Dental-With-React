@@ -56,13 +56,15 @@ let Employee = () => {
                             <ul>
                                 <li>Id: {employee.id}</li>
                                 <li>Edad: {employee.age}</li>
+                                <li>Email: {employee.email}</li>
+                                <li>Dirección: {employee.address}</li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    )
+    );
 };
 
 export default Employee;

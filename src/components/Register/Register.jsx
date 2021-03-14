@@ -69,9 +69,15 @@ const Register = () => {
             localStorage.setItem('dataRegister', result);
             localStorage.setItem('register', true);
 
+<<<<<<< HEAD
             setState({ open: false});
 
             console.log('esto es localstorage', localStorage);
+=======
+        
+            console.log('esto es dataRegister', dataRegister);
+            console.log('esto es result', result);
+>>>>>>> b7cbea7fd37376ae291c37c18798e1805e9143f3
         };
 
     return (

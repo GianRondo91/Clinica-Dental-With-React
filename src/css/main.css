@@ -733,21 +733,18 @@ button.rbc-input::-moz-focus-inner {
   height: 480px; }
   .box .card {
     height: 320px 640px;
-    width: 800px;
-    background-color: #3CB371; }
+    width: 800px; }
     .box .card .title {
       height: 80px;
-      background-color: #FFFACD;
       display: flex;
       align-items: center;
       justify-content: center; }
       .box .card .title .title-name {
+        font-size: 20px;
         height: 48px;
-        width: 256px;
-        background-color: #98FB98; }
+        width: 256px; }
   .box .body-card {
     height: 256px;
-    background-color: #FFA07A;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -755,16 +752,17 @@ button.rbc-input::-moz-focus-inner {
     .box .body-card .card-img {
       height: 256px;
       width: 256px;
-      background-color: #CD5C5C;
       display: flex;
       align-items: center;
       justify-content: center; }
-      .box .body-card .card-img .img {
-        width: 60px; }
+      .box .body-card .card-img img {
+        width: 80px; }
     .box .body-card .data {
       width: 256px;
       height: 192px;
-      background-color: #FAFAD2; }
+      padding-left: 0px; }
+      .box .body-card .data ul li {
+        list-style: none; }
 
 .img {
   background-image: url(https://statics.vrutal.com/m/6fc7/6fc72981d8c8ffefc9116025380b363c.jpg); }

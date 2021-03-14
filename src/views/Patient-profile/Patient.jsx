@@ -27,7 +27,7 @@ const Patient = () => {
            setPatient(result.data);
        }
        getPatient();
-   });
+   },[]);
 
     //ver si esta logeado
     if (localStorage.getItem('login') !== 'Patient') {

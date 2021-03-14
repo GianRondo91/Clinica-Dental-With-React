@@ -26,7 +26,7 @@ let Employee = () => {
             setEmployee(result.data);
         }
         getEmployee();
-    });
+    },[]);
 
     //ver si esta logeado
     if (localStorage.getItem('login') !== 'Employee') {

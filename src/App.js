@@ -16,7 +16,7 @@ import Patient from './views/Patient-profile/Patient';
 import Footer from './components/Footer/Footer';
 import PatientData from './components/Patient/Data-patient/Data-patient';
 import PatientApointment from './components/Patient/Appointment-patient/Appointment-patient';
-import MedicalRecordPatient from './components/Patient/Medical-record-patient/Medical-record-aptient';
+import MedicalRecordPatient from './components/Patient/Medical-record-patient/Medical-record-patient';
 
 function App() {
 

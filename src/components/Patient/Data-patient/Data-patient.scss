@@ -1,7 +1,7 @@
-.body-data {
-    .form-data {
+
+    .table-medical-record {
         max-width: $mp-z;
-        margin-left: auto;
-        margin: 20px auto 80px auto;
+        height: $mp-l;
+        margin: $mp-l auto $mp-v auto;
+        text-align: center; 
     }
-}

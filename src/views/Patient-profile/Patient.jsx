@@ -22,7 +22,7 @@ class Patient extends React.Component {
                         </div>
                         <div className="body-card">
                             <div className="card-img">
-                                <div className="img">Imagen</div>
+                                <div className="img"></div>
                             </div>
                             <div className="data">
                                 <ul>

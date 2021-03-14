@@ -142,8 +142,14 @@
     #footer .footer-box p {
       margin-bottom: 0; }
 
+.table-medical-record {
+  max-width: 700px;
+  height: 40px;
+  margin: 40px auto 256px auto;
+  text-align: center; }
+
 .body-data .form-data {
-  max-width: 690px;
+  max-width: 700px;
   margin-left: auto;
   margin: 20px auto 80px auto; }
 
@@ -188,14 +194,11 @@
   justify-content: center;
   height: 480px; }
   .box .card {
-    height: 320px;
-    width: 640px;
-    background-color: #3CB371;
-    display: flex;
-    flex-direction: column; }
+    height: 320px 640px;
+    width: 800px;
+    background-color: #3CB371; }
     .box .card .title {
       height: 80px;
-      width: 640px;
       background-color: #FFFACD;
       display: flex;
       align-items: center;
@@ -219,8 +222,11 @@
       align-items: center;
       justify-content: center; }
       .box .body-card .card-img .img {
-        background-color: #1E90FF; }
+        width: 60px; }
     .box .body-card .data {
       width: 256px;
       height: 192px;
       background-color: #FAFAD2; }
+
+.img {
+  background-image: url(https://statics.vrutal.com/m/6fc7/6fc72981d8c8ffefc9116025380b363c.jpg); }

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, Label } from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, Label, FormFeedback } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 
 
@@ -12,67 +12,122 @@ const Register = () => {
         open: false
     });
 
+    //
+    const [validationResult, setValitationResult] = useState({
+        validated: false,
+        name: null
+    });
+
     const toggleRegister = () => {
         setState({ open: !state.open });
     }
 
-    //
-        //Hooks
-        const [dataRegister, setRegister] = useState ({
-            name: '', 
-            surname1: '', 
-            surname2: '', 
-            age: '', 
-            gender: '', 
-            address: '',
-            phone: '',
-            birth: '',
-            email: '', 
-            password: '',
-            userType: ''
-        });
-        
-        //const [mensaje, setMensaje] = useState('');
-        
-    
-        //UseEffect
-        useEffect(() => {
-            console.log('Componente montado por primera vez, HOLA !');
-        }, []);
-    
-        useEffect(() => {
-            
-        });
-    
-        useEffect(() => {
-            return() => {
-                console.log('Me he desmontado, ADIOS !');
-            }
-        }, []);
-    
-        //Handlers
-        const handleState = (event) => {
-            let data = {...dataRegister, [event.target.name] : event.target.value};
-            setRegister(data)
-            console.log('update data', dataRegister);
+    //Hooks
+    const [dataRegister, setRegister] = useState({
+        name: '',
+        surname1: '',
+        surname2: '',
+        age: '',
+        gender: '',
+        address: '',
+        phone: '',
+        birth: '',
+        email: '',
+        password: '',
+        userType: ''
+    });
+
+    //const [mensaje, setMensaje] = useState('');
+
+
+    //UseEffect
+    useEffect(() => {
+        // console.log('Componente montado por primera vez, HOLA !');
+    }, []);
+
+    useEffect(() => {
+
+    });
+
+    useEffect(() => {
+        return () => {
+            // console.log('Me he desmontado, ADIOS !');
         }
-    
-    
-        //Función para traer los datos de Backend
-        const btnRegister = async () => {
-            let role = dataRegister.userType === 'Patient' ? 'patients' : 'employees';
+    }, []);
 
-            let result = await axios.post(`http://localhost:3001/${role}/register`, dataRegister);
-            console.log('Resultado', result.data);
-    
+    //
+    const validate = (inputName, inputValue) => {
+        //
+        switch (inputName) {
+            case 'name':
+            case 'surname1':
+            case 'surname2':
+            case 'age':
+            case 'birth':
+            case 'address':
+            case 'phone':
+            case 'gender':
+            case 'userType':
+            case 'email':
+            case 'password':
+                return /^\s*$/.test(inputValue) ? 'Campo vacio' : null;
+            default:
+            break;
+        }
+    };
 
-            localStorage.setItem('dataRegister', result);
-            localStorage.setItem('register', true);
+    //
+    const checkErrors = (datosCheck) => {
+        let results = {};
 
-            setState({ open: false});
+        //
+        for (let field in datosCheck) {
+            //
+            results[field] = validate(field, datosCheck[field]);
+        }
 
-            console.log('esto es localstorage', localStorage);
-        };
+        return results;
+    };
+
+    //Handlers
+    const handleState = (event) => {
+
+        //
+        setValitationResult({
+            //
+            ...validationResult,
+            //
+            [event.target.name]: validate(event.target.name, event.target.value)
+        });
+
+        let data = { ...dataRegister, [event.target.name]: event.target.value };
+        setRegister(data)
+        console.log('update data', dataRegister);
+    }
+
+
+    //Función para traer los datos de Backend
+    const btnRegister = async () => {
+
+        setValitationResult({
+            ...checkErrors(dataRegister),
+            validated: true
+        });
+
+        let role = dataRegister.userType === 'Patient' ? 'patients' : 'employees';
+
+        let result = await axios.post(`http://localhost:3001/${role}/register`, dataRegister);
+        console.log('Resultado', result.data);
+
+
+        localStorage.setItem('dataRegister', result);
+        localStorage.setItem('register', true);
+
+        setState({ open: false });
+
+        console.log('esto es localstorage', localStorage);
+    };
+
 
     return (
         <div className="register">
@@ -82,59 +137,70 @@ const Register = () => {
             <Modal isOpen={state.open}>
                 <ModalHeader>
                     Registrarse
-                            </ModalHeader>
+                </ModalHeader>
                 <ModalBody>
                     <FormGroup>
-                        <Label form='email'>Nombre:</Label>
-                        <Input type='text' id='user' name='name' onChange={handleState}/>
+                        <Label for='name'>Nombre:</Label>
+                        <Input type='text' id='name' name='name' onChange={handleState} valid={validationResult.validated && !validationResult.name} invalid={validationResult.validated && validationResult.name} />
+                        <FormFeedback>{validationResult.name}</FormFeedback>
                     </FormGroup>
                     <FormGroup>
-                        <Label form='surname'>Primer Apellido:</Label>
-                        <Input type='text' id='user' name='surname1' onChange={handleState}/>
+                        <Label for='surname1'>Primer Apellido:</Label>
+                        <Input type='text' id='surname1' name='surname1' onChange={handleState} valid={validationResult.validated && !validationResult.surname1} invalid={validationResult.validated && validationResult.surname1} />
+                        <FormFeedback>{validationResult.surname1}</FormFeedback>
                     </FormGroup>
                     <FormGroup>
-                        <Label form='surname'>Segundo Apellido:</Label>
-                        <Input type='text' id='user' name='surname2' onChange={handleState}/>
+                        <Label for='surname2'>Segundo Apellido:</Label>
+                        <Input type='text' id='surname2' name='surname2' onChange={handleState} valid={validationResult.validated && !validationResult.surname2} invalid={validationResult.validated && validationResult.surname2} />
+                        <FormFeedback>{validationResult.surname2}</FormFeedback>
                     </FormGroup>
                     <FormGroup>
-                        <Label form='age'>Edad:</Label>
-                        <Input type='number' id='user' name='age' onChange={handleState}/>
+                        <Label for='age'>Edad:</Label>
+                        <Input type='number' id='age' name='age' onChange={handleState} valid={validationResult.validated && !validationResult.age} invalid={validationResult.validated && validationResult.age} />
+                        <FormFeedback>{validationResult.age}</FormFeedback>
                     </FormGroup>
                     <FormGroup>
-                        <Label form='date'>Fecha de nacimiento:</Label>
-                        <Input type='date' name='birth' id='user' onChange={handleState}/>
+                        <Label for='birth'>Fecha de nacimiento:</Label>
+                        <Input type='date' name='birth' id='birth' onChange={handleState} valid={validationResult.validated && !validationResult.birth} invalid={validationResult.validated && validationResult.birth} />
+                        <FormFeedback>{validationResult.birth}</FormFeedback>
                     </FormGroup>
                     <FormGroup>
-                        <Label form='address'>Dirección : </Label>
-                        <Input type='text' id='address' name='address' onChange={handleState}/>
+                        <Label for='address'>Dirección : </Label>
+                        <Input type='text' id='address' name='address' onChange={handleState} valid={validationResult.validated && !validationResult.address} invalid={validationResult.validated && validationResult.address} />
+                        <FormFeedback>{validationResult.address}</FormFeedback>
                     </FormGroup>
                     <FormGroup>
-                        <Label form='phone'>Teléfono : </Label>
-                        <Input type='number' id='phone' name='phone' onChange={handleState}/>
+                        <Label for='phone'>Teléfono : </Label>
+                        <Input type='number' id='phone' name='phone' onChange={handleState} valid={validationResult.validated && !validationResult.phone} invalid={validationResult.validated && validationResult.phone} />
+                        <FormFeedback>{validationResult.phone}</FormFeedback>
                     </FormGroup>
                     <FormGroup>
-                        <Label for='select'>Sexo:</Label>
-                        <Input type='select' name='gender' id='selecrRango' onChange={handleState}>
+                        <Label for='gender'>Sexo:</Label>
+                        <Input type='select' name='gender' id='gender' onChange={handleState} valid={validationResult.validated && !validationResult.gender} invalid={validationResult.validated && validationResult.gender} >
                             <option></option>
                             <option>Hombre</option>
                             <option>Mujer</option>
                         </Input>
-                    </FormGroup> 
+                        <FormFeedback>{validationResult.gender}</FormFeedback>
+                    </FormGroup>
                     <FormGroup>
-                        <Label for='select'>Rango:</Label>
-                        <Input type='select' name='userType' id='selecrRango' onChange={handleState}>
+                        <Label for='userType'>Rango:</Label>
+                        <Input type='select' name='userType' id='userType' onChange={handleState} valid={validationResult.validated && !validationResult.userType} invalid={validationResult.validated && validationResult.userType} >
                             <option></option>
                             <option>Patient</option>
                             <option>Employee</option>
                         </Input>
-                    </FormGroup> 
+                        <FormFeedback>{validationResult.userType}</FormFeedback>
+                    </FormGroup>
                     <FormGroup>
                         <Label form='email'>Email:</Label>
-                        <Input type='text' id='user' name='email' onChange={handleState}/>
+                        <Input type='text' id='email' name='email' onChange={handleState} valid={validationResult.validated && !validationResult.email} invalid={validationResult.validated && validationResult.email} />
+                        <FormFeedback>{validationResult.email}</FormFeedback>
                     </FormGroup>
                     <FormGroup>
                         <Label form='password'>Password:</Label>
-                        <Input type='password' id='password' name='password' onChange={handleState}/>
+                        <Input type='password' id='password' name='password' onChange={handleState} valid={validationResult.validated && !validationResult.password} invalid={validationResult.validated && validationResult.password} />
+                        <FormFeedback>{validationResult.password}</FormFeedback>
                     </FormGroup>
 
                 </ModalBody>

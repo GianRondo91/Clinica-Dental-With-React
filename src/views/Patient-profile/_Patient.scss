@@ -1,3 +1,19 @@
+.image {
+   width: $mp-v;
+   height: $mp-v;
+
+   border: $mp-c nth($grey, 5)
+}
+
 .img {
-    background-image: url(https://statics.vrutal.com/m/6fc7/6fc72981d8c8ffefc9116025380b363c.jpg);
+    width: $mp-v;
+    height: $mp-v;
+
+    position: absolute; 
+}
+.card-img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }

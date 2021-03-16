@@ -5,4 +5,32 @@
         margin-left: auto;
         margin: $mp-i auto $mp-o auto; 
     }
+   
+    .dataProfile {
+        width: 50em;
+        height: 20em;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .text-center {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .dataImg {
+        width: $mp-q;
+        height: $mp-o;
+
+    
+    }
+
+ 
+
+    
+
 }

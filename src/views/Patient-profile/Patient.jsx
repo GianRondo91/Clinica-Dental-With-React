@@ -48,7 +48,7 @@ const Patient = () => {
 
                 <div className="card">
                     <div className="title">
-                        <div className='title-name'>{patient.name}{patient.surname1}{patient.surname2}</div>
+                        <div className='title-name'>Hola, {patient.name} {patient.surname1} {patient.surname2}</div>
                     </div>
                     <div className="body-card">
                         <div className="card-img">

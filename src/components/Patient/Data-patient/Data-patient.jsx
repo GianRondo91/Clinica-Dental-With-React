@@ -6,26 +6,18 @@ import { Col, Row, Button, Form, FormGroup, Label, Input, FormText } from 'react
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.css';
 
-let DataPatient = () => {
+//Redux
+import { connect } from 'react-redux';
+import Register from '../../Register/Register';
+
+let DataPatient = (props) => {
     const history = useHistory();
 
 
-    /*
-    FUNCIÓN PARA HACER UPDATE
-
-    if(){
-        return(
-            <div class="alert alert-success" role="alert">
-                Has modificado los datos con éxito !
-            </div>
-        )
-    }
-    */
-
     //ver si esta logeado
-    
-    if (localStorage.getItem('login') !== 'Patient') {
-        setTimeout(()=>{
+
+    if(!props.user?.token){
+       setTimeout(()=>{
             history.push('/');
         },0);
         
@@ -45,8 +37,7 @@ let DataPatient = () => {
                     <FormGroup>
                         <Label for="exampleFile">Modificar Imagen de Perfil</Label>
                         <div><Input type="file" name="file" id="exampleFile" className="d-flex justify-content-center"></Input>
-                        {/* <Input type="file" name="file" id="exampleFile" onChange={(event)=> subirArchivos(event.target.files)}/>
-                        <button className="btn btn-primary" onClick={()=> insertarArchivos()}>Insertar Archivos</button> */}</div>
+                        </div>
                     </FormGroup>
                 </div>
                 <Form className='form-data'>
@@ -125,35 +116,7 @@ let DataPatient = () => {
                             id="exampleAddress"
                             placeholder="Av.cataluya 1234" />
                     </FormGroup>
-                    {/* <Row form>
-                        <Col md={6}>
-                            <FormGroup>
-                                <Label for="ciudad">Ciudad</Label>
-                                <Input 
-                                type="text" 
-                                name="ciudad" 
-                                id="ciudad" />
-                            </FormGroup>
-                        </Col>
-                        <Col md={4}>
-                            <FormGroup>
-                                <Label for="provincia">Provincia:</Label>
-                                <Input 
-                                type="text" 
-                                name="provincia" 
-                                id="provincia" />
-                            </FormGroup>
-                        </Col>
-                        <Col md={2}>
-                            <FormGroup>
-                                <Label for="cp">Codigo Postal:</Label>
-                                <Input 
-                                type="cp" 
-                                name="cp" 
-                                id="cp" />
-                            </FormGroup>
-                        </Col>
-                    </Row> */}
+                    
                     <Button>Guardar</Button>
                 </Form>
             </div>
@@ -162,7 +125,13 @@ let DataPatient = () => {
 
 };
 
-export default DataPatient;
+const mapStateToProps = (state) => {
+    return {
+        user : state.userReducer.user
+    }
+}
+
+export default connect(mapStateToProps)(DataPatient);
 
     //FUNCIÓN PARA CARGAR IMÁGENES
 

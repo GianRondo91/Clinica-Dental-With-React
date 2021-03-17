@@ -4,17 +4,22 @@ import { useHistory } from 'react-router-dom';
 import HeaderEmployee from '../Header-employee/Header-employee';
 import { Col, Row, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
-let DataEmployee = () => {
+//Redux
+import { connect } from 'react-redux';
+import Register from '../../Register/Register';
+
+
+let DataEmployee = (props) => {
     const history = useHistory();
 
     //ver si esta logeado
-    
-    if (localStorage.getItem('login') !== 'Employee') {
+
+    if(!props.user?.token){
         setTimeout(()=>{
-            history.push('/');
-        },0);
-        
-        return null;
+             history.push('/');
+         },0);
+         
+         return null;
     }
 
     return (
@@ -118,4 +123,11 @@ let DataEmployee = () => {
 
 };
 
-export default DataEmployee;
+const mapStateToProps = (state) => {
+    return {
+        user : state.userReducer.user
+    }
+}
+
+export default connect(mapStateToProps)(DataEmployee);
+

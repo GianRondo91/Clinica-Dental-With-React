@@ -7,8 +7,12 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, L
 import 'bootstrap/dist/css/bootstrap.css';
 import checkError from '../../uti';
 
+//Redux
+import { LOGIN } from '../../redux/types/userType';
+import { connect } from 'react-redux';
 
-const Login = () => {
+
+const Login = (props) => {
     //Estado del Modal
     const [state, setState] = useState({
         open: false
@@ -60,15 +64,21 @@ const Login = () => {
 
         let role = dataLogin.userType === 'Patient' ? 'patients' : 'employees';
 
+
         try {
 
             let result = await axios.post(`http://localhost:3001/${role}/login`, dataLogin);
             console.log('Dentro de enter, después de axios', dataLogin);
 
             //Guardamos los datos en localStorage
-            localStorage.setItem('userId', result.data.id);
-            localStorage.setItem('token', result.data.token);
-            localStorage.setItem('login', dataLogin.userType);
+            // localStorage.setItem('userId', result.data.id);
+            // localStorage.setItem('token', result.data.token);
+            // localStorage.setItem('login', dataLogin.userType);
+
+
+            //Mandamos los datos de Login por Redux a store
+            props.dispatch({type: LOGIN, payload: result});
+
 
             //Redireccionamos según el perfil elegido
             return setTimeout(() => {
@@ -124,4 +134,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default connect()(Login);

@@ -5,8 +5,11 @@ import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, Label, FormFeedback } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 
+//Redux
+import { connect } from 'react-redux';
+import { REGISTER } from '../../redux/types/userType';
 
-const Register = () => {
+const Register = (props) => {
     //Estado del Modal
     const [state, setState] = useState({
         open: false
@@ -120,8 +123,19 @@ const Register = () => {
         console.log('Resultado', result.data);
 
 
+<<<<<<< HEAD
         localStorage.setItem('dataRegister', result);
         localStorage.setItem('register', true);
+=======
+            // localStorage.setItem('dataRegister', result);
+            // localStorage.setItem('register', true);
+
+
+            //Mandamos los datos de register por Redux a store
+            props.dispatch({type: REGISTER, payload: result});
+
+
+>>>>>>> feature/install-redux
 
         setState({ open: false });
 
@@ -213,4 +227,4 @@ const Register = () => {
     );
 };
 
-export default Register;
+export default connect()(Register);

@@ -6,15 +6,6 @@ import { Col, Row, Button, Form, FormGroup, Label, Input, FormText } from 'react
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.css';
 
-<<<<<<< HEAD
-let DataPatient = () => {
-    const history = useHistory();
-
-    //ver si esta logeado
-
-    if (localStorage.getItem('login') !== 'Patient') {
-        setTimeout(() => {
-=======
 //Redux
 import { connect } from 'react-redux';
 import Register from '../../Register/Register';
@@ -27,7 +18,6 @@ let DataPatient = (props) => {
 
     if(!props.user?.token){
        setTimeout(()=>{
->>>>>>> feature/install-redux
             history.push('/');
         }, 0);
 

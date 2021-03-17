@@ -1,12 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useHistory } from 'react-router-dom';
-import { Table } from 'reactstrap';
+import { Table, Toast, ToastBody, ToastHeader, Button, Input } from 'reactstrap';
 import HeaderPatient from '../Header-patient/Header-patient';
 
 
-let MrPatient = () => {
+let MrPatient = (props) => {
     
     const history = useHistory();
+
+    const { buttonLabel } = props;
+    const [show, setShow] = useState(false);
+
+    const toggle = () => setShow(!show);
+
 
     //ver si esta logeado
     
@@ -25,7 +31,8 @@ let MrPatient = () => {
                 <HeaderPatient />
             </div>
             <div classNam='body-medical-record'>
-                <Table borderless className='table-medical-record'>
+                <Table borderless 
+                className='table-medical-record'>
                     <thead>
                         <tr>
                             <th>Fecha</th>
@@ -72,8 +79,27 @@ let MrPatient = () => {
                             <td className='medical-record-reason'></td>
                         </tr>
                     </tbody>
+
+                    <div className="d-flex justify-content-center">
+                        <Button color="primary" onClick={toggle}>{buttonLabel}OTRA INFORMACIÓN DE INTERÉS</Button>
+                        <br />
+                        <br />
+                        <Toast isOpen={show}>
+                            <ToastHeader toggle={toggle}>Alergias</ToastHeader>
+                            <ToastBody>
+                                <Input plaintext value='medicalrecords-allergy'></Input>
+                                <Button>MODIFICAR DATOS</Button>
+                                {/* onClick={() => updateData()} */}
+                            </ToastBody>
+                        </Toast>
+                    </div>
+
                 </Table>
+ 
+
             </div>
+
+            
         </div>
     )
 

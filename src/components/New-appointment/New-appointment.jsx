@@ -2,26 +2,26 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserAlt } from '@fortawesome/free-solid-svg-icons';
+import { faCalendarCheck } from '@fortawesome/free-solid-svg-icons';
 import { Col, Row, Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, Label } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import checkError from '../../uti';
 
 
-const Login = () => {
+const NewAppointment = () => {
     //Estado del Modal
     const [state, setState] = useState({
         open: false
     });
 
-    const toggleLogin = () => {
+    const toggleNewAppointment = () => {
         setState({ open: !state.open });
     }
 
     const history = useHistory();
 
-    //Hook -> Estado del Login
-    const [dataLogin, setLogin] = useState({
+    //Hook -> Estado del NewAppointment
+    const [dataNewAppointment, setNewAppointment] = useState({
         email: '',
         password: '',
         userType: '',
@@ -32,8 +32,8 @@ const Login = () => {
 
     //Handlers
     const handleState = (event) => {
-        let data = { ...dataLogin, [event.target.name]: event.target.value };
-        setLogin(data);
+        let data = { ...dataNewAppointment, [event.target.name]: event.target.value };
+        setNewAppointment(data);
         console.log(data)
     };
 
@@ -43,12 +43,12 @@ const Login = () => {
         console.log('Soy el componente montado de LOGIN!')
     }, []);
 
-    const enter = async () => {
+    const save = async () => {
 
         console.log('Estamos dentro de la función enter');
         //Manejo de errores
         setMensaje('');
-        let mensajeError = checkError(dataLogin);
+        let mensajeError = checkError(dataNewAppointment);
         setMensaje(mensajeError);
         console.log(mensajeError, 'Este es el mensajeError');
         console.log(mensaje, 'Este es el mensaje');
@@ -58,23 +58,23 @@ const Login = () => {
             return;
         }
 
-        let role = dataLogin.userType === 'Patient' ? 'patients' : 'employees';
+        let role = dataNewAppointment.userType === 'Patient' ? 'patients' : 'employees';
 
         try {
 
-            let result = await axios.post(`http://localhost:3001/${role}/login`, dataLogin);
-            console.log('Dentro de enter, después de axios', dataLogin);
+            let result = await axios.post(`http://localhost:3001/${role}/login`, dataNewAppointment);
+            console.log('Dentro de enter, después de axios', dataNewAppointment);
 
             //Guardamos los datos en localStorage
             localStorage.setItem('userId', result.data.id);
             localStorage.setItem('token', result.data.token);
-            localStorage.setItem('login', dataLogin.userType);
+            localStorage.setItem('login', dataNewAppointment.userType);
 
             //Redireccionamos según el perfil elegido
             return setTimeout(() => {
-                if (dataLogin.userType === 'Patient') {
+                if (dataNewAppointment.userType === 'Patient') {
                     history.push('/patient')
-                } else if (dataLogin.userType === 'Employee') {
+                } else if (dataNewAppointment.userType === 'Employee') {
                     history.push('/employee')
                 } else {
                     alert('Eres un intruso!')
@@ -89,13 +89,11 @@ const Login = () => {
 
     return (
         <div className="login">
-
-            <div className="button-login button" onClick={toggleLogin}>Acceder <FontAwesomeIcon icon={faUserAlt} /></div>
-
+            <div className="button-new-appointment button" onClick={toggleNewAppointment}> Pedir Cita <FontAwesomeIcon icon={faCalendarCheck} /></div>
 
             <Modal isOpen={state.open}>
                 <ModalHeader>
-                    Iniciar Sesion
+                    Nueva Cita
                     </ModalHeader>
                 <ModalBody>
 
@@ -105,15 +103,24 @@ const Login = () => {
                     </FormGroup>
 
                     <FormGroup>
+                        <Label for='gender'>Médico:</Label>
+                        <Input type='select' name='gender' id='gender'>
+                            <option></option>
+                            <option>AAA</option>
+                            <option>BB</option>
+                        </Input>
+                    </FormGroup>
+
+                    <FormGroup>
                         <Row form>
                             <Col md={6}>
                                 <FormGroup>
                                     <Label for="exampleDatetime">Hora: </Label>
                                     <Input
-                                        type="datetime"
-                                        name="datetime"
-                                        id="exampleDatetime"
-                                        placeholder="datetime placeholder"
+                                        type="time"
+                                        name="time"
+                                        id="time"
+                                        placeholder=""
                                     />
                                 </FormGroup>
                             </Col>
@@ -123,22 +130,22 @@ const Login = () => {
                                     <Input
                                         type="date"
                                         name="date"
-                                        id="exampleDate"
-                                        placeholder="date placeholder"
+                                        id="date"
+                                        placeholder="date"
                                     />
                                 </FormGroup>
                             </Col>
                         </Row>
                     </FormGroup>
-                    
+
                 </ModalBody>
                 <ModalFooter>
-                    <Button color='primary' onClick={enter}>Entrar</Button>
-                    <Button color='secundary' onClick={toggleLogin}>Salir</Button>
+                    <Button color='primary' onClick={save}>Guardar</Button>
+                    <Button color='secundary' onClick={toggleNewAppointment}>Cancelar</Button>
                 </ModalFooter>
             </Modal>
         </div>
     );
 };
 
-export default Login;
+export default NewAppointment;

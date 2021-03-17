@@ -81,26 +81,9 @@ let MrPatient = (props) => {
                     </tbody>
 
                 </Table>
-                {/* <div className="d-flex justify-content-center">
-                        <Button color="primary" onClick={toggle}>{buttonLabel}OTRA INFORMACIÓN DE INTERÉS</Button>
-                        <br />
-                        <br />
-                        <Toast isOpen={show}>
-                            <ToastHeader toggle={toggle}>Alergias</ToastHeader>
-                            <ToastBody>
-                                <Input plaintext value='medicalrecords-allergy'></Input>
-                                <Button>MODIFICAR DATOS</Button>
-                                {/* onClick={() => updateData()} */}
-                            {/* </ToastBody> */}
-                        {/* </Toast> */}
-                    {/* </div> */}
-
             </div>
-
-            
         </div>
     )
-
 };
 
 export default MrPatient;

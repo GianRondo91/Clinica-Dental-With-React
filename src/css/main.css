@@ -680,7 +680,10 @@ button.rbc-input::-moz-focus-inner {
 #footer {
   height: 128px;
   display: flex;
-  align-items: center; }
+  align-items: center;
+  background-color: #ADDDFD;
+  position: unset !important;
+  bottom: 0px; }
   #footer .footer-box {
     font-size: 14px; }
     #footer .footer-box p {
@@ -759,15 +762,43 @@ button.rbc-input::-moz-focus-inner {
       margin-left: auto;
       margin-right: auto; }
 
+.body-contact {
+  width: 100%; }
+  .body-contact .form {
+    width: 480px;
+    margin-left: auto;
+    margin-right: auto; }
+  .body-contact .map {
+    margin-top: 20px;
+    margin-bottom: 50px; }
+    .body-contact .map .google-map {
+      height: 500px;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto; }
+      .body-contact .map .google-map .pin {
+        display: flex;
+        align-items: center;
+        white-space: break-spaces;
+        width: 180px; }
+      .body-contact .map .google-map .pin-icon {
+        font-size: 4rem;
+        color: #CD5C5C; }
+      .body-contact .map .google-map .pin-text {
+        font-size: 1.3em;
+        margin-top: 20px;
+        color: #B22222; }
+
 .box {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 480px; }
+  height: 480px;
+  margin-bottom: 24px; }
   .box .card {
     width: 640px;
-    height: 320px; }
+    border: none; }
     .box .card .title {
       height: 80px;
       display: flex;
@@ -777,33 +808,34 @@ button.rbc-input::-moz-focus-inner {
         font-size: 20px;
         height: 48px;
         width: 320px;
-        background-color: aliceblue;
         text-align: center; }
         .box .card .title .title-name .saludo {
           font-size: 32px;
-          color: #007bff; }
+          color: #1E90FF; }
     .box .card .body-card {
       height: 256px;
       display: flex;
       flex-direction: row;
-      justify-content: space-around;
+      justify-content: center;
       align-items: center; }
       .box .card .body-card .card-img {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: 192px;
+        width: 160px;
         height: 192px;
-        background-color: aliceblue; }
-        .box .card .body-card .card-img .img {
-          width: 80px;
-          position: absolute;
-          background-image: url(); }
+        margin-right: 48px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-image: url("https://user-images.githubusercontent.com/56218293/111500987-dbcb6d00-8744-11eb-8e4d-da57326baf22.png"); }
       .box .card .body-card .data {
-        width: 256px;
+        width: 160px;
         height: 192px; }
         .box .card .body-card .data .data-ul {
           width: 320px;
           padding-left: 0px;
           list-style: none; }
+          .box .card .body-card .data .data-ul .data-li .data-li-icon {
+            color: #1E90FF;
+            margin-right: 10px; }

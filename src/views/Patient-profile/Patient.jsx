@@ -5,7 +5,7 @@ import axios from 'axios';
 
 //
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPortrait, faBirthdayCake, faEnvelope, faVenusMars, faMobile, faHome } from '@fortawesome/free-solid-svg-icons';
+import { faPortrait, faBirthdayCake, faEnvelope, faVenusMars, faMobileAlt, faHome } from '@fortawesome/free-solid-svg-icons';
 
 const Patient = () => {
 
@@ -55,16 +55,15 @@ const Patient = () => {
                     </div>
                     <div className="body-card">
                         <div className="card-img">
-                            <div className="img">Imagen</div>
                         </div>
                         <div className="data">
                             <ul className='data-ul'>
-                                <li><FontAwesomeIcon icon={faPortrait} /> {patient.id}</li>
-                                <li><FontAwesomeIcon icon={faBirthdayCake} /> {patient.age}</li>
-                                <li><FontAwesomeIcon icon={faVenusMars} /> {patient.gender}</li>
-                                <li><FontAwesomeIcon icon={faMobile} /> {patient.phone}</li>
-                                <li><FontAwesomeIcon icon={faEnvelope} /> {patient.email}</li>
-                                <li><FontAwesomeIcon icon={faHome} /> {patient.address}</li>
+                                <li className='data-li'><FontAwesomeIcon icon={faPortrait} className='data-li-icon'/> {patient.id}</li>
+                                <li className='data-li'><FontAwesomeIcon icon={faBirthdayCake}  className='data-li-icon'/> {patient.age}</li>
+                                <li className='data-li'><FontAwesomeIcon icon={faVenusMars}  className='data-li-icon'/> {patient.gender}</li>
+                                <li className='data-li'><FontAwesomeIcon icon={faMobileAlt}  className='data-li-icon'/> {patient.phone}</li>
+                                <li className='data-li'><FontAwesomeIcon icon={faEnvelope}  className='data-li-icon'/> {patient.email}</li>
+                                <li className='data-li'><FontAwesomeIcon icon={faHome}  className='data-li-icon'/> {patient.address}</li>
                             </ul>
                         </div>
                     </div>

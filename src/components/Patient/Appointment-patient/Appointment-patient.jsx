@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import HeaderPatient from '../Header-patient/Header-patient';
-import { Toast, ToastBody, ToastHeader } from 'reactstrap';
+import { Row, Col, Toast, ToastBody, ToastHeader } from 'reactstrap';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 let AppointmentPatient = (props) => {
@@ -15,12 +15,12 @@ let AppointmentPatient = (props) => {
     const [modal, setModal] = useState(false);
 
     //ver si esta logeado
-    
+
     if (localStorage.getItem('login') !== 'Patient') {
-        setTimeout(()=>{
+        setTimeout(() => {
             history.push('/');
-        },0);
-        
+        }, 0);
+
         return null;
     }
 
@@ -40,19 +40,26 @@ let AppointmentPatient = (props) => {
                             Extracción
                         </ToastHeader>
                         <ToastBody>
-                            <div>
-                                <Button color="danger" onClick={toggle}>{buttonLabel} Cancelar</Button>
-                                <Modal isOpen={modal} toggle={toggle} className={className}>
-                                    <ModalHeader toggle={toggle}>Modal title</ModalHeader>
-                                    <ModalBody>
-                                        ¿Estas seguro que quieres cancelarla la cita?
-                                    </ModalBody>
-                                    <ModalFooter>
-                                        <Button color="primary" onClick={toggle}>Do Something</Button>{' '}
-                                        <Button color="secondary" onClick={toggle}>Cancel</Button>
-                                    </ModalFooter>
-                                </Modal>
-                            </div>
+                            <Row form>
+                                <Col>
+                                    <p>Dia:</p><em></em>
+                                    <p>Hora:</p><em></em>
+                                </Col>
+                                <Col>
+                                    <Button color="danger" onClick={toggle}>{buttonLabel} Cancelar</Button>
+                                </Col>
+                            </Row>
+
+                            <Modal isOpen={modal} toggle={toggle} className={className}>
+                                <ModalHeader toggle={toggle}>Modal title</ModalHeader>
+                                <ModalBody>
+                                    ¿Estas seguro que quieres cancelarla la cita?
+                                </ModalBody>
+                                <ModalFooter>
+                                    <Button color="primary" onClick={toggle}>Do Something</Button>{' '}
+                                    <Button color="secondary" onClick={toggle}>Cancel</Button>
+                                </ModalFooter>
+                            </Modal>
                         </ToastBody>
                     </Toast>
                 </div>
@@ -63,8 +70,15 @@ let AppointmentPatient = (props) => {
                             Limpieza
                         </ToastHeader>
                         <ToastBody>
-                            <div>
-                                <Button color="danger" onClick={toggle}>{buttonLabel} Cancelar</Button>
+                            <Row form>
+                                <Col>
+                                    <p>Dia:</p><em></em>
+                                    <p>Hora:</p><em></em>
+                                </Col>
+                                <Col>
+                                    <Button color="danger" onClick={toggle}>{buttonLabel} Cancelar</Button>
+                                </Col>
+                            </Row>
                                 <Modal isOpen={modal} toggle={toggle} className={className}>
                                     <ModalHeader toggle={toggle}>Modal title</ModalHeader>
                                     <ModalBody>
@@ -75,7 +89,6 @@ let AppointmentPatient = (props) => {
                                         <Button color="secondary" onClick={toggle}>Cancel</Button>
                                     </ModalFooter>
                                 </Modal>
-                            </div>
                         </ToastBody>
                     </Toast>
                 </div>
@@ -87,7 +100,7 @@ let AppointmentPatient = (props) => {
                         </ToastHeader>
                         <ToastBody>
                             <div>
-                                <Button color="danger" onClick={toggle}>{buttonLabel} Eliminar</Button>
+                                <Button color="danger">{buttonLabel} Eliminar</Button>
                                 <Modal isOpen={modal} toggle={toggle} className={className}>
                                     <ModalHeader toggle={toggle}>Modal title</ModalHeader>
                                     <ModalBody>
@@ -101,21 +114,6 @@ let AppointmentPatient = (props) => {
                             </div>
                         </ToastBody>
                     </Toast>
-                </div>
-                <div class="accordion" id="accordionExample">
-                    <div class="card">
-                        <div class="card-header" id="headingOne">
-                            <h2 class="mb-0">
-                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                ¿Quieres pedir una nueva cita?
-                                </button>
-                            </h2>
-                        </div>
-
-                        <div id="collapseOne" class="collapse show"     aria-labelledby="headingOne" data-parent="#accordionExample">
-                            <div class="card-body"></div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

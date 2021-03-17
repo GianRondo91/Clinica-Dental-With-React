@@ -4,9 +4,10 @@
     align-items: center;
     justify-content: center;
     height: $mp-x;
+    margin-bottom: $mp-j;
     .card {
         width: $mp-y;
-        height: $mp-w;
+        border: none;
         .title {
             height: $mp-o;
             display: flex;
@@ -16,11 +17,10 @@
                 font-size: $size-j;
                 height: $mp-m;
                 width: $mp-w;
-                background-color: aliceblue;
                 text-align: center;
                 .saludo {
                     font-size: $size-p;
-                    color: #007bff;
+                    color: nth($blue, 1);
                 }
             }
         }
@@ -28,30 +28,34 @@
             height: $mp-v;
             display: flex;
             flex-direction: row;
-            justify-content: space-around;
+            justify-content: center;
             align-items: center;
             .card-img {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                width: $mp-s;
+                width: $mp-r;
                 height: $mp-s;
-                background-color: aliceblue;
-                .img {
-                    width: $mp-o;
-                    position: absolute;
-                    background-image: url();
-                }
+                margin-right: $mp-m;
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-image: url('https://user-images.githubusercontent.com/56218293/111500987-dbcb6d00-8744-11eb-8e4d-da57326baf22.png');
             }
             .data {
-                width: $mp-v;
+                width: $mp-r;
                 height: $mp-s;
                 // padding-left: $mp-a;
                 .data-ul {
                     width: $mp-w;
                     padding-left: $mp-a;
                     list-style: none;
+                    .data-li{
+                        .data-li-icon{
+                            color: nth($blue, 1);
+                            margin-right: $mp-f;
+                        }
+                    }
                 }
             }
         }

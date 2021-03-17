@@ -19,6 +19,11 @@ import PatientApointment from './components/Patient/Appointment-patient/Appointm
 import MedicalRecordPatient from './components/Patient/Medical-record-patient/Medical-record-patient';
 import EmployeeData from './components/Employee/Data-employee/Data-employee';
 import EmployeeCalendar from './components/Employee/Calendar-employee/Calendar-employee';
+import Contact from './views/Contact/Contact';
+import Promotion from './views/Promotion/Promotion';
+import About from './views/About/About';
+
+
 function App() {
 
   return (
@@ -27,6 +32,9 @@ function App() {
         
         <Switch>
           <Route path='/' exact component={Home}/>
+          <Route path='/promotion' exact component={Promotion}/>
+          <Route path='/about-tisdenplus' exact component={About}/>
+          <Route path='/contact' exact component={Contact}/>
           <Route path='/patient' exact component={Patient}/>
           <Route path='/patient/data' exact component={PatientData}/>
           <Route path='/patient/appointments' exact component={PatientApointment}/>

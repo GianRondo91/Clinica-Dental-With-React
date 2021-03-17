@@ -11,7 +11,9 @@
     height: $mp-q;
     display: flex;
     align-items: center;
-    
+    background-color: $alternative-color;
+    position: unset !important;
+    bottom: 0px;
     & .footer-box{
         font-size: $size-g;
         & p{

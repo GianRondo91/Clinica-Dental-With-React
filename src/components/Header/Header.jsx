@@ -28,9 +28,9 @@ class Header extends React.Component {
                 <div className="menu-list">
                     <ul className="menu-list-ul">
                         <li className='menu-list-ul-li'><a href="/">Home</a></li>
-                        <li className='menu-list-ul-li'><a href="/">Promociones</a></li>
-                        <li className='menu-list-ul-li'><a href="/">Sobre Nosotros</a></li>
-                        <li className='menu-list-ul-li'><a href="/">Contacto</a></li>
+                        <li className='menu-list-ul-li'><a href="/promotion">Promociones</a></li>
+                        <li className='menu-list-ul-li'><a href="/about-tisdenplus">Sobre Nosotros</a></li>
+                        <li className='menu-list-ul-li'><a href="/contact">Contacto</a></li>
                     </ul>
                 </div>
             

@@ -80,7 +80,8 @@ let MrPatient = (props) => {
                         </tr>
                     </tbody>
 
-                    <div className="d-flex justify-content-center">
+                </Table>
+                {/* <div className="d-flex justify-content-center">
                         <Button color="primary" onClick={toggle}>{buttonLabel}OTRA INFORMACIÓN DE INTERÉS</Button>
                         <br />
                         <br />
@@ -90,12 +91,9 @@ let MrPatient = (props) => {
                                 <Input plaintext value='medicalrecords-allergy'></Input>
                                 <Button>MODIFICAR DATOS</Button>
                                 {/* onClick={() => updateData()} */}
-                            </ToastBody>
-                        </Toast>
-                    </div>
-
-                </Table>
- 
+                            {/* </ToastBody> */}
+                        {/* </Toast> */}
+                    {/* </div> */}
 
             </div>
 

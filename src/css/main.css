@@ -656,6 +656,19 @@ button.rbc-input::-moz-focus-inner {
     padding: 4px 10px;
     text-decoration: none;
     margin: 8px; }
+  #header .buttons .button-new-appointment {
+    color: #ffffff;
+    background: linear-gradient(to bottom, #3d94f6 5%, #1e62d0 100%);
+    background-color: #3d94f6;
+    border-radius: 4px;
+    border: 1px solid #337fed;
+    display: inline-block;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 4px 10px;
+    text-decoration: none;
+    margin: 8px; }
 
 #footer > div {
   height: 48px;
@@ -678,6 +691,27 @@ button.rbc-input::-moz-focus-inner {
   height: auto;
   margin-left: auto;
   margin: 20px auto 80px auto; }
+
+.body-data .dataProfile {
+  width: 50em;
+  height: 20em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around; }
+
+.body-data .text-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+.body-data .dataImg {
+  width: 128px;
+  height: 80px; }
+
+#appointment-patient .body-paient {
+  margin-left: 48px;
+  margin-right: 48px; }
 
 .table.table-medical-record {
   width: 640px;
@@ -732,8 +766,8 @@ button.rbc-input::-moz-focus-inner {
   justify-content: center;
   height: 480px; }
   .box .card {
-    height: 320px 640px;
-    width: 800px; }
+    width: 640px;
+    height: 320px; }
     .box .card .title {
       height: 80px;
       display: flex;
@@ -742,27 +776,34 @@ button.rbc-input::-moz-focus-inner {
       .box .card .title .title-name {
         font-size: 20px;
         height: 48px;
-        width: 256px; }
-  .box .body-card {
-    height: 256px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center; }
-    .box .body-card .card-img {
+        width: 320px;
+        background-color: aliceblue;
+        text-align: center; }
+        .box .card .title .title-name .saludo {
+          font-size: 32px;
+          color: #007bff; }
+    .box .card .body-card {
       height: 256px;
-      width: 256px;
       display: flex;
-      align-items: center;
-      justify-content: center; }
-      .box .body-card .card-img img {
-        width: 80px; }
-    .box .body-card .data {
-      width: 256px;
-      height: 192px;
-      padding-left: 0px; }
-      .box .body-card .data ul li {
-        list-style: none; }
-
-.img {
-  background-image: url(https://statics.vrutal.com/m/6fc7/6fc72981d8c8ffefc9116025380b363c.jpg); }
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center; }
+      .box .card .body-card .card-img {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 192px;
+        height: 192px;
+        background-color: aliceblue; }
+        .box .card .body-card .card-img .img {
+          width: 80px;
+          position: absolute;
+          background-image: url(); }
+      .box .card .body-card .data {
+        width: 256px;
+        height: 192px; }
+        .box .card .body-card .data .data-ul {
+          width: 320px;
+          padding-left: 0px;
+          list-style: none; }

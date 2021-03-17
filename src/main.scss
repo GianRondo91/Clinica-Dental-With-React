@@ -2,7 +2,7 @@
 // @import './scss/utilities/reset.scss';
 @import './scss/utilities/variables.scss';
 @import './scss/utilities/_mixings.scss';
-
+//
 @import '../node_modules/react-big-calendar/lib/sass/styles.scss';
 
 /*Components*/
@@ -11,7 +11,9 @@
 @import './components/Employee/Header-employee/Header-employee.scss';
 @import './components/Footer/Footer.scss';
 @import './components/Patient/Data-patient/Data-patient.scss';
+@import './components/Patient/Appointment-patient/Appointment-patient.scss';
 @import './components/Patient/Medical-record-patient/Medical-record-patient.scss';
+
 
 /*Views*/
 @import './views/Home/Home.scss';

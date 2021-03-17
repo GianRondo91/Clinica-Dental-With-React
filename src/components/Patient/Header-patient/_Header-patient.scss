@@ -6,5 +6,9 @@
             color: nth($fontColor,1);
             @include principal-button(nth($btnRed,1), nth($btnRed,2), nth($btnRed,3));
         }
+        .button-new-appointment{
+            color: nth($fontColor,1);
+            @include principal-button(nth($btnBlue,1), nth($btnBlue,2), nth($btnBlue,3));
+        }
     }
 }

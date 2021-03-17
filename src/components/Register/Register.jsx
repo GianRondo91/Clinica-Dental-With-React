@@ -42,7 +42,7 @@ const Register = () => {
 
     //UseEffect
     useEffect(() => {
-        // console.log('Componente montado por primera vez, HOLA !');
+        console.log('Componente montado en el registro!');
     }, []);
 
     useEffect(() => {
@@ -51,7 +51,7 @@ const Register = () => {
 
     useEffect(() => {
         return () => {
-            // console.log('Me he desmontado, ADIOS !');
+            console.log('Me he desmontado, ADIOS !');
         }
     }, []);
 
@@ -108,7 +108,7 @@ const Register = () => {
 
     //Función para traer los datos de Backend
     const btnRegister = async () => {
-
+        console.log('entre');
         setValitationResult({
             ...checkErrors(dataRegister),
             validated: true

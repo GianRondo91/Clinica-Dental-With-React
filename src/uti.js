@@ -30,11 +30,14 @@ const checkError = (datosCheck) => {
                     }
                 }
                 else if(! /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/.test(datosCheck[field])){
-                    return 'La contraseña debe contener 8 caracteres, mayúscula, minúscula, número y algún caracter especial';
+                    return 'La contraseña debe contener al menos 8 caracteres, mayúscula, minúscula, números y algún caracter especial.';
                 }
                 
             break;
-            
+
+            case 'number':
+                if(!/^[\d]{3}[-]*([\d]{2}[-]*){2}[\d]{2}$/.test(datosCheck[field]));
+                return 'El número introducido no tiene el formato de un número telefonico.';
             default:
                 console.log('Los datos que has introducido no son los corectos');
             break;

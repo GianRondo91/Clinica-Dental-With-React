@@ -3,7 +3,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 //
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserTimes } from '@fortawesome/free-solid-svg-icons';
+import { faUserTimes,  faCalendarCheck } from '@fortawesome/free-solid-svg-icons';
 //
 import 'bootstrap/dist/css/bootstrap.css';
 
@@ -14,6 +14,17 @@ let HeaderPatient = () => {
     const exit = () => {
         localStorage.clear();
         history.push('/');
+    }
+
+    let state = {
+        open: false,
+    }
+
+    const openLogin = () => {
+        setState({ open: !state.open });
+    }
+    const openRegister = () => {
+        setState({ open: !state.open });
     }
 
     return (
@@ -30,7 +41,8 @@ let HeaderPatient = () => {
             </div>
 
             <div className="buttons">
-            <div className="button-exit button" onClick={exit}> Salir <FontAwesomeIcon icon={faUserTimes} /></div>
+                <div className="button-exit button" onClick={exit}> Salir <FontAwesomeIcon icon={faUserTimes} /></div>
+                <div className="button-new-appointment button"> Pedir Cita <FontAwesomeIcon icon={faCalendarCheck} /></div>
             </div>
         </div>
     )

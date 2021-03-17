@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 //import axios from 'axios';
 import HeaderPatient from '../Header-patient/Header-patient';
@@ -23,12 +23,12 @@ let DataPatient = () => {
     */
 
     //ver si esta logeado
-    
+
     if (localStorage.getItem('login') !== 'Patient') {
-        setTimeout(()=>{
+        setTimeout(() => {
             history.push('/');
-        },0);
-        
+        }, 0);
+
         return null;
     }
 
@@ -39,48 +39,8 @@ let DataPatient = () => {
                 <HeaderPatient />
             </div>
             <div className='body-data body-data-patient'>
-                <div className="text-center">
-                    <div className="d-flex justify-content-center"><img src="..." className="rounded" alt="..."/></div>
-                    <div><Label for='patient-name'> Nombre completo Paciente</Label></div>
-                    <FormGroup>
-                        <Label for="exampleFile">Modificar Imagen de Perfil</Label>
-                        <div><Input type="file" name="file" id="exampleFile" className="d-flex justify-content-center"></Input>
-                        {/* <Input type="file" name="file" id="exampleFile" onChange={(event)=> subirArchivos(event.target.files)}/>
-                        <button className="btn btn-primary" onClick={()=> insertarArchivos()}>Insertar Archivos</button> */}</div>
-                    </FormGroup>
-                </div>
-                <Form className='form-data'>
-                    <FormGroup>
-                        <Label for="exampleNumber">Edad:</Label>
-                        <Input
-                            type="number"
-                            name="age"
-                            id="exampleAge"
-                            placeholder="45"
-                        />
-                    </FormGroup>
-                    <FormGroup>
-                        <fieldset className="form-group">
-                            <div className="row">
-                                <legend className="col-form-label col-sm-2 pt-0">Género</legend>
-                                <div className="col-sm-10">
-                                    <div className="form-check">
-                                        <input className="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked/>
-                                        <label className="form-check-label" for="gridRadios1">
-                                            Hombre
-                                        </label>
-                                    </div>
-                                    <div className="form-check">
-                                        <input className="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2"/>
-                                        <label className="form-check-label" for="gridRadios2">
-                                            Mujer
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </fieldset>
-                    </FormGroup>
 
+                <Form className='form-data'>
                     <FormGroup>
                         <Label for="exampleEmail">Email:</Label>
                         <Input
@@ -109,6 +69,31 @@ let DataPatient = () => {
                         />
                     </FormGroup>
                     <FormGroup>
+                        <Row form>
+                            <Col md={6}>
+                                <FormGroup>
+                                    <Label for="exampleNumber">Edad:</Label>
+                                    <Input
+                                        type="number"
+                                        name="age"
+                                        id="exampleAge"
+                                        placeholder="45"
+                                    />
+                                </FormGroup>
+                            </Col>
+                            <Col md={4}>
+                                <FormGroup>
+                                    <Label for='gender'>Sexo:</Label>
+                                    <Input type='select' name='gender' id='gender'>
+                                        <option></option>
+                                        <option>Hombre</option>
+                                        <option>Mujer</option>
+                                    </Input>
+                                </FormGroup>
+                            </Col>
+                        </Row>
+                    </FormGroup>
+                    <FormGroup>
                         <Label for="exampleDatetime">Fecha de Nacimiento:</Label>
                         <Input
                             type="date"
@@ -125,35 +110,35 @@ let DataPatient = () => {
                             id="exampleAddress"
                             placeholder="Av.cataluya 1234" />
                     </FormGroup>
-                    {/* <Row form>
+                    <Row form>
                         <Col md={6}>
                             <FormGroup>
                                 <Label for="ciudad">Ciudad</Label>
-                                <Input 
-                                type="text" 
-                                name="ciudad" 
-                                id="ciudad" />
+                                <Input
+                                    type="text"
+                                    name="ciudad"
+                                    id="ciudad" />
                             </FormGroup>
                         </Col>
                         <Col md={4}>
                             <FormGroup>
                                 <Label for="provincia">Provincia:</Label>
-                                <Input 
-                                type="text" 
-                                name="provincia" 
-                                id="provincia" />
+                                <Input
+                                    type="text"
+                                    name="provincia"
+                                    id="provincia" />
                             </FormGroup>
                         </Col>
                         <Col md={2}>
                             <FormGroup>
                                 <Label for="cp">Codigo Postal:</Label>
-                                <Input 
-                                type="cp" 
-                                name="cp" 
-                                id="cp" />
+                                <Input
+                                    type="cp"
+                                    name="cp"
+                                    id="cp" />
                             </FormGroup>
                         </Col>
-                    </Row> */}
+                    </Row>
                     <Button>Guardar</Button>
                 </Form>
             </div>

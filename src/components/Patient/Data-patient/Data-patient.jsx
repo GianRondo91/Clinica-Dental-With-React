@@ -167,13 +167,12 @@ let DataPatient = (props) => {
             </div>
         </div>
     )
-
 };
 
 const mapStateToProps = (state) => {
-    return (
+    return {
         user : state.userReducer.user
-    )
+    }
 }
 
 export default connect(mapStateToProps)(DataPatient);

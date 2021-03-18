@@ -31,8 +31,6 @@ let DataPatient = (props) => {
                 <HeaderPatient />
             </div>
             <div className='body-data body-data-patient'>
-<<<<<<< HEAD
-=======
                 <div className="text-center">
                     <div className="d-flex justify-content-center"><img src="..." className="rounded" alt="..."/></div>
                     <div><Label for='patient-name'> Nombre completo Paciente</Label></div>
@@ -73,7 +71,6 @@ let DataPatient = (props) => {
                             </div>
                         </fieldset>
                     </FormGroup>
->>>>>>> feature/install-redux
 
                 <Form className='form-data'>
                     <FormGroup>
@@ -136,7 +133,6 @@ let DataPatient = (props) => {
                             id="exampleAddress"
                             placeholder="Av.cataluya 1234" />
                     </FormGroup>
-<<<<<<< HEAD
                     <Row form>
                         <Col md={5}>
                             <FormGroup>
@@ -166,9 +162,6 @@ let DataPatient = (props) => {
                             </FormGroup>
                         </Col>
                     </Row>
-=======
-                    
->>>>>>> feature/install-redux
                     <Button>Guardar</Button>
                 </Form>
             </div>
@@ -177,36 +170,12 @@ let DataPatient = (props) => {
 
 };
 
-<<<<<<< HEAD
-export default DataPatient;
-=======
 const mapStateToProps = (state) => {
-    return {
+    return (
         user : state.userReducer.user
-    }
+    )
 }
 
 export default connect(mapStateToProps)(DataPatient);
 
-    //FUNCIÓN PARA CARGAR IMÁGENES
-
-
-    // const [archivos, setArchivos] = useState(null);
-
-    // const subirArchivos = (event) => {
-    //     setArchivos(event);
-    // };
-
-    // const insertarArchivos = async () => {
-    //     const f = new FormData();
-
-    //     f.append('files', archivos);
-
-    //     await axios.post("https://localhost:3001/patients", f)
-    //     .then(response => (
-    //         console.log(response.data)
-    //     )).catch(error => {
-    //         console.log(error)
-    //     })
-    // };
->>>>>>> feature/install-redux
+ 

@@ -1,22 +1,25 @@
-
 #footer> div {
     height: $mp-m;
     box-sizing: border-box;
     float: left;
     text-align: center;
     width: 130px;
+    
 }
 
 #footer {
-    height: $mp-q;
     display: flex;
     align-items: center;
     background-color: $alternative-color;
-    position: unset !important;
-    bottom: 0px;
-    & .footer-box{
+    // position: unset !important;
+    width: 100%;
+    height: $mp-r;
+    position: relative !important;
+    bottom: 0;
+    left: 0;
+    .footer-box{
         font-size: $size-g;
-        & p{
+        p{
             margin-bottom: 0;
         }
     }

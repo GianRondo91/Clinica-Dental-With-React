@@ -29,31 +29,31 @@ let Contact = () => {
                         </FormGroup>
 
                         <FormGroup row>
-                            <Label for='name' sm={2}>Nombre: </Label>
-                            <Col sm={10}>
+                            <Label for='name' sm={3}>Nombre: </Label>
+                            <Col sm={8}>
                                 <Input type='name' name='name' id='name'></Input>
                             </Col>
                         </FormGroup>
                         <FormGroup row>
-                            <Label for='email' sm={2}>Email: </Label>
-                            <Col sm={10}>
+                            <Label for='email' sm={3}>Email: </Label>
+                            <Col sm={8}>
                                 <Input type='email' name='email' id='email'></Input>
                             </Col>
                         </FormGroup>
                         <FormGroup row>
-                            <Label for='mobile' sm={2}>Telefono: </Label>
-                            <Col sm={10}>
-                                <Input type='mobile' name='number' id='number'></Input>
+                            <Label for='mobile' sm={3}>Telefono: </Label>
+                            <Col sm={8}>
+                                <Input type='number' name='mobile' id='mobile'></Input>
                             </Col>
                         </FormGroup>
                         <FormGroup row>
-                            <Label for="exampleText" sm={2}>Comentario:</Label>
-                            <Col sm={10}>
+                            <Label for="exampleText" sm={3}>Comentario: </Label>
+                            <Col sm={8}>
                                 <Input type="textarea" name="text" id="exampleText" />
                             </Col>
                         </FormGroup>
                         <FormGroup check row>
-                            <Col sm={{ size: 10, offset: 2 }}>
+                            <Col sm={{ size: 10, offset: 8 }}>
                                 <Button>Enviar</Button>
                             </Col>
                         </FormGroup>

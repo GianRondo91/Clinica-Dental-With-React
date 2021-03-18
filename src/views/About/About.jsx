@@ -3,7 +3,7 @@ import Header from '../../components/Header/Header';
 
 let About = () => {
     return (
-        <div className='about'>
+        <div id='about'>
             <div className="header-home">
                 <Header />
             </div>

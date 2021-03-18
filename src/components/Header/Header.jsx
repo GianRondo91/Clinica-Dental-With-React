@@ -4,6 +4,9 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Register from '../../components/Register/Register';
 import Login from '../../components/Login/Login';
 
+//Redux
+
+
 class Header extends React.Component {
     // constructor (props){
     //     super(props)

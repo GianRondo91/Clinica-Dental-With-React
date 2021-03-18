@@ -7,7 +7,6 @@
 
 #header{
     height: $mp-q;
-    // padding-bottom: $mp-n;
     text-align: center;
     .img{
         background-image: url(https://user-images.githubusercontent.com/56218293/111041917-f3e87700-843a-11eb-8e2c-44b49df18c92.png);
@@ -34,21 +33,21 @@
                 }
             }
         }
-        .buttons {
-            display: flex;
-            flex-direction: row-reverse;
-            padding-right: 16px;
-            .button-register {
-                color: nth($fontColor,1);
-                @include principal-button(nth($btnBlue,1), nth($btnBlue,2), nth($btnBlue,3));
-            }
-            .button-login {
-                color: nth($btnBlue, 1);
-                @include alternative-button(nth($btnBlue,1), nth($btnBlue,2));
-            }
-            .button1, .button2 {
-                float: right;
-            }
-        }
+    }
+}
+.buttons {
+    display: flex;
+    flex-direction: row-reverse;
+    padding-right: 16px;
+    .button-register {
+        color: nth($fontColor,1);
+        @include principal-button(nth($btnBlue,1), nth($btnBlue,2), nth($btnBlue,3));
+    }
+    .button-login {
+        color: nth($btnBlue, 1);
+        @include alternative-button(nth($btnBlue,1), nth($btnBlue,2));
+    }
+    .button1, .button2 {
+        float: right;
     }
 }

@@ -123,10 +123,6 @@ const Register = (props) => {
         console.log('Resultado', result.data);
 
 
-<<<<<<< HEAD
-        localStorage.setItem('dataRegister', result);
-        localStorage.setItem('register', true);
-=======
             // localStorage.setItem('dataRegister', result);
             // localStorage.setItem('register', true);
 
@@ -135,11 +131,10 @@ const Register = (props) => {
             props.dispatch({type: REGISTER, payload: result});
 
 
->>>>>>> feature/install-redux
 
         setState({ open: false });
 
-        console.log('esto es localstorage', localStorage);
+        console.log('esto es props', props);
     };
 
 

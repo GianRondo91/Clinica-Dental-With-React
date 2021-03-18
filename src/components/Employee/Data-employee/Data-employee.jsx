@@ -6,7 +6,7 @@ import { Col, Row, Button, Form, FormGroup, Label, Input, FormText } from 'react
 
 //Redux
 import { connect } from 'react-redux';
-import Register from '../../Register/Register';
+
 
 
 let DataEmployee = (props) => {

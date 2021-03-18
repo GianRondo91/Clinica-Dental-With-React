@@ -31,49 +31,6 @@ let DataPatient = (props) => {
                 <HeaderPatient />
             </div>
             <div className='body-data body-data-patient'>
-<<<<<<< HEAD
-=======
-                <div className="text-center">
-                    <div className="d-flex justify-content-center"><img src="..." className="rounded" alt="..."/></div>
-                    <div><Label for='patient-name'> Nombre completo Paciente</Label></div>
-                    <FormGroup>
-                        <Label for="exampleFile">Modificar Imagen de Perfil</Label>
-                        <div><Input type="file" name="file" id="exampleFile" className="d-flex justify-content-center"></Input>
-                        </div>
-                    </FormGroup>
-                </div>
-                <Form className='form-data'>
-                    <FormGroup>
-                        <Label for="exampleNumber">Edad:</Label>
-                        <Input
-                            type="number"
-                            name="age"
-                            id="exampleAge"
-                            placeholder="45"
-                        />
-                    </FormGroup>
-                    <FormGroup>
-                        <fieldset className="form-group">
-                            <div className="row">
-                                <legend className="col-form-label col-sm-2 pt-0">Género</legend>
-                                <div className="col-sm-10">
-                                    <div className="form-check">
-                                        <input className="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked/>
-                                        <label className="form-check-label" for="gridRadios1">
-                                            Hombre
-                                        </label>
-                                    </div>
-                                    <div className="form-check">
-                                        <input className="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2"/>
-                                        <label className="form-check-label" for="gridRadios2">
-                                            Mujer
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </fieldset>
-                    </FormGroup>
->>>>>>> feature/install-redux
 
                 <Form className='form-data'>
                     <FormGroup>
@@ -136,7 +93,6 @@ let DataPatient = (props) => {
                             id="exampleAddress"
                             placeholder="Av.cataluya 1234" />
                     </FormGroup>
-<<<<<<< HEAD
                     <Row form>
                         <Col md={5}>
                             <FormGroup>
@@ -166,9 +122,6 @@ let DataPatient = (props) => {
                             </FormGroup>
                         </Col>
                     </Row>
-=======
-                    
->>>>>>> feature/install-redux
                     <Button>Guardar</Button>
                 </Form>
             </div>
@@ -177,9 +130,6 @@ let DataPatient = (props) => {
 
 };
 
-<<<<<<< HEAD
-export default DataPatient;
-=======
 const mapStateToProps = (state) => {
     return {
         user : state.userReducer.user
@@ -209,4 +159,3 @@ export default connect(mapStateToProps)(DataPatient);
     //         console.log(error)
     //     })
     // };
->>>>>>> feature/install-redux

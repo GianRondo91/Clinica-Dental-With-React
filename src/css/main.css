@@ -602,36 +602,37 @@ button.rbc-input::-moz-focus-inner {
         padding-right: 40px; }
         #header .menu-list .menu-list-ul .menu-list-ul-li a {
           text-decoration: none; }
-    #header .menu-list .buttons {
-      display: flex;
-      flex-direction: row-reverse;
-      padding-right: 16px; }
-      #header .menu-list .buttons .button-register {
-        color: #ffffff;
-        background: linear-gradient(to bottom, #3d94f6 5%, #1e62d0 100%);
-        background-color: #3d94f6;
-        border-radius: 4px;
-        border: 1px solid #337fed;
-        display: inline-block;
-        cursor: pointer;
-        font-size: 14px;
-        font-weight: bold;
-        padding: 4px 10px;
-        text-decoration: none;
-        margin: 8px; }
-      #header .menu-list .buttons .button-login {
-        color: #3d94f6;
-        border-radius: 4px;
-        border: 1px solid #337fed;
-        display: inline-block;
-        cursor: pointer;
-        font-size: 14px;
-        font-weight: bold;
-        padding: 4px 10px;
-        text-decoration: none;
-        margin: 8px; }
-      #header .menu-list .buttons .button1, #header .menu-list .buttons .button2 {
-        float: right; }
+
+.buttons {
+  display: flex;
+  flex-direction: row-reverse;
+  padding-right: 16px; }
+  .buttons .button-register {
+    color: #ffffff;
+    background: linear-gradient(to bottom, #3d94f6 5%, #1e62d0 100%);
+    background-color: #3d94f6;
+    border-radius: 4px;
+    border: 1px solid #337fed;
+    display: inline-block;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 4px 10px;
+    text-decoration: none;
+    margin: 8px; }
+  .buttons .button-login {
+    color: #3d94f6;
+    border-radius: 4px;
+    border: 1px solid #337fed;
+    display: inline-block;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 4px 10px;
+    text-decoration: none;
+    margin: 8px; }
+  .buttons .button1, .buttons .button2 {
+    float: right; }
 
 #header .buttons {
   height: fit-content; }
@@ -761,10 +762,9 @@ button.rbc-input::-moz-focus-inner {
     width: 480px;
     margin: 160px auto; }
   .body-contact .map {
-    margin-top: 20px;
-    margin-bottom: 50px; }
+    margin-top: 20px; }
     .body-contact .map .google-map {
-      height: 500px;
+      height: 600px;
       width: 100%;
       margin-left: auto;
       margin-right: auto; }

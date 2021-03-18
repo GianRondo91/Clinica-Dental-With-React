@@ -8,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 //Redux
 import { connect } from 'react-redux';
-import Register from '../../Register/Register';
+
 
 let DataPatient = (props) => {
     const history = useHistory();
@@ -19,7 +19,7 @@ let DataPatient = (props) => {
     if(!props.user?.token){
        setTimeout(()=>{
             history.push('/');
-        }, 0);
+        }, 200);
 
         return null;
     }
@@ -164,10 +164,11 @@ let DataPatient = (props) => {
                     </Row>
                     <Button>Guardar</Button>
                 </Form>
+            </Form>
             </div>
         </div>
     )
-};
+}
 
 const mapStateToProps = (state) => {
     return {
@@ -177,4 +178,3 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps)(DataPatient);
 
- 

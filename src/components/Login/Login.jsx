@@ -54,9 +54,7 @@ const Login = (props) => {
         setMensaje('');
         let mensajeError = checkError(dataLogin);
         setMensaje(mensajeError);
-        console.log(mensajeError, 'Este es el mensajeError');
-        console.log(mensaje, 'Este es el mensaje');
-        console.log(setMensaje, 'Esto es setMensaje');
+
 
         if (mensajeError) {
             return;
@@ -68,29 +66,37 @@ const Login = (props) => {
         try {
 
             let result = await axios.post(`http://localhost:3001/${role}/login`, dataLogin);
-            console.log('Dentro de enter, después de axios', dataLogin);
 
-            //Guardamos los datos en localStorage
-            // localStorage.setItem('userId', result.data.id);
-            // localStorage.setItem('token', result.data.token);
-            // localStorage.setItem('login', dataLogin.userType);
+            console.log('Dentro de enter, después de axios, esto es DATALOGIN', dataLogin);
+            console.log('esto es results.data', result.data)
+            console.log('esto es results', result)
 
 
             //Mandamos los datos de Login por Redux a store
-            props.dispatch({type: LOGIN, payload: result});
+            props.dispatch({type: LOGIN, payload: result.data});
 
+            console.log(result.data, 'ESTO ES RESULT.DATA')
+
+            console.log('Dentro de enter, después de dispatch, esto es DATALOGIN', dataLogin);
+
+            console.log('esto es después de dispatch');
+            
 
             //Redireccionamos según el perfil elegido
             return setTimeout(() => {
+                
                 if (dataLogin.userType === 'Patient') {
+                    console.log('estamos en el if patient')
                     history.push('/patient')
                 } else if (dataLogin.userType === 'Employee') {
+                    console.log('estamos en el if employee')
                     history.push('/employee')
                 } else {
                     alert('Eres un intruso!')
                 }
-            }, 2000);
+            }, 200);
         } catch (error) {
+            // if(error.isAxiosError & error.response.status === 403){
             if(error.isAxiosError & error.response.status === 403){
                 alert('El usuario no existe');
             }
@@ -133,5 +139,7 @@ const Login = (props) => {
         </div>
     );
 };
+
+
 
 export default connect()(Login);

@@ -3,11 +3,16 @@ import { useHistory } from 'react-router-dom';
 import HeaderPatient from '../../components/Patient/Header-patient/Header-patient';
 import axios from 'axios';
 
-//
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPortrait, faBirthdayCake, faEnvelope, faVenusMars, faMobileAlt, faHome } from '@fortawesome/free-solid-svg-icons';
 
-const Patient = () => {
+//Redux
+import { connect } from 'react-redux';
+
+
+const Patient = (props) => {
+
+    console.log(props);
 
     const history = useHistory();
 
@@ -18,7 +23,7 @@ const Patient = () => {
         const getPatient = async() => {
 
            let id = localStorage.getItem('userId');
-   
+           
            let token = localStorage.getItem('token');
    
            if(!token){
@@ -28,18 +33,19 @@ const Patient = () => {
            let result = await axios.get(`http://localhost:3001/patients/${id}`, { headers: { authorization: token } });
            
            setPatient(result.data);
-       }
+        }
        getPatient();
    },[]);
 
     //ver si esta logeado
-    if (localStorage.getItem('login') !== 'Patient') {
+    if(!props.user?.token){
         setTimeout(()=>{
-            history.push('/');
-        },0);
-        
-        return null;
-    }
+             history.push('/');
+        }, 200);
+ 
+         return null;
+     }
+
 
     return (
         <div className="patient">
@@ -75,4 +81,10 @@ const Patient = () => {
 
 };
 
-export default Patient;
+const mapStateToProps = (state) => {
+    return {
+        user : state.userReducer.user
+    }
+}
+
+export default connect(mapStateToProps)(Patient);

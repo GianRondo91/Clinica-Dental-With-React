@@ -73,14 +73,16 @@ const Login = (props) => {
 
 
             //Mandamos los datos de Login por Redux a store
-            props.dispatch({type: LOGIN, payload: result.data});
+            props.dispatch({type: LOGIN, payload: result.data, dataLogin});
 
             console.log(result.data, 'ESTO ES RESULT.DATA')
 
             console.log('Dentro de enter, después de dispatch, esto es DATALOGIN', dataLogin);
 
             console.log('esto es después de dispatch');
-            
+
+            console.log(state, 'esto es state')
+            //console.log(state.user, 'STATE.USER')
 
             //Redireccionamos según el perfil elegido
             return setTimeout(() => {
@@ -97,7 +99,7 @@ const Login = (props) => {
             }, 200);
         } catch (error) {
             // if(error.isAxiosError & error.response.status === 403){
-            if(error.isAxiosError & error.response.status === 403){
+            if(error.isAxiosError & error.response?.status === 403){
                 alert('El usuario no existe');
             }
         }
@@ -140,6 +142,13 @@ const Login = (props) => {
     );
 };
 
+const mapStateToProps = (state) => {
+    return {
+        user : state.userReducer.user
+    }
+
+}
 
 
-export default connect()(Login);
+
+export default connect(mapStateToProps, {LOGIN})(Login);

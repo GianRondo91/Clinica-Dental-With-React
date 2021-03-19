@@ -38,4 +38,4 @@ let HeaderPatient = (props) => {
     )
 };
 
-export default connect(HeaderPatient);
+export default connect()(HeaderPatient);

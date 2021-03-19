@@ -3,6 +3,8 @@ import { useHistory, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserTimes } from '@fortawesome/free-solid-svg-icons';
 import { LOGOUT } from '../../../redux/types/userType';
+import { connect } from 'react-redux';
+
 
 let HeaderEmployee = (props) => {
 
@@ -33,4 +35,4 @@ let HeaderEmployee = (props) => {
     )
 };
 
-export default HeaderEmployee;
+export default connect()(HeaderEmployee);

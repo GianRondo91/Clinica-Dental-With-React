@@ -102,9 +102,6 @@ const Register = (props) => {
         let result = await axios.post(`http://localhost:3001/${role}/register`, dataRegister);
         console.log('Resultado', result.data);
 
-        
-        // localStorage.setItem('dataRegister', result);
-        // localStorage.setItem('register', true);
 
         //Mandamos los datos de register por Redux a store
         props.dispatch({ type: REGISTER, payload: result });

@@ -3,9 +3,9 @@ import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserAlt } from '@fortawesome/free-solid-svg-icons';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, Label } from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, Label,FormFeedback } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css';
-import checkError from '../../uti';
+import {validateField, validateFields, isValid } from '../../uti';
 
 //Redux
 import { LOGIN } from '../../redux/types/userType';
@@ -18,6 +18,14 @@ const Login = (props) => {
         open: false
     });
 
+    //Creo el estado que se llama validationResult donde se mantiene el estado de validez de 
+    //cada uno de los componentes del formulario y una propiedad (validated) que indica 
+    //si ya se intento enviar el formulario
+    const [validationResult, setValidationResult] = useState({
+        validated: false,
+        name: null
+    });
+
     const toggleLogin = () => {
         setState({ open: !state.open });
     }
@@ -28,17 +36,22 @@ const Login = (props) => {
     const [dataLogin, setLogin] = useState({
         email: '',
         password: '',
-        userType: '',
-        simplePasswordValidation: true
+        userType: ''
     })
-
-    const [mensaje, setMensaje] = useState('');
 
     //Handlers
     const handleState = (event) => {
         let data = { ...dataLogin, [event.target.name]: event.target.value };
         setLogin(data);
-        console.log(data)
+        // console.log(data)
+
+        //
+        setValidationResult({
+            //
+            ...validationResult,
+            //
+            [event.target.name]: validateField(event.target.name, event.target.value)
+        });
     };
 
 
@@ -48,17 +61,19 @@ const Login = (props) => {
     }, []);
 
     const enter = async () => {
-
         console.log('Estamos dentro de la función enter');
-        //Manejo de errores
-        setMensaje('');
-        let mensajeError = checkError(dataLogin);
-        setMensaje(mensajeError);
 
+        let validationResult = validateFields(dataLogin);
 
-        if (mensajeError) {
+        //Setea el estado de validación
+        setValidationResult({
+            ...validationResult,
+            validated: true
+        });
+
+        if(!isValid(validationResult)){
             return;
-        }
+        };
 
         let role = dataLogin.userType === 'Patient' ? 'patients' : 'employees';
 
@@ -67,37 +82,27 @@ const Login = (props) => {
 
             let result = await axios.post(`http://localhost:3001/${role}/login`, dataLogin);
 
-            console.log('Dentro de enter, después de axios, esto es DATALOGIN', dataLogin);
-            console.log('esto es results.data', result.data)
-            console.log('esto es results', result)
-
+            result.data.userType = dataLogin.userType;
 
             //Mandamos los datos de Login por Redux a store
-            props.dispatch({type: LOGIN, payload: result.data});
-
-            console.log(result.data, 'ESTO ES RESULT.DATA')
-
-            console.log('Dentro de enter, después de dispatch, esto es DATALOGIN', dataLogin);
-
-            console.log('esto es después de dispatch');
-            
+            props.dispatch({ type: LOGIN, payload: result.data });
 
             //Redireccionamos según el perfil elegido
             return setTimeout(() => {
-                
+
                 if (dataLogin.userType === 'Patient') {
-                    console.log('estamos en el if patient')
-                    history.push('/patient')
+                    // console.log('estamos en el if patient')
+                    history.push('/patient');
                 } else if (dataLogin.userType === 'Employee') {
-                    console.log('estamos en el if employee')
-                    history.push('/employee')
+                    // console.log('estamos en el if employee')
+                    history.push('/employee');
                 } else {
-                    alert('Eres un intruso!')
+                    alert('Eres un intruso!');
                 }
             }, 200);
         } catch (error) {
             // if(error.isAxiosError & error.response.status === 403){
-            if(error.isAxiosError & error.response.status === 403){
+            if (error.isAxiosError & error.response === 403) {
                 alert('El usuario no existe');
             }
         }
@@ -108,7 +113,6 @@ const Login = (props) => {
 
             <div className="button-login button" onClick={toggleLogin}>Acceder <FontAwesomeIcon icon={faUserAlt} /></div>
 
-
             <Modal isOpen={state.open}>
                 <ModalHeader>
                     Iniciar Sesion
@@ -116,19 +120,23 @@ const Login = (props) => {
                 <ModalBody>
                     <FormGroup>
                         <Label form='email'>Email</Label>
-                        <Input type='text' id='user' name='email' onChange={handleState} />
+                        <Input type='text' id='user' name='email' onChange={handleState} valid={validationResult.validated && !validationResult.email} invalid={validationResult.validated && validationResult.email} />
+                        <FormFeedback>{validationResult.email}</FormFeedback>
                     </FormGroup>
                     <FormGroup>
                         <Label form='password'>Contraseña</Label>
-                        <Input type='password' id='password' name='password' onChange={handleState} />
+                        <Input type='password' id='password' name='password' onChange={handleState} valid={validationResult.validated && !validationResult.password} invalid={validationResult.validated && validationResult.password} />
+                        <FormFeedback>{validationResult.password}</FormFeedback>
                     </FormGroup>
                     <FormGroup>
                         <Label for='select'>Rango</Label>
-                        <Input type='select' name='userType' id='selecrRango' onChange={handleState}>
+                        <Input type='select' name='userType' id='selecrRango' onChange={handleState} valid={validationResult.validated && !validationResult.userType} invalid={validationResult.validated && validationResult.userType}>
+
                             <option></option>
                             <option>Patient</option>
                             <option>Employee</option>
                         </Input>
+                        <FormFeedback>{validationResult.userType}</FormFeedback>
                     </FormGroup>
                 </ModalBody>
                 <ModalFooter>
@@ -139,7 +147,5 @@ const Login = (props) => {
         </div>
     );
 };
-
-
 
 export default connect()(Login);

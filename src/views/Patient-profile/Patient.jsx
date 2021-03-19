@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import { useHistory } from 'react-router-dom';
 import HeaderPatient from '../../components/Patient/Header-patient/Header-patient';
 import axios from 'axios';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPortrait, faBirthdayCake, faEnvelope, faVenusMars, faMobileAlt, faHome } from '@fortawesome/free-solid-svg-icons';
 
@@ -12,19 +11,16 @@ import { connect } from 'react-redux';
 
 const Patient = (props) => {
 
-    console.log(props);
-
+    // console.log(props);
     const history = useHistory();
-
     const [patient, setPatient] = useState({name: ''});
 
 
     useEffect(() => {
         const getPatient = async() => {
 
-           let id = localStorage.getItem('userId');
-           
-           let token = localStorage.getItem('token');
+            let id = props.user?.id;
+            let token = props.user?.token;
    
            if(!token){
                return;
@@ -43,9 +39,8 @@ const Patient = (props) => {
              history.push('/');
         }, 200);
  
-         return null;
-     }
-
+        return null;
+    }
 
     return (
         <div className="patient">
@@ -74,11 +69,9 @@ const Patient = (props) => {
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     )
-
 };
 
 const mapStateToProps = (state) => {

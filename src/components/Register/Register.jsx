@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, Label, FormFeedback } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css';
+import {validateField,validateFields, isValid}  from '../../uti';
 
 //Redux
 import { connect } from 'react-redux';
@@ -15,17 +16,20 @@ const Register = (props) => {
         open: false
     });
 
-    //
-    const [validationResult, setValitationResult] = useState({
+    //Creo el estado que se llama validationResult donde se mantiene el estado de validez de 
+    //cada uno de los componentes del formulario y una propiedad (validated) que indica 
+    //si ya se intento enviar el formulario
+    const [validationResult, setValidationResult] = useState({
         validated: false,
         name: null
     });
 
+    //Cabia el estado de abierto del modal
     const toggleRegister = () => {
         setState({ open: !state.open });
     }
 
-    //Hooks
+    //dataRegister -> Crea el estado del formulario
     const [dataRegister, setRegister] = useState({
         name: '',
         surname1: '',
@@ -58,49 +62,17 @@ const Register = (props) => {
         }
     }, []);
 
-    //
-    const validate = (inputName, inputValue) => {
-        //
-        switch (inputName) {
-            case 'name':
-            case 'surname1':
-            case 'surname2':
-            case 'age':
-            case 'birth':
-            case 'address':
-            case 'phone':
-            case 'gender':
-            case 'userType':
-            case 'email':
-            case 'password':
-                return /^\s*$/.test(inputValue) ? 'Campo vacio' : null;
-            default:
-                break;
-        }
-    };
-
-    //
-    const checkErrors = (datosCheck) => {
-        let results = {};
-
-        //
-        for (let field in datosCheck) {
-            //
-            results[field] = validate(field, datosCheck[field]);
-        }
-
-        return results;
-    };
+    
 
     //Handlers
     const handleState = (event) => {
 
         //
-        setValitationResult({
+        setValidationResult({
             //
             ...validationResult,
             //
-            [event.target.name]: validate(event.target.name, event.target.value)
+            [event.target.name]: validateField(event.target.name, event.target.value)
         });
 
         let data = { ...dataRegister, [event.target.name]: event.target.value };
@@ -112,10 +84,18 @@ const Register = (props) => {
     //Función para traer los datos de Backend
     const btnRegister = async () => {
         console.log('entre');
-        setValitationResult({
-            ...checkErrors(dataRegister),
+
+        let validationResult = validateFields(dataRegister);
+
+        //Setea el estado de validación
+        setValidationResult({
+            ...validationResult,
             validated: true
         });
+
+        if(!isValid(validationResult)){
+            return;
+        };
 
         let role = dataRegister.userType === 'Patient' ? 'patients' : 'employees';
 
@@ -126,21 +106,9 @@ const Register = (props) => {
         // localStorage.setItem('dataRegister', result);
         // localStorage.setItem('register', true);
 
-<<<<<<< HEAD
-            // localStorage.setItem('dataRegister', result);
-            // localStorage.setItem('register', true);
-=======
->>>>>>> 802830361f2cee34f8977ce871e245cdd907663e
-
         //Mandamos los datos de register por Redux a store
         props.dispatch({ type: REGISTER, payload: result });
 
-
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 802830361f2cee34f8977ce871e245cdd907663e
         setState({ open: false });
 
         console.log('esto es props', props);
@@ -173,11 +141,6 @@ const Register = (props) => {
                         <FormFeedback>{validationResult.surname2}</FormFeedback>
                     </FormGroup>
                     <FormGroup>
-                        <Label for='age'>Edad:</Label>
-                        <Input type='number' id='age' name='age' onChange={handleState} valid={validationResult.validated && !validationResult.age} invalid={validationResult.validated && validationResult.age} />
-                        <FormFeedback>{validationResult.age}</FormFeedback>
-                    </FormGroup>
-                    <FormGroup>
                         <Label for='birth'>Fecha de nacimiento:</Label>
                         <Input type='date' name='birth' id='birth' onChange={handleState} valid={validationResult.validated && !validationResult.birth} invalid={validationResult.validated && validationResult.birth} />
                         <FormFeedback>{validationResult.birth}</FormFeedback>
@@ -198,6 +161,7 @@ const Register = (props) => {
                             <option></option>
                             <option>Hombre</option>
                             <option>Mujer</option>
+                            <option>Indefinido</option>
                         </Input>
                         <FormFeedback>{validationResult.gender}</FormFeedback>
                     </FormGroup>

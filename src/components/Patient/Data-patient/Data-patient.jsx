@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
+// import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 //import axios from 'axios';
 import HeaderPatient from '../Header-patient/Header-patient';
-import { Col, Row, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-import axios from 'axios';
+import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+// import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.css';
 
 //Redux

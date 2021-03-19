@@ -1,26 +1,27 @@
-import React, {useState} from 'react';
+import React from 'react';
+// import React, {useState} from 'react';
 import { useHistory } from 'react-router-dom';
-import { Table, Toast, ToastBody, ToastHeader, Button, Input } from 'reactstrap';
+import { Table } from 'reactstrap';
 import HeaderPatient from '../Header-patient/Header-patient';
-
+import { connect } from 'react-redux';
 
 let MrPatient = (props) => {
     
     const history = useHistory();
 
-    const { buttonLabel } = props;
-    const [show, setShow] = useState(false);
+    // const { buttonLabel } = props;
 
-    const toggle = () => setShow(!show);
+    // const [show, setShow] = useState(false);
+
+    // const toggle = () => setShow(!show);
 
 
     //ver si esta logeado
-    
-    if (localStorage.getItem('login') !== 'Patient') {
+    if(props.user?.userType !== 'Patient'){
         setTimeout(()=>{
-            history.push('/');
-        },0);
-        
+             history.push('/');
+        }, 200);
+ 
         return null;
     }
 
@@ -85,5 +86,9 @@ let MrPatient = (props) => {
         </div>
     )
 };
-
-export default MrPatient;
+const mapStateToProps = (state) => {
+    return {
+        user : state.userReducer.user
+    }
+};
+export default connect(mapStateToProps)(MrPatient);

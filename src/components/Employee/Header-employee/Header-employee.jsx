@@ -1,28 +1,28 @@
 import React from 'react';
-//
-import { useHistory } from 'react-router-dom';
-//
+import { useHistory, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserTimes } from '@fortawesome/free-solid-svg-icons';
+import { LOGOUT } from '../../../redux/types/userType';
 
-let HeaderEmployee = () => {
+let HeaderEmployee = (props) => {
 
     const history = useHistory();
 
     const exit = () => {
-        localStorage.clear();
+        props.dispatch({ type: LOGOUT });
         history.push('/');
     }
+
     return (
         <div id="header" className="header-employee cell-3">
             <div className="img"></div>
 
             <div className="menu-list">
                 <ul className="menu-list-ul">
-                    <li className='menu-list-ul-li'><a href="/employee">Perfil</a></li>
-                    <li className='menu-list-ul-li'><a href="/employee/data">Mis datos</a></li>
-                    <li className='menu-list-ul-li'><a href="/employee/calendar">Calendario</a></li>
-                    <li className='menu-list-ul-li'><a href="/employee">Otro</a></li>
+                    <li className='menu-list-ul-li'><Link to='/employee'>Perfil</Link></li>
+                    <li className='menu-list-ul-li'><Link to='/employee/data'>Mis datos</Link></li>
+                    <li className='menu-list-ul-li'><Link to='/employee/calendar'>Calendario</Link></li>
+                    <li className='menu-list-ul-li'><Link to='/employee'>Otro</Link></li>
                 </ul>
             </div>
 

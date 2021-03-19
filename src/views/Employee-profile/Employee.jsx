@@ -3,10 +3,9 @@ import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import HeaderEmployee from '../../components/Employee/Header-employee/Header-employee';
 
+import { connect } from 'react-redux';
 
-
-
-let Employee = () => {
+let Employee = (props) => {
 
     const history = useHistory();
 
@@ -16,9 +15,8 @@ let Employee = () => {
     useEffect(() => {
          const getEmployee = async() => {
 
-            let id = localStorage.getItem('userId');
-    
-            let token = localStorage.getItem('token');
+            let id = props.user?.id;
+            let token = props.user?.token;
     
             if(!token){
                 return;
@@ -32,11 +30,11 @@ let Employee = () => {
     },[]);
 
     //ver si esta logeado
-    if (localStorage.getItem('login') !== 'Employee') {
+    if(props.user?.userType !== 'Employee'){
         setTimeout(()=>{
-            history.push('/');
-        },0);
-        
+             history.push('/');
+        }, 200);
+ 
         return null;
     }
 
@@ -69,5 +67,9 @@ let Employee = () => {
         </div>
     );
 };
-
-export default Employee;
+const mapStateToProps = (state) => {
+    return {
+        user : state.userReducer.user
+    }
+};
+export default connect(mapStateToProps)(Employee);

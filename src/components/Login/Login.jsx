@@ -61,7 +61,7 @@ const Login = (props) => {
     }, []);
 
     const enter = async () => {
-        console.log('Estamos dentro de la función enter');
+        // console.log('Estamos dentro de la función enter');
 
         let validationResult = validateFields(dataLogin);
 
@@ -131,7 +131,6 @@ const Login = (props) => {
                     <FormGroup>
                         <Label for='select'>Rango</Label>
                         <Input type='select' name='userType' id='selecrRango' onChange={handleState} valid={validationResult.validated && !validationResult.userType} invalid={validationResult.validated && validationResult.userType}>
-
                             <option></option>
                             <option>Patient</option>
                             <option>Employee</option>

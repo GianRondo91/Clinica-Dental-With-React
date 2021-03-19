@@ -7,8 +7,9 @@ import { Col, Row, Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup
 import 'bootstrap/dist/css/bootstrap.css';
 import { validateField, validateFields, isValid } from '../../uti';
 
+import { connect } from 'react-redux';
 
-const NewAppointment = () => {
+const NewAppointment = (props) => {
     //Estado del Modal
     const [state, setState] = useState({
         open: false
@@ -27,11 +28,14 @@ const NewAppointment = () => {
 
     //Hook -> Estado del NewAppointment
     const [dataNewAppointment, setNewAppointment] = useState({
-        email: '',
-        password: '',
-        userType: '',
-        simplePasswordValidation: true
+        reason: '',
+        idEmployee: '',
+        time: '',
+        date: ''
     })
+
+    //Creo variable en react
+    const [employees, setEmployees] = useState([]);
 
     //Handlers
     const handleState = (event) => {
@@ -48,38 +52,64 @@ const NewAppointment = () => {
         });
     };
 
+    //Meter las opciones que tengo de empleados en el formulario de cita
+    const getEmployeeOptions = () => {
+        let items = [];
+
+        employees.forEach(employee => {
+            items.push(<option key={employee.id} value={employee.id}>{employee.name}</option>);
+        });
+        
+        return items;
+    };
 
     //Effect
     useEffect(() => {
-        console.log('Soy el componente montado de LOGIN!')
+
+        const getEmployees = async () => {
+
+            let token = props.user?.token;
+
+            if (!token) {
+                return;
+            }
+
+            let result = await axios.get(`http://localhost:3001/employees`, { headers: { authorization: token } });
+
+            setEmployees(result.data);
+        }
+        getEmployees();
+
     }, []);
 
     const btnCreate = async () => {
 
-        console.log('Estamos en create new appointment');
         //Manejo de errores
-        let validationResult = validateFields(dataNewAppointment);
+        let errors = validateFields(dataNewAppointment);
 
         //Setea el estado de validación
         setValidationResult({
-            ...validationResult,
+            ...errors,
             validated: true
         });
 
-        if (!isValid(validationResult)) {
+        if (!isValid(errors)) {
             return;
         };
 
         try {
 
-            let result = await axios.post(`http://localhost:3001/appointments/create`, dataNewAppointment);
+            dataNewAppointment.idPatient = props.user?.id;
 
-            console.log('Dentro de enter, después de axios', dataNewAppointment);
+            await axios.post(`http://localhost:3001/appointments`, dataNewAppointment,{ headers: { authorization: props.user?.token } });
+
+            alert('Cita creada');
+
+            //Cierro modal al guardar
+            toggleNewAppointment();
 
         } catch (error) {
-            if (error.isAxiosError & error.response.status === 403) {
-                alert('El usuario no existe');
-            }
+            console.log(error);
         }
     };
 
@@ -100,14 +130,12 @@ const NewAppointment = () => {
                     </FormGroup>
 
                     <FormGroup>
-                        <Label for='gender'>Médico:</Label>
-                        <Input type='select' name='gender' id='gender' valid={validationResult.validated && !validationResult.gender} invalid={validationResult.validated && validationResult.gender}>
-
-                            <option></option>
-                            <option>AAA</option>
-                            <option>BB</option>
+                        <Label for='employee'>Médico:</Label>
+                        <Input type='select' name='idEmployee' id='gender'  onChange={handleState}  valid={validationResult.validated && !validationResult.idEmployee} invalid={validationResult.validated && validationResult.idEmployee}>
+                            <option>Seleccione su medico favorito</option>
+                            {getEmployeeOptions()}
                         </Input>
-                        <FormFeedback>{validationResult.gender}</FormFeedback>
+                        <FormFeedback>{validationResult.idEmployee}</FormFeedback>
                     </FormGroup>
 
                     <FormGroup>
@@ -120,7 +148,7 @@ const NewAppointment = () => {
                                         name="time"
                                         id="time"
                                         placeholder=""
-                                        valid={validationResult.validated && !validationResult.time} invalid={validationResult.validated && validationResult.time} />
+                                        onChange={handleState}  valid={validationResult.validated && !validationResult.time} invalid={validationResult.validated && validationResult.time} />
                                     <FormFeedback>{validationResult.time}</FormFeedback>
                                 </FormGroup>
                             </Col>
@@ -132,7 +160,7 @@ const NewAppointment = () => {
                                         name="date"
                                         id="date"
                                         placeholder="date"
-                                        valid={validationResult.validated && !validationResult.date} invalid={validationResult.validated && validationResult.date} />
+                                        onChange={handleState}  valid={validationResult.validated && !validationResult.date} invalid={validationResult.validated && validationResult.date} />
                                     <FormFeedback>{validationResult.date}</FormFeedback>
                                 </FormGroup>
                             </Col>
@@ -149,4 +177,10 @@ const NewAppointment = () => {
     );
 };
 
-export default NewAppointment;
+const mapStateToProps = (state) => {
+    return {
+        user: state.userReducer.user
+    }
+}
+
+export default connect(mapStateToProps)(NewAppointment);

@@ -126,21 +126,12 @@ const Register = (props) => {
         // localStorage.setItem('dataRegister', result);
         // localStorage.setItem('register', true);
 
-<<<<<<< HEAD
-            // localStorage.setItem('dataRegister', result);
-            // localStorage.setItem('register', true);
-=======
->>>>>>> 802830361f2cee34f8977ce871e245cdd907663e
 
         //Mandamos los datos de register por Redux a store
         props.dispatch({ type: REGISTER, payload: result });
 
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 802830361f2cee34f8977ce871e245cdd907663e
         setState({ open: false });
 
         console.log('esto es props', props);

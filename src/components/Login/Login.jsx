@@ -52,13 +52,13 @@ const Login = (props) => {
         console.log('Estamos dentro de la función enter');
         //Manejo de errores
         setMensaje('');
-        let mensajeError = checkError(dataLogin);
-        setMensaje(mensajeError);
+        // let mensajeError = checkError(dataLogin);
+        // setMensaje(mensajeError);
 
 
-        if (mensajeError) {
-            return;
-        }
+        // if (mensajeError) {
+        //     return;
+        // }
 
         let role = dataLogin.userType === 'Patient' ? 'patients' : 'employees';
 
@@ -66,23 +66,30 @@ const Login = (props) => {
         try {
 
             let result = await axios.post(`http://localhost:3001/${role}/login`, dataLogin);
+        
 
-            console.log('Dentro de enter, después de axios, esto es DATALOGIN', dataLogin);
-            console.log('esto es results.data', result.data)
-            console.log('esto es results', result)
-
+            //Guardamos en un objeto los datos del token y id y los de dataLogin(correo, contraseña...)
+           
 
             //Mandamos los datos de Login por Redux a store
-            props.dispatch({type: LOGIN, payload: result.data, dataLogin});
+            props.dispatch({type: LOGIN, payload: result.data});
+
+            console.log(props.payload, 'esto es el payload');
+
+
+            
+            //console.log(validation, 'esto es validation')
 
             console.log(result.data, 'ESTO ES RESULT.DATA')
 
             console.log('Dentro de enter, después de dispatch, esto es DATALOGIN', dataLogin);
 
-            console.log('esto es después de dispatch');
+       
 
             console.log(state, 'esto es state')
             //console.log(state.user, 'STATE.USER')
+
+            console.log(props, 'esto son las PROPS');
 
             //Redireccionamos según el perfil elegido
             return setTimeout(() => {
@@ -144,11 +151,12 @@ const Login = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        user : state.userReducer.user
+        user : state.userReducer.user, 
+        validation: state.userReducer.payload
     }
 
 }
 
 
 
-export default connect(mapStateToProps, {LOGIN})(Login);
+export default connect(mapStateToProps)(Login);

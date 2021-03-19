@@ -2,7 +2,7 @@
 
 //Función para comprobar el registro mediante regex
 const checkError = (datosCheck) => {
-    console.log('Hemos entrado');
+    //console.log('Hemos entrado');
 
     for(let field in datosCheck){
 

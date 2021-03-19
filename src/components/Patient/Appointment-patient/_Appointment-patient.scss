@@ -2,5 +2,15 @@
     .body-paient{
         margin-left: $mp-m;
         margin-right: $mp-m;
+        height: fit-content;
+        p {
+            margin: 0;
+        }
+       
+    }
+    #footer{
+        position: absolute;
     }
 }
+
+

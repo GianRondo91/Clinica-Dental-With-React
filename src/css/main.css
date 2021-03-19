@@ -709,7 +709,13 @@ button.rbc-input::-moz-focus-inner {
 
 #appointment-patient .body-paient {
   margin-left: 48px;
-  margin-right: 48px; }
+  margin-right: 48px;
+  height: fit-content; }
+  #appointment-patient .body-paient p {
+    margin: 0; }
+
+#appointment-patient #footer {
+  position: absolute; }
 
 .table.table-medical-record {
   width: 640px;
@@ -797,9 +803,9 @@ button.rbc-input::-moz-focus-inner {
       align-items: center;
       justify-content: center; }
       .box .card .title .title-name {
-        font-size: 20px;
+        font-size: 22px;
         height: 48px;
-        width: 320px;
+        width: 480px;
         text-align: center; }
         .box .card .title .title-name .saludo {
           font-size: 32px;
@@ -822,12 +828,14 @@ button.rbc-input::-moz-focus-inner {
         background-size: contain;
         background-image: url("https://user-images.githubusercontent.com/56218293/111500987-dbcb6d00-8744-11eb-8e4d-da57326baf22.png"); }
       .box .card .body-card .data {
-        width: 160px;
-        height: 192px; }
+        width: 320px;
+        height: 224px;
+        font-size: 18px; }
         .box .card .body-card .data .data-ul {
-          width: 320px;
           padding-left: 0px;
           list-style: none; }
           .box .card .body-card .data .data-ul .data-li .data-li-icon {
             color: #1E90FF;
-            margin-right: 10px; }
+            margin-right: 10px;
+            width: 20px;
+            font-size: 14px; }

@@ -102,7 +102,11 @@ const Login = (props) => {
             }, 200);
         } catch (error) {
             // if(error.isAxiosError & error.response.status === 403){
+<<<<<<< HEAD
             if (error.isAxiosError & error.response === 403) {
+=======
+            if(error.isAxiosError & error.response?.status === 403){
+>>>>>>> cac76b7a68b9223b81fdf1f0932b19779f7a057b
                 alert('El usuario no existe');
             }
         }
@@ -148,4 +152,17 @@ const Login = (props) => {
     );
 };
 
+<<<<<<< HEAD
 export default connect()(Login);
+=======
+const mapStateToProps = (state) => {
+    return {
+        user : state.userReducer.user
+    }
+
+}
+
+
+
+export default connect(mapStateToProps, {LOGIN})(Login);
+>>>>>>> cac76b7a68b9223b81fdf1f0932b19779f7a057b

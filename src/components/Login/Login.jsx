@@ -36,7 +36,7 @@ const Login = (props) => {
     const [dataLogin, setLogin] = useState({
         email: '',
         password: '',
-        userType: ''
+        userType: 'Patient'
     })
 
     //Handlers
@@ -80,34 +80,30 @@ const Login = (props) => {
 
         try {
 
-            let result = await axios.post(`http://localhost:3001/${role}/login`, dataLogin);
-        
+             //Redireccionamos según el perfil elegido
+    
 
-            result.data.userType = dataLogin.userType;
+                if (dataLogin.userType === 'Patient') {
+                    console.log('estamos en el if patient')
+                    let result = await axios.post(`http://localhost:3001/patients/login`, dataLogin);
+                    console.log(result.data, 'esto es result.data')
 
-            //Mandamos los datos de Login por Redux a store
-            props.dispatch({ type: LOGIN, payload: result.data });
-
-            console.log(props, 'esto son las PROPS');
-
-            //Redireccionamos según el perfil elegido
-            return setTimeout(() => {
-
-                if (result.data.userType === 'Patient') {
-                    // console.log('estamos en el if patient')
+                    props.dispatch({ type: LOGIN, payload: result.data })
                     history.push('/patient');
-                } else if (result.data.userType === 'Employee') {
-                    // console.log('estamos en el if employee')
-                    history.push('/employee');
                 } else {
-                    alert('Eres un intruso!');
-                }
-            }, 200);
+                    let result = await axios.post(`http://localhost:3001/employees/login`, dataLogin);
+                    
+
+                    props.dispatch({ type: LOGIN, payload: result.data })
+                    //console.log('estamos en el if employee')
+                    history.push('/employee');
+                } 
+
+           
         } catch (error) {
             // if(error.isAxiosError & error.response.status === 403){
-            if(error.isAxiosError & error.response?.status === 403){
                 alert('El usuario no existe');
-            }
+            
         }
     };
 
@@ -133,9 +129,7 @@ const Login = (props) => {
                     </FormGroup>
                     <FormGroup>
                         <Label for='select'>Rango</Label>
-                        <Input type='select' name='userType' id='selecrRango' onChange={handleState} valid={validationResult.validated && !validationResult.userType} invalid={validationResult.validated && validationResult.userType}>
-
-                            <option></option>
+                        <Input type='select' name='userType' id='selecrRango' onChange={handleState} valid={validationResult.validated && !validationResult.userType} invalid={validationResult.validated && validationResult.userType}>     
                             <option>Patient</option>
                             <option>Employee</option>
                         </Input>
@@ -151,4 +145,10 @@ const Login = (props) => {
     );
 };
 
-export default connect()(Login);
+const mapDipatchToProps = state => {
+    return {
+        user: state.userReducer.user
+    }
+};
+
+export default connect(mapDipatchToProps)(Login);

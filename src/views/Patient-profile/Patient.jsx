@@ -34,7 +34,7 @@ const Patient = (props) => {
    },[]);
 
     //ver si esta logeado
-    if(!props.user?.token){
+    if(props.user?.id){
         setTimeout(()=>{
              history.push('/');
         }, 200);

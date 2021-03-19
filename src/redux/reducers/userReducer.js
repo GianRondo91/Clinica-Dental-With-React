@@ -2,7 +2,7 @@ import { LOGIN, LOGOUT, REGISTER } from '../types/userType';
 
 const initialState = {
     user : {}, 
-    validation: {}
+    token: ''
 
 };
 
@@ -11,8 +11,8 @@ const userReducer = (state = initialState, action) => {
         case LOGIN:
             return {
                 ...state, 
-                user : action.payload.user,
-                validation : action.payload.validation
+                user : action.payload.user, 
+                token : action.payload.token
             }
 
         case LOGOUT:

@@ -10,6 +10,7 @@ import {validateField,validateFields, isValid}  from '../../uti';
 import { connect } from 'react-redux';
 import { REGISTER } from '../../redux/types/userType';
 
+
 const Register = (props) => {
     //Estado del Modal
     const [state, setState] = useState({
@@ -99,9 +100,8 @@ const Register = (props) => {
 
         let role = dataRegister.userType === 'Patient' ? 'patients' : 'employees';
 
-        let result = await axios.post(`http://localhost:3001/${role}/register`, dataRegister);
-        console.log('Resultado', result.data);
-
+        let result = await axios.post(`http://localhost:3001/${role}`, dataRegister);
+        // console.log('Resultado', result.data);
 
         //Mandamos los datos de register por Redux a store
         props.dispatch({ type: REGISTER, payload: result });

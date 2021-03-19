@@ -1,10 +1,10 @@
-import React from 'react';
-// import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-//import axios from 'axios';
+import axios from 'axios';
 import HeaderPatient from '../Header-patient/Header-patient';
-import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
-// import axios from 'axios';
+import { Col, Row, Button, Form, FormGroup, Label, Input, FormFeedback } from 'reactstrap';
+import {validateField, validateFields, isValid } from '../../../uti';
+
 import 'bootstrap/dist/css/bootstrap.css';
 
 //Redux
@@ -14,16 +14,82 @@ import { connect } from 'react-redux';
 let DataPatient = (props) => {
     const history = useHistory();
 
+    const [validationResult, setValidationResult] = useState({
+        validated: false,
+        name: null
+    });
+
+    // Creo el estado dataPatient
+    const [data, setDataPatient] = useState({ name: '' });
+
+    useEffect(() => {
+        const getPatient = async () => {
+
+            let id = props.user?.id;
+            let token = props.user?.token;
+
+            if (!token) {
+                return;
+            }
+
+            let result = await axios.get(`http://localhost:3001/patients/${id}`, { headers: { authorization: token } });
+
+            setDataPatient(result.data);
+        }
+        getPatient();
+    }, []);
+
+
+    const handleState = (event) => {
+        let newData = { ...data, [event.target.name]: event.target.value };
+        setDataPatient(newData);
+  
+        setValidationResult({
+            //
+            ...validationResult,
+            //
+            [event.target.name]: validateField(event.target.name, event.target.value)
+        });
+    };
+
+    const updatePatient = async () => {
+        let validationResult = validateFields(data);
+
+        setValidationResult({
+            ...validationResult,
+            validated: true
+        });
+
+        if(!isValid(validationResult)){
+            return;
+        };
+
+        try {
+
+            let id = props.user?.id;
+            let token = props.user?.token;
+
+            if (!token) {
+                return;
+            }
+
+            await axios.put(`http://localhost:3001/patients/${id}`, data, { headers: { authorization: token } });
+
+            alert('Guardado con éxito!!!')
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     //ver si esta logeado
-
-    if(!props.user?.token){
-       setTimeout(()=>{
+    if (!props.user?.token) {
+        setTimeout(() => {
             history.push('/');
         }, 200);
 
         return null;
     }
+
 
     return (
 
@@ -32,56 +98,20 @@ let DataPatient = (props) => {
                 <HeaderPatient />
             </div>
             <div className='body-data body-data-patient'>
-                <div className="text-center">
-                    <div className="d-flex justify-content-center"><img src="..." className="rounded" alt="..."/></div>
-                    <div><Label for='patient-name'> Nombre completo Paciente</Label></div>
-                    <FormGroup>
-                        <Label for="exampleFile">Modificar Imagen de Perfil</Label>
-                        <div><Input type="file" name="file" id="exampleFile" className="d-flex justify-content-center"></Input>
-                        </div>
-                    </FormGroup>
-                </div>
-                <Form className='form-data'>
-                    <FormGroup>
-                        <Label for="exampleNumber">Edad:</Label>
-                        <Input
-                            type="number"
-                            name="age"
-                            id="exampleAge"
-                            placeholder="45"
-                        />
-                    </FormGroup>
-                    <FormGroup>
-                        <fieldset className="form-group">
-                            <div className="row">
-                                <legend className="col-form-label col-sm-2 pt-0">Género</legend>
-                                <div className="col-sm-10">
-                                    <div className="form-check">
-                                        <input className="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked/>
-                                        <label className="form-check-label" for="gridRadios1">
-                                            Hombre
-                                        </label>
-                                    </div>
-                                    <div className="form-check">
-                                        <input className="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2"/>
-                                        <label className="form-check-label" for="gridRadios2">
-                                            Mujer
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </fieldset>
-                    </FormGroup>
 
                 <Form className='form-data'>
+                    <FormGroup>
+                        <Label for="name">{data.name} {data.surname1} {data.surname2}</Label>
+                    </FormGroup>
                     <FormGroup>
                         <Label for="exampleEmail">Email:</Label>
                         <Input
                             type="email"
                             name="email"
                             id="exampleEmail"
-                            placeholder="@"
-                        />
+                            placeholder={data.email}
+                            onChange={handleState} valid={validationResult.validated && !validationResult.email} invalid={validationResult.validated && validationResult.email} />
+                            <FormFeedback>{validationResult.email}</FormFeedback>
                     </FormGroup>
                     <FormGroup>
                         <Label for="exampleNumber">Telefono:</Label>
@@ -89,68 +119,71 @@ let DataPatient = (props) => {
                             type="number"
                             name="number"
                             id="exampleNumber"
-                            placeholder="611616161515"
-                        />
+                            placeholder={data.phone}
+                            onChange={handleState} valid={validationResult.validated && !validationResult.number} invalid={validationResult.validated && validationResult.number} />
+                            <FormFeedback>{validationResult.number}</FormFeedback>
                     </FormGroup>
                     <FormGroup>
                         <Row form>
                             <Col>
                                 <FormGroup>
-                                    <Label for="exampleNumber">Edad:</Label>
+                                    <Label for="exampleDatetime">Fecha de Nacimiento:</Label>
                                     <Input
-                                        type="number"
-                                        name="age"
-                                        id="exampleAge"
-                                        placeholder=""
-                                    />
+                                        type="date"
+                                        name="date"
+                                        id="date"
+                                        value= {data.birth}
+                                        onChange={handleState} valid={validationResult.validated && !validationResult.date} invalid={validationResult.validated && validationResult.date} />
+                                        <FormFeedback>{validationResult.date}</FormFeedback>
                                 </FormGroup>
                             </Col>
                             <Col>
                                 <FormGroup>
                                     <Label for='gender'>Sexo:</Label>
-                                    <Input type='select' name='gender' id='gender'>
-                                        <option></option>
+                                    <Input type='select' name='gender' id='gender' onChange={handleState} valid={validationResult.validated && !validationResult.gender} invalid={validationResult.validated && validationResult.gender} >
+                                        <option>{data.gender}</option>
                                         <option>Hombre</option>
                                         <option>Mujer</option>
                                     </Input>
+                                    <FormFeedback>{validationResult.gender}</FormFeedback>
                                 </FormGroup>
                             </Col>
                         </Row>
                     </FormGroup>
-                    <FormGroup>
-                        <Label for="exampleDatetime">Fecha de Nacimiento:</Label>
-                        <Input
-                            type="date"
-                            name="date"
-                            id="exampleDate"
-                            placeholder="date"
-                        />
-                    </FormGroup>
+
                     <FormGroup>
                         <Label for="exampleAddress">Dirección</Label>
                         <Input
                             type="text"
                             name="address"
                             id="exampleAddress"
-                            placeholder="Av.cataluya 1234" />
+                            placeholder={data.address}
+                            onChange={handleState} valid={validationResult.validated && !validationResult.address} invalid={validationResult.validated && validationResult.address} />
+                            <FormFeedback>{validationResult.address}</FormFeedback>
                     </FormGroup>
                     <Row form>
                         <Col md={5}>
                             <FormGroup>
-                                <Label for="ciudad">Ciudad</Label>
+                                <Label for="city">Ciudad</Label>
                                 <Input
                                     type="text"
-                                    name="ciudad"
-                                    id="ciudad" />
+                                    name="city"
+                                    id="city" 
+                                    placeholder={data.city}
+                                    onChange={handleState} valid={validationResult.validated && !validationResult.city} invalid={validationResult.validated && validationResult.city} />
+                                    <FormFeedback>{validationResult.city}</FormFeedback>
                             </FormGroup>
                         </Col>
                         <Col md={5}>
                             <FormGroup>
-                                <Label for="provincia">Provincia:</Label>
+                                <Label for="state">Provincia:</Label>
                                 <Input
                                     type="text"
-                                    name="provincia"
-                                    id="provincia" />
+                                    name="state"
+                                    id="state" 
+                                    placeholder={data.state}
+                                    onChange={handleState} valid={validationResult.validated && !validationResult.state} invalid={validationResult.validated && validationResult.state} />
+                                    <FormFeedback>{validationResult.state}</FormFeedback>
                             </FormGroup>
                         </Col>
                         <Col md={2}>
@@ -159,13 +192,15 @@ let DataPatient = (props) => {
                                 <Input
                                     type="cp"
                                     name="cp"
-                                    id="cp" />
+                                    id="cp"
+                                    placeholder={data.cp}
+                                    onChange={handleState} valid={validationResult.validated && !validationResult.cp} invalid={validationResult.validated && validationResult.cp} />
+                                    <FormFeedback>{validationResult.cp}</FormFeedback>
                             </FormGroup>
                         </Col>
                     </Row>
-                    <Button>Guardar</Button>
+                    <Button onClick={updatePatient}>Guardar</Button>
                 </Form>
-            </Form>
             </div>
         </div>
     )
@@ -173,7 +208,7 @@ let DataPatient = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        user : state.userReducer.user
+        user: state.userReducer.user
     }
 }
 

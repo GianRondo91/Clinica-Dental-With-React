@@ -14,9 +14,9 @@
             align-items: center;
             justify-content: center;
             .title-name {
-                font-size: $size-j;
+                font-size: $size-k;
                 height: $mp-m;
-                width: $mp-w;
+                width: $mp-x;
                 text-align: center;
                 .saludo {
                     font-size: $size-p;
@@ -43,17 +43,19 @@
                 background-image: url('https://user-images.githubusercontent.com/56218293/111500987-dbcb6d00-8744-11eb-8e4d-da57326baf22.png');
             }
             .data {
-                width: $mp-r;
-                height: $mp-s;
+                width: $mp-w;
+                height: $mp-t;
+                font-size: $size-i;
                 // padding-left: $mp-a;
                 .data-ul {
-                    width: $mp-w;
                     padding-left: $mp-a;
                     list-style: none;
                     .data-li{
                         .data-li-icon{
                             color: nth($blue, 1);
                             margin-right: $mp-f;
+                            width: $mp-i;
+                            font-size: $size-g;
                         }
                     }
                 }

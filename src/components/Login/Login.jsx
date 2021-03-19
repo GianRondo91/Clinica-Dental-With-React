@@ -129,7 +129,12 @@ const Login = (props) => {
                     </FormGroup>
                     <FormGroup>
                         <Label for='select'>Rango</Label>
+<<<<<<< HEAD
                         <Input type='select' name='userType' id='selecrRango' onChange={handleState} valid={validationResult.validated && !validationResult.userType} invalid={validationResult.validated && validationResult.userType}>     
+=======
+                        <Input type='select' name='userType' id='selecrRango' onChange={handleState} valid={validationResult.validated && !validationResult.userType} invalid={validationResult.validated && validationResult.userType}>
+                            <option></option>
+>>>>>>> 263d2159eb06b61d25c28ed7de04cbfb7e7a8106
                             <option>Patient</option>
                             <option>Employee</option>
                         </Input>

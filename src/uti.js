@@ -11,17 +11,17 @@ const onlyLetters = (inputValue) => {
     };
 };
 
-const onlyNumbers = (inputValue) => {
-    return /^\d*$/.test(inputValue) ? 'Número invalido' : null;
-};
+// const onlyNumbers = (inputValue) => {
+//     return /^\d*$/.test(inputValue) ? 'Número invalido' : null;
+// };
 
 const isDate = (inputValue) => {
-    const date = moment(inputValue, 'DD/MM/YYYY', true);
+    const date = moment(inputValue);
     return date.isValid() ? null : 'Fecha invalida';
 }
 
 const lettersAndNumbers = (inputValue) => {
-    return /\d/.test(inputValue) && /\w/.test(inputValue) ? 'Campo vacio' : null;
+    return /(\d|\w)/.test(inputValue) ? null : 'Campo vacio';
 }
 
 const isPhone = (inputValue) => {
@@ -74,7 +74,7 @@ const validateField = (inputName, inputValue) => {
         case 'time': 
             return isTime(inputValue);
         default:
-            break;
+            return null;
     }
 };
 

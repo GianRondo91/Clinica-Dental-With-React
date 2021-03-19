@@ -99,9 +99,8 @@ const Register = (props) => {
 
         let role = dataRegister.userType === 'Patient' ? 'patients' : 'employees';
 
-        let result = await axios.post(`http://localhost:3001/${role}/register`, dataRegister);
+        let result = await axios.post(`http://localhost:3001/${role}`, dataRegister);
         console.log('Resultado', result.data);
-
 
         //Mandamos los datos de register por Redux a store
         props.dispatch({ type: REGISTER, payload: result });

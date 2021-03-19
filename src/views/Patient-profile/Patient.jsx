@@ -11,8 +11,8 @@ import { connect } from 'react-redux';
 
 const Patient = (props) => {
 
-    // console.log(props);
     const history = useHistory();
+    // Creo el estado patient
     const [patient, setPatient] = useState({name: ''});
 
 

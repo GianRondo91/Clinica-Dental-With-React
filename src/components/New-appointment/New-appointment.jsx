@@ -3,15 +3,20 @@ import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarCheck } from '@fortawesome/free-solid-svg-icons';
-import { Col, Row, Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, Label } from 'reactstrap';
+import { Col, Row, Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, Label, FormFeedback } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css';
-import checkError from '../../uti';
+import { validateField, validateFields, isValid } from '../../uti';
 
 
 const NewAppointment = () => {
     //Estado del Modal
     const [state, setState] = useState({
         open: false
+    });
+
+    const [validationResult, setValidationResult] = useState({
+        validated: false,
+        name: null
     });
 
     const toggleNewAppointment = () => {
@@ -28,13 +33,19 @@ const NewAppointment = () => {
         simplePasswordValidation: true
     })
 
-    const [mensaje, setMensaje] = useState('');
-
     //Handlers
     const handleState = (event) => {
         let data = { ...dataNewAppointment, [event.target.name]: event.target.value };
         setNewAppointment(data);
-        console.log(data)
+        console.log(data);
+
+        //Actualiza el estado de validacion del input que cambio
+        setValidationResult({
+            //
+            ...validationResult,
+            //
+            [event.target.name]: validateField(event.target.name, event.target.value)
+        });
     };
 
 
@@ -43,43 +54,28 @@ const NewAppointment = () => {
         console.log('Soy el componente montado de LOGIN!')
     }, []);
 
-    const save = async () => {
+    const btnCreate = async () => {
 
-        console.log('Estamos dentro de la función enter');
+        console.log('Estamos en create new appointment');
         //Manejo de errores
-        setMensaje('');
-        let mensajeError = checkError(dataNewAppointment);
-        setMensaje(mensajeError);
-        console.log(mensajeError, 'Este es el mensajeError');
-        console.log(mensaje, 'Este es el mensaje');
-        console.log(setMensaje, 'Esto es setMensaje');
+        let validationResult = validateFields(dataNewAppointment);
 
-        if (mensajeError) {
+        //Setea el estado de validación
+        setValidationResult({
+            ...validationResult,
+            validated: true
+        });
+
+        if (!isValid(validationResult)) {
             return;
-        }
-
-        let role = dataNewAppointment.userType === 'Patient' ? 'patients' : 'employees';
+        };
 
         try {
 
-            let result = await axios.post(`http://localhost:3001/${role}/login`, dataNewAppointment);
+            let result = await axios.post(`http://localhost:3001/appointments/create`, dataNewAppointment);
+
             console.log('Dentro de enter, después de axios', dataNewAppointment);
 
-            //Guardamos los datos en localStorage
-            localStorage.setItem('userId', result.data.id);
-            localStorage.setItem('token', result.data.token);
-            localStorage.setItem('login', dataNewAppointment.userType);
-
-            //Redireccionamos según el perfil elegido
-            return setTimeout(() => {
-                if (dataNewAppointment.userType === 'Patient') {
-                    history.push('/patient')
-                } else if (dataNewAppointment.userType === 'Employee') {
-                    history.push('/employee')
-                } else {
-                    alert('Eres un intruso!')
-                }
-            }, 2000);
         } catch (error) {
             if (error.isAxiosError & error.response.status === 403) {
                 alert('El usuario no existe');
@@ -98,17 +94,20 @@ const NewAppointment = () => {
                 <ModalBody>
 
                     <FormGroup>
-                        <Label form='email'>Motivo</Label>
-                        <Input type='text' id='user' name='email' onChange={handleState} />
+                        <Label form='reason'>Motivo</Label>
+                        <Input type='text' id='reason' name='reason' onChange={handleState} valid={validationResult.validated && !validationResult.reason} invalid={validationResult.validated && validationResult.reason} />
+                        <FormFeedback>{validationResult.reason}</FormFeedback>
                     </FormGroup>
 
                     <FormGroup>
                         <Label for='gender'>Médico:</Label>
-                        <Input type='select' name='gender' id='gender'>
+                        <Input type='select' name='gender' id='gender' valid={validationResult.validated && !validationResult.gender} invalid={validationResult.validated && validationResult.gender}>
+
                             <option></option>
                             <option>AAA</option>
                             <option>BB</option>
                         </Input>
+                        <FormFeedback>{validationResult.gender}</FormFeedback>
                     </FormGroup>
 
                     <FormGroup>
@@ -121,7 +120,8 @@ const NewAppointment = () => {
                                         name="time"
                                         id="time"
                                         placeholder=""
-                                    />
+                                        valid={validationResult.validated && !validationResult.time} invalid={validationResult.validated && validationResult.time} />
+                                    <FormFeedback>{validationResult.time}</FormFeedback>
                                 </FormGroup>
                             </Col>
                             <Col md={6}>
@@ -132,7 +132,8 @@ const NewAppointment = () => {
                                         name="date"
                                         id="date"
                                         placeholder="date"
-                                    />
+                                        valid={validationResult.validated && !validationResult.date} invalid={validationResult.validated && validationResult.date} />
+                                    <FormFeedback>{validationResult.date}</FormFeedback>
                                 </FormGroup>
                             </Col>
                         </Row>
@@ -140,7 +141,7 @@ const NewAppointment = () => {
 
                 </ModalBody>
                 <ModalFooter>
-                    <Button color='primary' onClick={save}>Guardar</Button>
+                    <Button color='primary' onClick={btnCreate}>Guardar</Button>
                     <Button color='secundary' onClick={toggleNewAppointment}>Cancelar</Button>
                 </ModalFooter>
             </Modal>

@@ -1,25 +1,21 @@
-import React, { useState } from 'react';
-//
-import { useHistory } from 'react-router-dom';
-//
+import React from 'react';
+import { useHistory, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserTimes } from '@fortawesome/free-solid-svg-icons';
-//
 import 'bootstrap/dist/css/bootstrap.css';
-//
 import NewAppointment from '../../New-appointment/New-appointment';
+import { connect } from 'react-redux';
+import { LOGOUT } from '../../../redux/types/userType';
 
 
-
-let HeaderPatient = () => {
+let HeaderPatient = (props) => {
 
     const history = useHistory();
 
     const exit = () => {
-        localStorage.clear();
+        props.dispatch({ type: LOGOUT });
         history.push('/');
     }
-
 
     return (
         <div id="header" className="header-patient cell-3">
@@ -27,10 +23,10 @@ let HeaderPatient = () => {
 
             <div className="menu-list">
                 <ul className="menu-list-ul">
-                <li className='menu-list-ul-li'><a href="/patient">Perfil</a></li>
-                    <li className='menu-list-ul-li'><a href="/patient/data">Mis datos</a></li>
-                    <li className='menu-list-ul-li'><a href="/patient/medical-record">Ficha medica</a></li>
-                    <li className='menu-list-ul-li'><a href="/patient/appointments">Mis citas</a></li>
+                    <li className='menu-list-ul-li'><Link to='/patient'>Perfil</Link></li>
+                    <li className='menu-list-ul-li'><Link to='/patient/data'>Mis datos</Link></li>
+                    <li className='menu-list-ul-li'><Link to='/patient/medical-record'>Ficha medica</Link></li>
+                    <li className='menu-list-ul-li'><Link to='/patient/appointments'>Mis citas</Link></li>
                 </ul>
             </div>
 
@@ -42,4 +38,4 @@ let HeaderPatient = () => {
     )
 };
 
-export default HeaderPatient;
+export default connect()(HeaderPatient);

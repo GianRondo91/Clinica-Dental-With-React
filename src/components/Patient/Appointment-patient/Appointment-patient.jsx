@@ -4,6 +4,8 @@ import HeaderPatient from '../Header-patient/Header-patient';
 import { Row, Col, Toast, ToastBody, ToastHeader } from 'reactstrap';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
+import { connect } from 'react-redux';
+
 let AppointmentPatient = (props) => {
     const history = useHistory();
 
@@ -15,12 +17,11 @@ let AppointmentPatient = (props) => {
     const [modal, setModal] = useState(false);
 
     //ver si esta logeado
-
-    if (localStorage.getItem('login') !== 'Patient') {
-        setTimeout(() => {
-            history.push('/');
-        }, 0);
-
+    if(props.user?.userType !== 'Patient'){
+        setTimeout(()=>{
+             history.push('/');
+        }, 200);
+ 
         return null;
     }
 
@@ -120,5 +121,9 @@ let AppointmentPatient = (props) => {
     )
 
 };
-
-export default AppointmentPatient;
+const mapStateToProps = (state) => {
+    return {
+        user : state.userReducer.user
+    }
+};
+export default connect(mapStateToProps)(AppointmentPatient);

@@ -3,9 +3,9 @@ import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserAlt } from '@fortawesome/free-solid-svg-icons';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, Label } from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, Label,FormFeedback } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css';
-import checkError from '../../uti';
+import {validateField, validateFields, isValid } from '../../uti';
 
 //Redux
 import { LOGIN } from '../../redux/types/userType';
@@ -18,6 +18,14 @@ const Login = (props) => {
         open: false
     });
 
+    //Creo el estado que se llama validationResult donde se mantiene el estado de validez de 
+    //cada uno de los componentes del formulario y una propiedad (validated) que indica 
+    //si ya se intento enviar el formulario
+    const [validationResult, setValidationResult] = useState({
+        validated: false,
+        name: null
+    });
+
     const toggleLogin = () => {
         setState({ open: !state.open });
     }
@@ -28,17 +36,22 @@ const Login = (props) => {
     const [dataLogin, setLogin] = useState({
         email: '',
         password: '',
-        userType: '',
-        simplePasswordValidation: true
+        userType: ''
     })
-
-    const [mensaje, setMensaje] = useState('');
 
     //Handlers
     const handleState = (event) => {
         let data = { ...dataLogin, [event.target.name]: event.target.value };
         setLogin(data);
-        console.log(data)
+        // console.log(data)
+
+        //
+        setValidationResult({
+            //
+            ...validationResult,
+            //
+            [event.target.name]: validateField(event.target.name, event.target.value)
+        });
     };
 
 
@@ -48,17 +61,32 @@ const Login = (props) => {
     }, []);
 
     const enter = async () => {
-
         console.log('Estamos dentro de la función enter');
+<<<<<<< HEAD
         //Manejo de errores
         setMensaje('');
         // let mensajeError = checkError(dataLogin);
         // setMensaje(mensajeError);
+=======
+>>>>>>> 9c1f594d09917abcf559695e64825d4f17f43707
 
+        let validationResult = validateFields(dataLogin);
 
+        //Setea el estado de validación
+        setValidationResult({
+            ...validationResult,
+            validated: true
+        });
+
+<<<<<<< HEAD
         // if (mensajeError) {
         //     return;
         // }
+=======
+        if(!isValid(validationResult)){
+            return;
+        };
+>>>>>>> 9c1f594d09917abcf559695e64825d4f17f43707
 
         let role = dataLogin.userType === 'Patient' ? 'patients' : 'employees';
 
@@ -68,6 +96,7 @@ const Login = (props) => {
             let result = await axios.post(`http://localhost:3001/${role}/login`, dataLogin);
         
 
+<<<<<<< HEAD
             //Guardamos en un objeto los datos del token y id y los de dataLogin(correo, contraseña...)
            
 
@@ -88,20 +117,26 @@ const Login = (props) => {
 
             console.log(state, 'esto es state')
             //console.log(state.user, 'STATE.USER')
+=======
+            result.data.userType = dataLogin.userType;
+
+            //Mandamos los datos de Login por Redux a store
+            props.dispatch({ type: LOGIN, payload: result.data });
+>>>>>>> 9c1f594d09917abcf559695e64825d4f17f43707
 
             console.log(props, 'esto son las PROPS');
 
             //Redireccionamos según el perfil elegido
             return setTimeout(() => {
-                
+
                 if (dataLogin.userType === 'Patient') {
-                    console.log('estamos en el if patient')
-                    history.push('/patient')
+                    // console.log('estamos en el if patient')
+                    history.push('/patient');
                 } else if (dataLogin.userType === 'Employee') {
-                    console.log('estamos en el if employee')
-                    history.push('/employee')
+                    // console.log('estamos en el if employee')
+                    history.push('/employee');
                 } else {
-                    alert('Eres un intruso!')
+                    alert('Eres un intruso!');
                 }
             }, 200);
         } catch (error) {
@@ -117,7 +152,6 @@ const Login = (props) => {
 
             <div className="button-login button" onClick={toggleLogin}>Acceder <FontAwesomeIcon icon={faUserAlt} /></div>
 
-
             <Modal isOpen={state.open}>
                 <ModalHeader>
                     Iniciar Sesion
@@ -125,19 +159,23 @@ const Login = (props) => {
                 <ModalBody>
                     <FormGroup>
                         <Label form='email'>Email</Label>
-                        <Input type='text' id='user' name='email' onChange={handleState} />
+                        <Input type='text' id='user' name='email' onChange={handleState} valid={validationResult.validated && !validationResult.email} invalid={validationResult.validated && validationResult.email} />
+                        <FormFeedback>{validationResult.email}</FormFeedback>
                     </FormGroup>
                     <FormGroup>
                         <Label form='password'>Contraseña</Label>
-                        <Input type='password' id='password' name='password' onChange={handleState} />
+                        <Input type='password' id='password' name='password' onChange={handleState} valid={validationResult.validated && !validationResult.password} invalid={validationResult.validated && validationResult.password} />
+                        <FormFeedback>{validationResult.password}</FormFeedback>
                     </FormGroup>
                     <FormGroup>
                         <Label for='select'>Rango</Label>
-                        <Input type='select' name='userType' id='selecrRango' onChange={handleState}>
+                        <Input type='select' name='userType' id='selecrRango' onChange={handleState} valid={validationResult.validated && !validationResult.userType} invalid={validationResult.validated && validationResult.userType}>
+
                             <option></option>
                             <option>Patient</option>
                             <option>Employee</option>
                         </Input>
+                        <FormFeedback>{validationResult.userType}</FormFeedback>
                     </FormGroup>
                 </ModalBody>
                 <ModalFooter>
@@ -149,6 +187,7 @@ const Login = (props) => {
     );
 };
 
+<<<<<<< HEAD
 const mapStateToProps = (state) => {
     return {
         user : state.userReducer.user, 
@@ -160,3 +199,6 @@ const mapStateToProps = (state) => {
 
 
 export default connect(mapStateToProps)(Login);
+=======
+export default connect()(Login);
+>>>>>>> 9c1f594d09917abcf559695e64825d4f17f43707

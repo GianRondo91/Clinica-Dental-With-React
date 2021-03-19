@@ -5,21 +5,22 @@ import HeaderEmployee from '../Header-employee/Header-employee';
 //big-calendar
 import { Calendar, momentLocalizer } from 'react-big-calendar/dist/react-big-calendar';
 import moment from 'moment/dist/moment';
+import { connect } from 'react-redux';
 
 require('moment/dist/locale/es.js');
 
-let CalendarEmployee = () => {
+let CalendarEmployee = (props) => {
     const history = useHistory();
 
     //ver si esta logeado
-
-    if (localStorage.getItem('login') !== 'Employee') {
+    if(props.user?.userType !== 'Employee'){
         setTimeout(()=>{
-            history.push('/');
-        },0);
-        
+             history.push('/');
+        }, 200);
+ 
         return null;
     }
+
     //Configurar el localizador
 const localizer = momentLocalizer(moment);
 
@@ -64,5 +65,9 @@ const myEventsList = [{
         </div>
     )
 }
-
-export default CalendarEmployee;
+const mapStateToProps = (state) => {
+    return {
+        user : state.userReducer.user
+    }
+};
+export default connect(mapStateToProps)(CalendarEmployee);

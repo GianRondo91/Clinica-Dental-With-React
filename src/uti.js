@@ -11,15 +11,9 @@ const onlyLetters = (inputValue) => {
     };
 };
 
-<<<<<<< HEAD
-//Función para comprobar el registro mediante regex
-const checkError = (datosCheck) => {
-    //console.log('Hemos entrado');
-=======
 const onlyNumbers = (inputValue) => {
     return /^\d*$/.test(inputValue) ? 'Número invalido' : null;
 };
->>>>>>> 9c1f594d09917abcf559695e64825d4f17f43707
 
 const isDate = (inputValue) => {
     const date = moment(inputValue, 'DD/MM/YYYY', true);

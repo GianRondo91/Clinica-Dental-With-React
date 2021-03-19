@@ -62,13 +62,6 @@ const Login = (props) => {
 
     const enter = async () => {
         console.log('Estamos dentro de la función enter');
-<<<<<<< HEAD
-        //Manejo de errores
-        setMensaje('');
-        // let mensajeError = checkError(dataLogin);
-        // setMensaje(mensajeError);
-=======
->>>>>>> 9c1f594d09917abcf559695e64825d4f17f43707
 
         let validationResult = validateFields(dataLogin);
 
@@ -78,15 +71,9 @@ const Login = (props) => {
             validated: true
         });
 
-<<<<<<< HEAD
-        // if (mensajeError) {
-        //     return;
-        // }
-=======
         if(!isValid(validationResult)){
             return;
         };
->>>>>>> 9c1f594d09917abcf559695e64825d4f17f43707
 
         let role = dataLogin.userType === 'Patient' ? 'patients' : 'employees';
 
@@ -96,43 +83,20 @@ const Login = (props) => {
             let result = await axios.post(`http://localhost:3001/${role}/login`, dataLogin);
         
 
-<<<<<<< HEAD
-            //Guardamos en un objeto los datos del token y id y los de dataLogin(correo, contraseña...)
-           
-
-            //Mandamos los datos de Login por Redux a store
-            props.dispatch({type: LOGIN, payload: result.data});
-
-            console.log(props.payload, 'esto es el payload');
-
-
-            
-            //console.log(validation, 'esto es validation')
-
-            console.log(result.data, 'ESTO ES RESULT.DATA')
-
-            console.log('Dentro de enter, después de dispatch, esto es DATALOGIN', dataLogin);
-
-       
-
-            console.log(state, 'esto es state')
-            //console.log(state.user, 'STATE.USER')
-=======
             result.data.userType = dataLogin.userType;
 
             //Mandamos los datos de Login por Redux a store
             props.dispatch({ type: LOGIN, payload: result.data });
->>>>>>> 9c1f594d09917abcf559695e64825d4f17f43707
 
             console.log(props, 'esto son las PROPS');
 
             //Redireccionamos según el perfil elegido
             return setTimeout(() => {
 
-                if (dataLogin.userType === 'Patient') {
+                if (result.data.userType === 'Patient') {
                     // console.log('estamos en el if patient')
                     history.push('/patient');
-                } else if (dataLogin.userType === 'Employee') {
+                } else if (result.data.userType === 'Employee') {
                     // console.log('estamos en el if employee')
                     history.push('/employee');
                 } else {
@@ -187,18 +151,4 @@ const Login = (props) => {
     );
 };
 
-<<<<<<< HEAD
-const mapStateToProps = (state) => {
-    return {
-        user : state.userReducer.user, 
-        validation: state.userReducer.payload
-    }
-
-}
-
-
-
-export default connect(mapStateToProps)(Login);
-=======
 export default connect()(Login);
->>>>>>> 9c1f594d09917abcf559695e64825d4f17f43707

@@ -124,13 +124,13 @@ const NewAppointment = (props) => {
                 <ModalBody>
 
                     <FormGroup>
-                        <Label form='reason'>Motivo</Label>
+                        <Label form='reason'>Motivo : </Label>
                         <Input type='text' id='reason' name='reason' onChange={handleState} valid={validationResult.validated && !validationResult.reason} invalid={validationResult.validated && validationResult.reason} />
                         <FormFeedback>{validationResult.reason}</FormFeedback>
                     </FormGroup>
 
                     <FormGroup>
-                        <Label for='employee'>Médico:</Label>
+                        <Label for='employee'>Médico : </Label>
                         <Input type='select' name='idEmployee' id='gender'  onChange={handleState}  valid={validationResult.validated && !validationResult.idEmployee} invalid={validationResult.validated && validationResult.idEmployee}>
                             <option>Seleccione su medico favorito</option>
                             {getEmployeeOptions()}
@@ -142,7 +142,7 @@ const NewAppointment = (props) => {
                         <Row form>
                             <Col md={6}>
                                 <FormGroup>
-                                    <Label for="exampleDatetime">Hora: </Label>
+                                    <Label for="exampleDatetime">Hora : </Label>
                                     <Input
                                         type="time"
                                         name="time"
@@ -154,7 +154,7 @@ const NewAppointment = (props) => {
                             </Col>
                             <Col md={6}>
                                 <FormGroup>
-                                    <Label for="exampleDate">Fecha: </Label>
+                                    <Label for="exampleDate">Fecha : </Label>
                                     <Input
                                         type="date"
                                         name="date"

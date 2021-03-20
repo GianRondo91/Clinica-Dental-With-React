@@ -104,7 +104,7 @@ let DataPatient = (props) => {
                         <Label for="name">{data.name} {data.surname1} {data.surname2}</Label>
                     </FormGroup>
                     <FormGroup>
-                        <Label for="exampleEmail">Email:</Label>
+                        <Label for="exampleEmail">Email : </Label>
                         <Input
                             type="email"
                             name="email"
@@ -114,7 +114,7 @@ let DataPatient = (props) => {
                             <FormFeedback>{validationResult.email}</FormFeedback>
                     </FormGroup>
                     <FormGroup>
-                        <Label for="exampleNumber">Telefono:</Label>
+                        <Label for="exampleNumber">Telefono : </Label>
                         <Input
                             type="number"
                             name="number"
@@ -127,7 +127,7 @@ let DataPatient = (props) => {
                         <Row form>
                             <Col>
                                 <FormGroup>
-                                    <Label for="exampleDatetime">Fecha de Nacimiento:</Label>
+                                    <Label for="exampleDatetime">Fecha de Nacimiento : </Label>
                                     <Input
                                         type="date"
                                         name="date"
@@ -139,7 +139,7 @@ let DataPatient = (props) => {
                             </Col>
                             <Col>
                                 <FormGroup>
-                                    <Label for='gender'>Sexo:</Label>
+                                    <Label for='gender'>Sexo : </Label>
                                     <Input type='select' name='gender' id='gender' onChange={handleState} valid={validationResult.validated && !validationResult.gender} invalid={validationResult.validated && validationResult.gender} >
                                         <option>{data.gender}</option>
                                         <option>Hombre</option>
@@ -152,7 +152,7 @@ let DataPatient = (props) => {
                     </FormGroup>
 
                     <FormGroup>
-                        <Label for="exampleAddress">Dirección</Label>
+                        <Label for="exampleAddress">Dirección : </Label>
                         <Input
                             type="text"
                             name="address"
@@ -164,7 +164,7 @@ let DataPatient = (props) => {
                     <Row form>
                         <Col md={5}>
                             <FormGroup>
-                                <Label for="city">Ciudad</Label>
+                                <Label for="city">Ciudad : </Label>
                                 <Input
                                     type="text"
                                     name="city"
@@ -176,7 +176,7 @@ let DataPatient = (props) => {
                         </Col>
                         <Col md={5}>
                             <FormGroup>
-                                <Label for="state">Provincia:</Label>
+                                <Label for="state">Provincia : </Label>
                                 <Input
                                     type="text"
                                     name="state"
@@ -188,7 +188,7 @@ let DataPatient = (props) => {
                         </Col>
                         <Col md={2}>
                             <FormGroup>
-                                <Label for="cp">Codigo Postal:</Label>
+                                <Label for="cp">Codigo Postal : </Label>
                                 <Input
                                     type="cp"
                                     name="cp"

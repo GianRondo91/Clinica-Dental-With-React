@@ -36,7 +36,7 @@ const Login = (props) => {
     const [dataLogin, setLogin] = useState({
         email: '',
         password: '',
-        userType: 'Patient'
+        userType: ''
     })
 
     //Handlers
@@ -61,7 +61,7 @@ const Login = (props) => {
     }, []);
 
     const enter = async () => {
-        console.log('Estamos dentro de la función enter');
+        // console.log('Estamos dentro de la función enter');
 
         let validationResult = validateFields(dataLogin);
 
@@ -80,30 +80,35 @@ const Login = (props) => {
 
         try {
 
+            let result = await axios.post(`http://localhost:3001/${role}/login`, dataLogin);
+
+            result.data.userType = dataLogin.userType;
+
+            //Mandamos los datos de Login por Redux a store
+            props.dispatch({ type: LOGIN, payload: result.data });
+
+
              //Redireccionamos según el perfil elegido
     
-
+            return setTimeout(() => {
                 if (dataLogin.userType === 'Patient') {
-                    console.log('estamos en el if patient')
-                    let result = await axios.post(`http://localhost:3001/patients/login`, dataLogin);
-                    console.log(result.data, 'esto es result.data')
-
-                    props.dispatch({ type: LOGIN, payload: result.data })
-                    history.push('/patient');
-                } else {
-                    let result = await axios.post(`http://localhost:3001/employees/login`, dataLogin);
+                    // console.log('estamos en el if patient')
                     
-
-                    props.dispatch({ type: LOGIN, payload: result.data })
+                    history.push('/patient');
+                } else if (dataLogin.userType === 'Employee') {
+                    
                     //console.log('estamos en el if employee')
                     history.push('/employee');
-                } 
-
-           
+                } else {
+                    alert('Eres un intruso!');
+                }
+                //Dos errores son redundantes??
+            }, 200)
+                        
         } catch (error) {
-            // if(error.isAxiosError & error.response.status === 403){
-                alert('El usuario no existe');
-            
+            if(error.isAxiosError & error.response?.status === 403){
+                alert('El usuario no existe');  
+            }
         }
     };
 
@@ -129,12 +134,8 @@ const Login = (props) => {
                     </FormGroup>
                     <FormGroup>
                         <Label for='select'>Rango</Label>
-<<<<<<< HEAD
-                        <Input type='select' name='userType' id='selecrRango' onChange={handleState} valid={validationResult.validated && !validationResult.userType} invalid={validationResult.validated && validationResult.userType}>     
-=======
                         <Input type='select' name='userType' id='selecrRango' onChange={handleState} valid={validationResult.validated && !validationResult.userType} invalid={validationResult.validated && validationResult.userType}>
                             <option></option>
->>>>>>> 263d2159eb06b61d25c28ed7de04cbfb7e7a8106
                             <option>Patient</option>
                             <option>Employee</option>
                         </Input>
@@ -150,10 +151,5 @@ const Login = (props) => {
     );
 };
 
-const mapDipatchToProps = state => {
-    return {
-        user: state.userReducer.user
-    }
-};
 
-export default connect(mapDipatchToProps)(Login);
+export default connect()(Login);

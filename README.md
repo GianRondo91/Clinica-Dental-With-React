@@ -1,71 +1,123 @@
-# Getting Started with Create React App
+<p align="center">
+  <a href="" rel="noopener">
+ <img src="https://i.imgur.com/AZ2iWek.png" alt="Project logo"></a>
+</p>
+<h3 align="center">clinic-dental-react</h3>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<div align="center">
 
-## Available Scripts
+[![Hackathon](https://img.shields.io/badge/hackathon-name-orange.svg)](http://hackathon.url.com)
+[![Status](https://img.shields.io/badge/status-active-success.svg)]()
+[![GitHub Issues](https://img.shields.io/github/issues/kylelobo/The-Documentation-Compendium.svg)](https://github.com/kylelobo/The-Documentation-Compendium/issues)
+[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/kylelobo/The-Documentation-Compendium.svg)](https://github.com/kylelobo/The-Documentation-Compendium/pulls)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
 
-SUPER MEGA PROYECTO DE CLÍNICA DENTAL
-In the project directory, you can run:
+</div>
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<p align="center"> Few lines describing your project.
+    <br> 
+</p>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 📝 Table of Contents
 
-### `npm test`
+- [Problem Statement](#problem_statement)
+- [Idea / Solution](#idea)
+- [Dependencies / Limitations](#limitations)
+- [Future Scope](#future_scope)
+- [Setting up a local environment](#getting_started)
+- [Usage](#usage)
+- [Technology Stack](#tech_stack)
+- [Contributing](../CONTRIBUTING.md)
+- [Authors](#authors)
+- [Acknowledgments](#acknowledgments)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🧐 Problem Statement <a name = "problem_statement"></a>
 
-### `npm run build`
+It is useful to design and follow a specific format when writing a problem statement. While there are several options
+for doing this, the following is a simple and straightforward template often used in Business Analysis to maintain
+focus on defining the problem.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- IDEAL: This section is used to describe the desired or “to be” state of the process or product. At large, this section
+  should illustrate what the expected environment would look like once the solution is implemented.
+- REALITY: This section is used to describe the current or “as is” state of the process or product.
+- CONSEQUENCES: This section is used to describe the impacts on the business if the problem is not fixed or improved upon.
+  This includes costs associated with loss of money, time, productivity, competitive advantage, and so forth.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Following this format will result in a workable document that can be used to understand the problem and elicit
+requirements that will lead to a winning solution.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 💡 Idea / Solution <a name = "idea"></a>
 
-### `npm run eject`
+This section is used to describe potential solutions.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Once the ideal, reality, and consequences sections have been
+completed, and understood, it becomes easier to provide a solution for solving the problem.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## ⛓️ Dependencies / Limitations <a name = "limitations"></a>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- What are the dependencies of your project?
+- Describe each limitation in detailed but concise terms
+- Explain why each limitation exists
+- Provide the reasons why each limitation could not be overcome using the method(s) chosen to acquire.
+- Assess the impact of each limitation in relation to the overall findings and conclusions of your project, and if
+  appropriate, describe how these limitations could point to the need for further research.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 🚀 Future Scope <a name = "future_scope"></a>
 
-## Learn More
+Write about what you could not develop during the course of the Hackathon; and about what your project can achieve
+in the future.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🏁 Getting Started <a name = "getting_started"></a>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+These instructions will get you a copy of the project up and running on your local machine for development
+and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
 
-### Code Splitting
+### Prerequisites
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+What things you need to install the software and how to install them.
 
-### Analyzing the Bundle Size
+```
+Give examples
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Installing
 
-### Making a Progressive Web App
+A step by step series of examples that tell you how to get a development env running.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Say what the step will be
 
-### Advanced Configuration
+```
+Give the example
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+And repeat
 
-### Deployment
+```
+until finished
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 🎈 Usage <a name="usage"></a>
 
-### `npm run build` fails to minify
+Add notes about how to use the system.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## ⛏️ Built With <a name = "tech_stack"></a>
+
+- [MongoDB](https://www.mongodb.com/) - Database
+- [Express](https://expressjs.com/) - Server Framework
+- [VueJs](https://vuejs.org/) - Web Framework
+- [NodeJs](https://nodejs.org/en/) - Server Environment
+
+## ✍️ Authors <a name = "authors"></a>
+
+- [@kylelobo](https://github.com/kylelobo) - Idea & Initial work
+
+See also the list of [contributors](https://github.com/kylelobo/The-Documentation-Compendium/contributors)
+who participated in this project.
+
+## 🎉 Acknowledgments <a name = "acknowledgments"></a>
+
+- Hat tip to anyone whose code was used
+- Inspiration
+- References

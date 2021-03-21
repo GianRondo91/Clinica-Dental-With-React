@@ -103,7 +103,7 @@ let DataEmployee = (props) => {
                         <Input plaintext value='Datos Modificables'></Input>
                     </FormGroup>
                     <FormGroup>
-                        <Label for="exampleEmail">Email : </Label>
+                        <Label for="exampleEmail">Email: </Label>
                         <Input
                             type="email"
                             name="email"
@@ -113,7 +113,7 @@ let DataEmployee = (props) => {
                             <FormFeedback>{validationResult.email}</FormFeedback>
                     </FormGroup>
                     <FormGroup>
-                        <Label for="exampleNumber"> Telefono : </Label>
+                        <Label for="exampleNumber"> Telefono: </Label>
                         <Input
                             type="number"
                             name="number"
@@ -127,7 +127,7 @@ let DataEmployee = (props) => {
                         <Row form>
                             <Col>
                                 <FormGroup>
-                                    <Label for="exampleDatetime">Fecha de Nacimiento : </Label>
+                                    <Label for="exampleDatetime">Fecha de Nacimiento: </Label>
                                     <Input
                                         type="date"
                                         name="date"
@@ -139,7 +139,7 @@ let DataEmployee = (props) => {
                             </Col>
                             <Col>
                                 <FormGroup>
-                                    <Label for="gender">Género : </Label>
+                                    <Label for="gender">Género: </Label>
                                     <Input type="select" name="gender" id="gender" onChange={handleState} valid={validationResult.validated && !validationResult.gender} invalid={validationResult.validated && validationResult.gender}>
                                         <option>{data.gender}</option>
                                         <option>Hombre</option>
@@ -152,7 +152,7 @@ let DataEmployee = (props) => {
                     </FormGroup>
 
                     <FormGroup>
-                        <Label for="exampleAddress">Dirección : </Label>
+                        <Label for="exampleAddress">Dirección: </Label>
                         <Input
                             type="text"
                             name="address"
@@ -164,7 +164,7 @@ let DataEmployee = (props) => {
                     <Row form>
                         <Col md={5}>
                             <FormGroup>
-                                <Label for="city">Ciudad : </Label>
+                                <Label for="city">Ciudad: </Label>
                                 <Input 
                                 type="text" 
                                 name="city" 
@@ -176,7 +176,7 @@ let DataEmployee = (props) => {
                         </Col>
                         <Col md={5}>
                             <FormGroup>
-                                <Label for="provincia">Provincia : </Label>
+                                <Label for="provincia">Provincia: </Label>
                                 <Input 
                                 type="text" 
                                 name="state" 
@@ -188,7 +188,7 @@ let DataEmployee = (props) => {
                         </Col>
                         <Col md={2}>
                             <FormGroup>
-                                <Label for="cp">Codigo Postal : </Label>
+                                <Label for="cp">Codigo Postal:</Label>
                                 <Input 
                                 type="cp" 
                                 name="cp" 

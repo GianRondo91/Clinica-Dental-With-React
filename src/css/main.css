@@ -762,6 +762,71 @@ button.rbc-input::-moz-focus-inner {
       margin-left: auto;
       margin-right: auto; }
 
+.promo {
+  width: 320px;
+  height: 256px;
+  background-position: center;
+  background-size: cover; }
+
+.promo:hover {
+  width: 480px;
+  height: 320px; }
+
+.card {
+  margin: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+.ortodoncia {
+  background-image: url("https://images.pexels.com/photos/5524024/pexels-photo-5524024.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"); }
+
+.protesis {
+  background-image: url("https://images.pexels.com/photos/6502343/pexels-photo-6502343.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"); }
+
+.smile {
+  background-image: url("https://images.pexels.com/photos/3762407/pexels-photo-3762407.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"); }
+
+.kid {
+  background-image: url("https://images.pexels.com/photos/4546136/pexels-photo-4546136.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"); }
+
+.card-img-top {
+  width: 700px;
+  height: 320px;
+  background-image: url("https://images.pexels.com/photos/4202922/pexels-photo-4202922.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  background-position: center;
+  background-size: cover; }
+
+.img-profesional {
+  width: 320px;
+  height: 192px;
+  margin-left: 80px;
+  background-image: url("https://images.pexels.com/photos/1170979/pexels-photo-1170979.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  background-position: center;
+  background-size: cover; }
+
+.img-install {
+  width: 320px;
+  height: 192px;
+  background-image: url("https://images.pexels.com/photos/305568/pexels-photo-305568.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  background-position: center;
+  background-size: cover; }
+
+.img-about {
+  width: 320px;
+  height: 192px;
+  margin-left: 80px;
+  background-image: url("https://images.pexels.com/photos/3845759/pexels-photo-3845759.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  background-position: center;
+  background-size: cover; }
+
 .body-contact {
   width: 100%; }
   .body-contact .form {

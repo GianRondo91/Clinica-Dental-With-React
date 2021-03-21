@@ -13,6 +13,7 @@ import { connect } from 'react-redux';
 const Patient = (props) => {
 
     const history = useHistory();
+
     // Creo el estado patient
     const [patient, setPatient] = useState({name: ''});
 
@@ -54,7 +55,9 @@ const Patient = (props) => {
 
                 <div className="card">
                     <div className="title">
-                        <div className='title-name'><span className='saludo'>Hola,</span> {patient.name} {patient.surname1} {patient.surname2}</div>
+                        <div className='title-name'>
+                            <span className='saludo'>Hola,</span> {patient.name} {patient.surname1} {patient.surname2}
+                            </div>
                     </div>
                     <div className="body-card">
                         <div className="card-img">

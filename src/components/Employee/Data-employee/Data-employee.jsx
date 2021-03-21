@@ -99,8 +99,7 @@ let DataEmployee = (props) => {
 
                 <Form className='form-data'>
                     <FormGroup>
-                        <Label for='employee-name'>{data.name}{data.surname1}{data.surname2}</Label>
-                        <Input plaintext value='Datos Modificables'></Input>
+                        <Label for='employee-name'>{data.name} {data.surname1} {data.surname2}</Label>
                     </FormGroup>
                     <FormGroup>
                         <Label for="exampleEmail">Email: </Label>

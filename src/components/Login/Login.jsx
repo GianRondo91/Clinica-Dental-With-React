@@ -88,15 +88,12 @@ const Login = (props) => {
             props.dispatch({ type: LOGIN, payload: result.data });
 
 
-             //Redireccionamos según el perfil elegido
-    
+            //Redireccionamos según el perfil elegido
             return setTimeout(() => {
                 if (dataLogin.userType === 'Patient') {
                     // console.log('estamos en el if patient')
-                    
                     history.push('/patient');
                 } else if (dataLogin.userType === 'Employee') {
-                    
                     //console.log('estamos en el if employee')
                     history.push('/employee');
                 } else {
@@ -119,7 +116,7 @@ const Login = (props) => {
 
             <Modal isOpen={state.open}>
                 <ModalHeader>
-                    Iniciar Sesion
+                    Iniciar Sesión
                     </ModalHeader>
                 <ModalBody>
                     <FormGroup>

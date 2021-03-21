@@ -1,47 +1,42 @@
 .card-img-top {
-
-    width: $mp-z;
-    height: $mp-w;
-
-    
     background-image: url('https://images.pexels.com/photos/4202922/pexels-photo-4202922.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
-    background-position: center;
-    background-size: cover;
-    
-    
 }
 
 .img-profesional{
-
-    width: $mp-w;
-    height: $mp-s;
-
-    margin-left: $mp-o;
-
     background-image: url('https://images.pexels.com/photos/1170979/pexels-photo-1170979.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
-    background-position: center;
-    background-size: cover;
-    
 }
 
 .img-install{
-    width: $mp-w;
-    height: $mp-s;
-
-
     background-image: url('https://images.pexels.com/photos/305568/pexels-photo-305568.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
-    background-position: center;
-    background-size: cover;
 }
 
 .img-about{
-    width: $mp-w;
-    height: $mp-s;
-
-    margin-left: $mp-o;
-
     background-image: url('https://images.pexels.com/photos/3845759/pexels-photo-3845759.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
-    background-position: center;
-    background-size: cover;
 }
 
+.card-body-principal{
+    border: none;
+    .card-img-top{
+        height: $mp-x;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+}
+
+.card-body-secundary{
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.img-profesional,
+.img-install,
+.img-about {
+    width: $mp-w;
+    height: $mp-s;
+    margin-left: auto;
+    margin-right: auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}

@@ -762,28 +762,31 @@ button.rbc-input::-moz-focus-inner {
       margin-left: auto;
       margin-right: auto; }
 
-.promo {
-  width: 320px;
-  height: 256px;
-  background-position: center;
-  background-size: cover; }
-
-.promo:hover {
-  width: 480px;
-  height: 320px; }
-
-.card {
-  margin: 48px;
+.card-promotion {
+  padding: 48px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; }
-
-.card-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; }
+  align-items: center;
+  border: none !important;
+  width: 700px;
+  height: 640px; }
+  .card-promotion .promo {
+    width: 320px;
+    height: 256px;
+    background-position: center;
+    background-size: cover;
+    border-radius: 8px; }
+    .card-promotion .promo:hover {
+      width: 480px;
+      height: 320px; }
+  .card-promotion .card-body-promotion {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+    .card-promotion .card-body-promotion .card-text {
+      text-align: center; }
 
 .ortodoncia {
   background-image: url("https://images.pexels.com/photos/5524024/pexels-photo-5524024.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"); }
@@ -798,34 +801,39 @@ button.rbc-input::-moz-focus-inner {
   background-image: url("https://images.pexels.com/photos/4546136/pexels-photo-4546136.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"); }
 
 .card-img-top {
-  width: 700px;
-  height: 320px;
-  background-image: url("https://images.pexels.com/photos/4202922/pexels-photo-4202922.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-  background-position: center;
-  background-size: cover; }
+  background-image: url("https://images.pexels.com/photos/4202922/pexels-photo-4202922.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"); }
 
 .img-profesional {
-  width: 320px;
-  height: 192px;
-  margin-left: 80px;
-  background-image: url("https://images.pexels.com/photos/1170979/pexels-photo-1170979.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-  background-position: center;
-  background-size: cover; }
+  background-image: url("https://images.pexels.com/photos/1170979/pexels-photo-1170979.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"); }
 
 .img-install {
-  width: 320px;
-  height: 192px;
-  background-image: url("https://images.pexels.com/photos/305568/pexels-photo-305568.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-  background-position: center;
-  background-size: cover; }
+  background-image: url("https://images.pexels.com/photos/305568/pexels-photo-305568.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"); }
 
+.img-about {
+  background-image: url("https://images.pexels.com/photos/3845759/pexels-photo-3845759.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"); }
+
+.card-body-principal {
+  border: none; }
+  .card-body-principal .card-img-top {
+    height: 480px;
+    background-repeat: no-repeat;
+    background-position: center; }
+
+.card-body-secundary {
+  width: 1200px;
+  margin-left: auto;
+  margin-right: auto; }
+
+.img-profesional,
+.img-install,
 .img-about {
   width: 320px;
   height: 192px;
-  margin-left: 80px;
-  background-image: url("https://images.pexels.com/photos/3845759/pexels-photo-3845759.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-  background-position: center;
-  background-size: cover; }
+  margin-left: auto;
+  margin-right: auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
 
 .body-contact {
   width: 100%; }

@@ -1,53 +1,47 @@
-
-.promo {
-
-    width: $mp-w;
-    height: $mp-v; 
-
-    background-position: center;
-    background-size: cover;
-
-}
-
-.promo:hover{
-    width: $mp-x;
-    height: $mp-w; 
-}
-
-.card{
-    margin: $mp-m;
-
+.card-promotion{
+    padding: $mp-m;
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border: none !important;
+    width: $mp-z;
+    height: $mp-y;
+    .promo {
+        width: $mp-w;
+        height: $mp-v; 
+        background-position: center;
+        background-size: cover;
+        border-radius: $mp-e;
+        &:hover{
+            width: $mp-x;
+            height: $mp-w; 
+        }
+    }
+    .card-body-promotion{
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .card-text{
+            text-align: center
+        }
+    }
 }
 
-.card-body{
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center
-}
 
 .ortodoncia {
-
     background-image: url('https://images.pexels.com/photos/5524024/pexels-photo-5524024.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
-    
 }
 
 .protesis{
     background-image: url('https://images.pexels.com/photos/6502343/pexels-photo-6502343.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
-   
 }
 
 .smile {
-    
     background-image: url('https://images.pexels.com/photos/3762407/pexels-photo-3762407.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
-    
 }
 
 .kid{
     background-image: url('https://images.pexels.com/photos/4546136/pexels-photo-4546136.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
-
 }

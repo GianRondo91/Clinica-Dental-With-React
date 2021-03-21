@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import moment from 'moment';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, Label, FormFeedback } from 'reactstrap';
@@ -99,7 +100,7 @@ const Register = (props) => {
         };
 
         let role = dataRegister.userType === 'Patient' ? 'patients' : 'employees';
-
+        dataRegister.age = Math.floor(moment().diff(moment(dataRegister.birth),'years'));
         let result = await axios.post(`http://localhost:3001/${role}`, dataRegister);
         // console.log('Resultado', result.data);
 

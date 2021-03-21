@@ -188,7 +188,7 @@ let DataPatient = (props) => {
                         </Col>
                         <Col md={2}>
                             <FormGroup>
-                                <Label for="cp">Codigo Postal : </Label>
+                                <Label for="cp">Codigo Postal:</Label>
                                 <Input
                                     type="cp"
                                     name="cp"
